@@ -1,0 +1,27 @@
+.col1 {
+  background-color: rgb(255, 81, 0);
+  margin-top: 1%;
+  height: 100px;
+  text-align: center;
+}
+
+.col2 {
+  background-color: rgb(145, 255, 0);
+  margin-top: 1%;
+  height: 100px;
+  text-align: center;
+}
+
+.col3 {
+  background-color: rgb(255, 230, 0);
+  margin-top: 1%;
+  height: 100px;
+  text-align: center;
+}
+
+.col4 {
+  background-color: rgb(0, 132, 255);
+  margin-top: 1%;
+  height: 100px;
+  text-align: center;
+}

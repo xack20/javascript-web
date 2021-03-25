@@ -1,0 +1,16 @@
+.breadcrumb {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  background-color: white;
+  padding: 15px;
+
+  padding-bottom: 25px;
+  border-bottom-style: solid;
+  border-color: #88888821;
+  border-width: 0.5px;
+}
+.breadcrumb-hide {
+  height: 0;
+  width: 0;
+  padding: 0;
+}

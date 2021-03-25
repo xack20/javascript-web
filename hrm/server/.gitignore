@@ -1,0 +1,7 @@
+/node_modules
+/build
+/config/config.env
+
+package-lock.json
+logfile.log
+uncaughtExceptions.log

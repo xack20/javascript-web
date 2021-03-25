@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Admin Account",
+    "email": "admin@gmail.com",
+    "phone": "01837694322",
+    "role": "user",
+    "password": "1234567"
+  },
+  {
+    "name": "User Account",
+    "email": "user@gmail.com",
+    "phone": "01837694322",
+    "role": "user",
+    "password": "1234567"
+  },
+  {
+    "name": "Moderator Account",
+    "email": "moderator@gmail.com",
+    "phone": "01837694322",
+    "role": "moderator",
+    "password": "1234567"
+  },
+  {
+    "name": "Biprodas Roy",
+    "email": "bipro10cse@gmail.com",
+    "phone": "01837694322",
+    "role": "user",
+    "password": "7777777"
+  }
+]
