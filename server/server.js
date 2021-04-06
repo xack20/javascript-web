@@ -12,7 +12,7 @@ const cors = require('cors');
 require('colors');
 
 // Load env vars
-dotenv.config({ path: './config/config.env' });
+// dotenv.config({ path: './config/config.env' });
 dotenv.config();
 
 const errorHandler = require('./middleware/error');
