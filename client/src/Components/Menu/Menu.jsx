@@ -1,39 +1,39 @@
-import React from 'react';
-import { Menu } from 'antd';
-import slugify from 'react-slugify';
+import React from 'react'
+import { Menu } from 'antd'
+import slugify from 'react-slugify'
 
-import data from '../../Data/Menu.js';
-import './Menu.css';
+import data from '../../Data/Menu.js'
+import './Menu.css'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 
-import { changeActiveTab, addPane, changeMV } from '../../Redux/CommonSlice';
+import { changeActiveTab, addPane, changeMV } from '../../Redux/CommonSlice'
 
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
-const { SubMenu } = Menu;
+const { SubMenu } = Menu
 
-export default function MenuList() {
-  const dispatch = useDispatch();
-  const collapsed = useSelector((s) => s.common.collapsedDV);
-  const collapsedMV = useSelector((s) => s.common.collapsedMV);
+export default function MenuList () {
+  const dispatch = useDispatch()
+  const collapsed = useSelector(s => s.common.collapsedDV)
+  const collapsedMV = useSelector(s => s.common.collapsedMV)
 
-  const clickHandle = (e) => {
-    const path = e.key.split(',');
-    dispatch(changeActiveTab(path[path.length - 1]));
+  const clickHandle = e => {
+    const path = e.key.split(',')
+    dispatch(changeActiveTab(path[path.length - 1]))
     dispatch(
       addPane({
         title: path[path.length - 1],
         key: path[path.length - 1],
-        path: path,
+        path: path
       })
-    );
-    if (collapsedMV) dispatch(changeMV());
-  };
+    )
+    if (collapsedMV) dispatch(changeMV())
+  }
 
   return (
     <Menu
-      mode="inline"
+      mode='inline'
       onClick={clickHandle}
       defaultOpenKeys={['Dashboard']}
       defaultSelectedKeys={['Main,Dashboard,Admin Dashboard']}
@@ -42,32 +42,32 @@ export default function MenuList() {
         return (
           <React.Fragment key={idx}>
             {
-              <div className="sidebar-options">
+              <div className='sidebar-options'>
                 {collapsed ? ' ' : item.title}
               </div>
             }
 
-            {item.child.map((i) => {
+            {item.child.map(i => {
               return i.child.length ? (
                 <SubMenu title={i.title} icon={i.icon} key={i.title}>
-                  {i.child.map((j) => {
+                  {i.child.map(j => {
                     return (
                       <Menu.Item key={[item.title, i.title, j]}>
                         <NavLink to={`/${slugify(j)}`}>{j}</NavLink>
                       </Menu.Item>
-                    );
+                    )
                   })}
                 </SubMenu>
               ) : (
                 <Menu.Item icon={i.icon} key={[item.title, i.title]}>
                   <NavLink to={`/${slugify(i.title)}`}>{i.title}</NavLink>
                 </Menu.Item>
-              );
+              )
             })}
           </React.Fragment>
-        );
+        )
       })}
       <div style={{ height: 70 }}></div>
     </Menu>
-  );
+  )
 }

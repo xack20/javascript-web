@@ -183,12 +183,12 @@ export default function Attendance() {
       <Table
         columns={columns}
         dataSource={data}
-        pagination={{
-          position: ['bottomCenter'],
-          showSizeChanger: true,
-          defaultPageSize: 10,
-          pageSizeOptions: ['10', '15', '20'],
-        }}
+          pagination={{
+            position: ['bottomCenter'],
+            showSizeChanger: true,
+            defaultPageSize: 10,
+            pageSizeOptions: ['10', '15', '20'],
+          }}
         bordered
         scroll={{ x: true }}
         size="middle"

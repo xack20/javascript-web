@@ -25,12 +25,17 @@ export const commonSlice = createSlice({
     changeDV: (state) => {
       state.collapsedDV = !state.collapsedDV;
     },
+    
+    
     changeMV: (state) => {
       state.collapsedMV = !state.collapsedMV;
     },
+    
+    
     changeActiveTab: (state, action) => {
       state.activeTab = action.payload;
     },
+
     addPane: (state, action) => {
       var ef = false;
       state.panes.forEach((element) => {
@@ -45,6 +50,8 @@ export const commonSlice = createSlice({
       state.panes.push(action.payload);
       state.pane_size = state.panes.length;
     },
+    
+    
     removePane: (state, action) => {
       let lastIndex;
       state.panes.forEach((pane, i) => {
