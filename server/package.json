@@ -1,5 +1,5 @@
 {
-  "name": "ceip_serve",
+  "name": "hrm",
   "version": "1.0.0",
   "description": "Backend APIs development with Node.js",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://biprodas@bitbucket.org/semicolondevs/ceip_01.git"
+    "url": ""
   },
   "keywords": [
     "Node.js",
