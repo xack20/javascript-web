@@ -6,7 +6,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await demo();
+        const  data  = await demo();
         setdata(data);
       } catch (error) {
         console.log(error);

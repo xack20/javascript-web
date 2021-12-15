@@ -25,7 +25,7 @@ const AttendanceEmp = React.lazy(() =>
 
 
 export default function PassThrough(props) {
-  let comp = <h1></h1>;
+  let comp;
   if (props.page === 'All Employees')
     comp = (
       <React.Suspense fallback={<LoadSpin />}>
