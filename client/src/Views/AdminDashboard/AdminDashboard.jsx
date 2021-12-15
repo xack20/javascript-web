@@ -1,19 +1,26 @@
 import React from "react";
-import {useEffect,useState} from 'react';
-import { demo } from '../../Services/AdminDashboard';
+import { useEffect, useState } from "react";
+import { demo } from "../../Services/AdminDashboard";
 
 export default function AdminDashboard() {
-  const [data, setdata] = useState("");
-  useEffect(() => {
-    (async () => {
+  const [RES, setdata] = useState({
+    data: "No Data",
+    status: null,
+  });
+  useEffect( () => {
+    let dbcall = async() => {
       try {
-        const {data} = await demo();
-        console.log(data.message);
-        setdata(data.message);
+        const { data, status } = await demo();
+        setdata({ data: data, status: status });
       } catch (error) {
-        console.log(error);
+        setdata({ data: error.message, status: error.status });
       }
-    })();
+    };
+    dbcall();
+
+    return () =>{
+      setdata({ data: "No Data", status: null });
+    }
   }, []);
-  return <div>{data}</div>;
+  return <div>{RES.data.message}</div>;
 }
