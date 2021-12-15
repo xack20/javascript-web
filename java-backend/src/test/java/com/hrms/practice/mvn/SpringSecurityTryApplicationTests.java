@@ -1,4 +1,4 @@
-package com.farhan.practice.mvn;
+package com.hrms.practice.mvn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

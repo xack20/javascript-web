@@ -1,4 +1,4 @@
-package com.farhan.practice.mvn.model;
+package com.hrms.practice.mvn.model;
 
 import java.util.List;
 

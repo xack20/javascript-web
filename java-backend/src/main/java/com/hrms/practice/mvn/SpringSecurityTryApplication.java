@@ -1,4 +1,4 @@
-package com.farhan.practice.mvn;
+package com.hrms.practice.mvn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
