@@ -25,11 +25,11 @@ function Tab(props) {
         path: props.BC,
       })
     );
-  }, [dispatch]);
+  }, [dispatch,props.BC,props.Key]);
 
   useEffect(() => {
     history.push(`/${slugify(activeTab)}`);
-  }, [activeTab]);
+  }, [activeTab,history]);
 
   const onHit = (activeKey) => {
     dispatch(changeActiveTab(activeKey));
