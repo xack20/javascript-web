@@ -15,7 +15,7 @@ function BreadCrumb() {
             return (
               <Breadcrumb.Item
                 key={p}
-                style={id + 1 === item.path.length ? { fontSize: '17px' } : {}}
+                style={id + 1 === item.path.length ? { fontSize: '13px' } : {}}
               >
                 {p}
               </Breadcrumb.Item>
