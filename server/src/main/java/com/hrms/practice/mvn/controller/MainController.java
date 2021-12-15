@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/employee")
-public class EmployeeController {
+@RequestMapping("/api/v1")
+public class MainController {
 	
 	@GetMapping("/")
 	public ResponseEntity<?> welcome() {
-		return ResponseEntity.ok().body(new Response(true, "Welcome to employee controller", null));
+		return ResponseEntity.ok().body(new Response(true, "Welcome to homepage", null));
 	}
 
 }
