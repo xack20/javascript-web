@@ -1,4 +1,4 @@
-package com.backend.hrms.model;
+package com.farhan.practice.mvn.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,14 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import org.springframework.stereotype.Component;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 @Entity
 @Table(name = "roles")
 @Component
@@ -28,9 +23,20 @@ public class Role {
     @Column(name = "role", unique = true)
     private String role;
 
-	public String getRole() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getId() {
+		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+      
 }

@@ -1,13 +1,13 @@
-package com.backend.hrms;
+package com.farhan.practice.mvn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaBackendApplication {
+public class SpringSecurityTryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaBackendApplication.class, args);
+		SpringApplication.run(SpringSecurityTryApplication.class, args);
 	}
 
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const demo = () => {
-  return axios.get('/api/v1/');
+  return axios.get('/no-auth');
 };

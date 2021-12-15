@@ -13,5 +13,5 @@ export default function AdminDashboard() {
       }
     })();
   }, []);
-  return <div>{data.msg}</div>;
+  return <div>{data}</div>;
 }
