@@ -6,20 +6,38 @@ public class JwtResponse {
 
 	private String type;
 	private String token;
-	private Long employeeid;
+	private String refreshToken;
+	private Long userid;
 	private String fullname;
 	private String username;
 	private List<String> roles;
 
-	public JwtResponse(String type, String token, Long employeeid, String fullname, String username, List<String> roles) {
+	public JwtResponse(String type, String token, String refreshToken,Long userid, String fullname, String username, List<String> roles) {
 		super();
 		this.type = type;
 		this.token = token;
-		this.employeeid = employeeid;
+		this.refreshToken = refreshToken;
+		this.userid = userid;
 		this.fullname = fullname;
 		this.username = username;
 		this.roles = roles;
 	}
+
+	public Object getUserid() {
+		return this.userid;
+	}
+
+	public void setUserid(long userid) {
+		this.userid = userid;
+	};
+
+	public Object getRefreshToken() {
+		return this.refreshToken;
+	}
+
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	};
 
 	public String getToken() {
 		return token;
@@ -37,14 +55,7 @@ public class JwtResponse {
 		this.type = type;
 	}
 
-	public Long getEmployeeid() {
-		return employeeid;
-	}
-
-	public void setEmployeeid(Long employeeid) {
-		this.employeeid = employeeid;
-	}
-
+	
 	public String getFullname() {
 		return fullname;
 	}

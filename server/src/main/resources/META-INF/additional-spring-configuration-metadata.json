@@ -6,7 +6,12 @@
   },
   {
     "name": "jwt.jwtExp",
-    "type": "java.lang.String",
+    "type": "java.lang.Integer",
     "description": "A description for 'jwt.jwtExp'"
+  },
+  {
+    "name": "jwt.refreshExp",
+    "type": "java.lang.Integer",
+    "description": "A description for 'jwt.refreshExp'"
   }
 ]}

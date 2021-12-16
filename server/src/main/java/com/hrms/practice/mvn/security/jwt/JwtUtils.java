@@ -31,12 +31,12 @@ public class JwtUtils {
 	@Value("${jwt.jwtExp}")
 	private int JWT_EXP;
 
-	public String generateToken(MyEmployeeDetails myUserDetails) {
-		List<String> roles = myUserDetails.getAuthorities().stream().map(item -> item.getAuthority()).collect(Collectors.toList());
+	public String generateToken(MyEmployeeDetails myEmployeeDetails) {
+		List<String> roles = myEmployeeDetails.getAuthorities().stream().map(item -> item.getAuthority()).collect(Collectors.toList());
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("ROLES", roles);
 
-		return createToken(claims, myUserDetails.getUsername());
+		return createToken(claims, myEmployeeDetails.getUsername());
 	}
 
 	public String createToken(Map<String, Object> claims, String subject) {
@@ -62,7 +62,7 @@ public class JwtUtils {
 		return false;
 	}
 
-	public String extractUsername(String token) {
+	public String extractEmployeename(String token) {
 		return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
 	}
 	

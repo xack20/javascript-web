@@ -63,8 +63,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.cors().and()
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
-			.antMatchers("/auth/authenticate/**","/").permitAll()
-			.antMatchers("/auth/registerEmployee/**","/admin/**").hasAuthority("admin")
+			.antMatchers("/auth/**","/").permitAll()
+			.antMatchers("/admin/**").hasAuthority("admin")
 			.antMatchers("/employee/**").hasAnyAuthority("employee","admin")
 			.anyRequest().authenticated()
 			.and().sessionManagement()

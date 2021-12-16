@@ -34,7 +34,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			String jwt = parseJwt(request);
 			
 			if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-				final String username = jwtUtils.extractUsername(jwt);
+				final String username = jwtUtils.extractEmployeename(jwt);
 				final List<String> roles = jwtUtils.extractRoles(jwt);
 				final UserDetails userDetails = new User(username, "", roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
 				

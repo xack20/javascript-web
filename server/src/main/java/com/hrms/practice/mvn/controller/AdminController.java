@@ -36,4 +36,16 @@ public class AdminController {
 		return ResponseEntity.ok().body(regEmployee);
 	}
 
+	@PostMapping("/registerEmployee")
+	public ResponseEntity<?> registerEmployee(@RequestBody Employee employee) {
+		Employee regEmployee = employeeService.getEmployeeByUsername(employee.getUsername());
+		
+		if(regEmployee != null)
+			return ResponseEntity.badRequest().body(new Response(false, "Employee already exists!", null));
+		
+		regEmployee = employeeService.saveEmployee(employee);
+		
+		return ResponseEntity.ok().body(regEmployee);
+	}
+
 }
