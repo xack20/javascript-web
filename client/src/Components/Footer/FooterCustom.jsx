@@ -18,7 +18,7 @@ export default function FooterCustom() {
         bottom: 0,
       }}
     >
-      COPYRIGHT ©2021 All Right Reserved Semicolon IT Solution
+      COPYRIGHT ©2021 All Right Reserved | Designed by {'Mohammad Farhan Sadik'} 
     </Footer>
   );
 }
