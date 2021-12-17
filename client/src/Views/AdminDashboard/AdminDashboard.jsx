@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { demo } from "../../Services/AdminDashboard";
-
+import Composed from "../../Components/Charts/Composed";
 
 export default function AdminDashboard() {
   const [RES, setdata] = useState({
@@ -30,6 +30,7 @@ export default function AdminDashboard() {
   return (
     <div>
       {RES.data.message}
+      <Composed></Composed>
     </div>
     );
 }
