@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hrms.practice.mvn.model.Employee;
@@ -44,7 +45,7 @@ public class AuthController {
 	public ResponseEntity<?> login(@RequestBody Employee employee, HttpServletResponse response) throws Exception {
 		Authentication auth = null;
 
-		// Cookie cookie = new Cookie("token", "token");
+		Cookie cookie = new Cookie("token", "token");
 		
 		try {
 			auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(employee.getUsername(), employee.getPassword()));
