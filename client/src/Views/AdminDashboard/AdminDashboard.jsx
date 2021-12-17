@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { demo } from "../../Services/AdminDashboard";
+import Widgets from "../../Components/widgets/Widgets";
+
 
 export default function AdminDashboard() {
   const [RES, setdata] = useState({
@@ -20,6 +22,8 @@ export default function AdminDashboard() {
 
     return () =>{
       setdata({ data: "No Data", status: null });
+      <Widgets></Widgets>
+      
     }
   }, []);
   return <div>{RES.data.message}</div>;
