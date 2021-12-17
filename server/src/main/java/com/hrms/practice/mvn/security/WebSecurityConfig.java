@@ -53,6 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
+
+
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -60,9 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.cors().and()
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
-			.antMatchers("/auth/**","/").permitAll()
-			.antMatchers("/admin/**").hasAuthority("admin")
-			.antMatchers("/employee/**").hasAnyAuthority("employee","admin")
+			.antMatchers("/auth/login","/").permitAll()
+			.antMatchers("/admin").hasAuthority("admin")
+			.antMatchers("/employee").hasAnyAuthority("employee","admin")
 			.anyRequest().authenticated()
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

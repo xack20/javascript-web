@@ -21,8 +21,6 @@ public class AdminController {
 
 	@GetMapping("/")
 	public ResponseEntity<?>  welcome() {
-		//check header
-		
 		return ResponseEntity.ok().body(new Response(true, "Welcome to admin controller", null));
 	}
 	
