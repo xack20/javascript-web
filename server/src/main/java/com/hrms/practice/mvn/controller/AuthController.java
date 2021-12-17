@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hrms.practice.mvn.model.Employee;
@@ -79,7 +78,7 @@ public class AuthController {
 			return ResponseEntity.ok(new RefreshTokenResponse("Bearer", jwt, refreshToken.get("token")));
 		}
 		
-		return ResponseEntity.badRequest().body("Refresh token expired!");
+		return ResponseEntity.badRequest().body("Refresh token has expired/Not found!");
 	}
 
 	

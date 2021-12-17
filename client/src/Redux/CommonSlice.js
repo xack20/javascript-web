@@ -16,6 +16,17 @@ export const commonSlice = createSlice({
       //   path: ['Main', 'Dashboard', 'Admin Dashboard'],
       // },
     ],
+    user:{
+      message: "",
+      loading: false,
+      authenticate: false,
+      authenticating: false,
+      access_token: null,
+      refresh_token:null,
+      errors: "",
+      user: null,
+      status:false
+    }
   },
   reducers: {
     changeWidth: (state, action) => {
