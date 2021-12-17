@@ -1,7 +1,10 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { demo } from "../../Services/AdminDashboard";
 import Composed from "../../Components/Charts/Composed";
+import  PiChart  from "../../Components/Charts/PiChart/PiChart";
+
 
 export default function AdminDashboard() {
   const [RES, setdata] = useState({
@@ -30,7 +33,11 @@ export default function AdminDashboard() {
   return (
     <div>
       {RES.data.message}
+      <div class="d-flex justify-content-evenly">
       <Composed></Composed>
+      <PiChart></PiChart>
+      </div>
+            
     </div>
     );
 }

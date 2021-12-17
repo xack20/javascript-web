@@ -61,10 +61,10 @@ export default function Composed() {
           height={400}
           data={data}
           margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20
+            top: 10,
+            right: 10,
+            bottom: 10,
+            
           }}
         >
           <CartesianGrid stroke="#f5f5f5" />
