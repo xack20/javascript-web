@@ -44,7 +44,7 @@ public class AuthController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody Employee employee, HttpServletResponse response) throws Exception {
-		Authentication auth = null;		
+		Authentication auth = null;
 		
 		try {
 			auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(employee.getUsername(), employee.getPassword()));
@@ -59,10 +59,9 @@ public class AuthController {
 
 		response.addCookie(new Cookie("_tkn_", jwt));
 		response.addCookie(new Cookie("_rftkn_", refreshToken.getRefreshToken()));
-		response.setStatus(302);
 		
 		// return ResponseEntity.ok(new Response(true,"Authenticated!",new JwtResponse(myEmployeeDetails.getId(), myEmployeeDetails.getFullname(),myEmployeeDetails.getUsername() , roles)));
-		return ResponseEntity.ok().body(response);
+		return (ResponseEntity<?>) ResponseEntity.status(HttpStatus.ACCEPTED);
 	}
 
 	@PostMapping("/logout")
