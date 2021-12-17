@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.hrms.practice.mvn.service.MyEmployeeDetails;
+import com.hrms.practice.mvn.model.MyEmployeeDetails;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

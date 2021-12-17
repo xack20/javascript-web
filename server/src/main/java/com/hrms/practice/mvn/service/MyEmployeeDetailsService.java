@@ -1,6 +1,7 @@
 package com.hrms.practice.mvn.service;
 
 import com.hrms.practice.mvn.model.Employee;
+import com.hrms.practice.mvn.model.MyEmployeeDetails;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

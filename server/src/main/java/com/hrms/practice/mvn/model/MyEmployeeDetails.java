@@ -1,4 +1,4 @@
-package com.hrms.practice.mvn.service;
+package com.hrms.practice.mvn.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hrms.practice.mvn.model.Employee;
-import com.hrms.practice.mvn.model.Role;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

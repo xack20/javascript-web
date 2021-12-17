@@ -1,4 +1,4 @@
-package com.hrms.practice.mvn.security.jwt;
+package com.hrms.practice.mvn.service;
 
 import java.time.Instant;
 import java.util.UUID;

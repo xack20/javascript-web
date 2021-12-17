@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { demo } from "../../Services/AdminDashboard";
-import Widgets from "../../Components/Widgets/Widgets";
 
 
 export default function AdminDashboard() {
@@ -31,7 +30,6 @@ export default function AdminDashboard() {
   return (
     <div>
       {RES.data.message}
-      <Widgets />
     </div>
     );
 }

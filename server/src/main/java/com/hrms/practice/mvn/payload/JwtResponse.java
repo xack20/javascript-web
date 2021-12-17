@@ -23,7 +23,11 @@ public class JwtResponse {
 		this.roles = roles;
 	}
 
-	public Object getUserid() {
+	public JwtResponse(Long id, String fullname, String username, List<String> roles) {
+		super();
+    }
+
+    public Object getUserid() {
 		return this.userid;
 	}
 
