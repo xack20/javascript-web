@@ -74,7 +74,7 @@ export default function Composed() {
           <Legend />
           <Area type="monotone" dataKey="amt" fill="#283747" stroke="#283747" />
           <Bar dataKey="pv" barSize={20} fill="#ff7300" stroke="#283747" />
-          <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+          <Line type="monotone" dataKey="uv" stroke="#00C49F" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
