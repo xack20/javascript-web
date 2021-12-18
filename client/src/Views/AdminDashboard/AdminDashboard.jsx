@@ -33,11 +33,19 @@ export default function AdminDashboard() {
   return (
     <div>
       {RES.data.message}
-      <div class="d-flex justify-content-evenly">
-      <Composed></Composed>
-      <PiChart></PiChart>
-      </div>
+
+      <div class="row">
+
+        <div class="col-md-6 col-sm-6">
+          <Composed></Composed>
+        </div>
+      
+        <div class="col-md-6 col-sm-6">
+          <PiChart></PiChart>
+        </div>
             
+      </div>
+
     </div>
     );
 }
