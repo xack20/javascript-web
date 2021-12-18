@@ -6,13 +6,15 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import SignIn from "./Views/Login/SignIn";
 import MyLayout from "./Components/Layout/MyLayout";
 
+
 require('dotenv').config()
 
 function App() {
 
   const dispatch = useDispatch();
+
   useEffect(() => {
-    console.log("Loding done");
+    // console.log("Loding done");
     window.addEventListener("resize", () => {
       dispatch(changeWidth(window.innerWidth));
     });

@@ -2,28 +2,33 @@
 import React, { useEffect, useState } from "react";
 import Composed from "../../Components/Charts/Composed";
 import PiChart from "../../Components/Charts/PiChart/PiChart";
-import { demo } from "../../Services/AdminDashboard";
+import { dashboard } from "../../Services/AdminDashboard";
 
 
 
 
 export default function AdminDashboard() {
+  
   const [RES, setdata] = useState({
     data: "No Data",
     status: null,
   });
 
+
+
   
   useEffect( () => {
-    let dbcall = async() => {
+
+    const getDashboard = async () => {
       try {
-        const { data, status } = await demo();
+        const { data, status } = await dashboard();
         setdata({ data: data, status: status });
       } catch (error) {
         setdata({ data: error.message, status: error.status });
       }
     };
-    dbcall();
+    getDashboard();
+
 
     return () =>{
       setdata({ data: "No Data", status: null });

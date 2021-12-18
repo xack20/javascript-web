@@ -5,7 +5,7 @@ export const commonSlice = createSlice({
   name: 'common',
 
 
-  
+
   initialState: {
     collapsedDV: false,
     collapsedMV: false,
@@ -21,15 +21,7 @@ export const commonSlice = createSlice({
       // },
     ],
     user:{
-      message: "",
-      loading: false,
-      authenticate: false,
-      authenticating: false,
-      access_token: null,
-      refresh_token:null,
-      errors: "",
-      user: null,
-      status:false
+      
     }
   },
 
@@ -92,7 +84,7 @@ export const commonSlice = createSlice({
 
 
     changeUser: (state, action) => {
-      state.user = action.payload;
+      state.user = {...action.payload};
     },
 
   },

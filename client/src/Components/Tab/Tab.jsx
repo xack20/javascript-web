@@ -25,7 +25,7 @@ function Tab(props) {
         path: props.BC,
       })
     );
-  }, [dispatch,props.BC,props.Key]);
+  }, [dispatch]);
 
   useEffect(() => {
     history.push(`/${slugify(activeTab)}`);

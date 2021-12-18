@@ -12,12 +12,17 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
+import {login} from "../../Services/Auth";
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+
+
+
+
 function Copyright(props) {
-
-
   
 
   return (
@@ -32,15 +37,36 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
+
+
+export default function SignIn () {
+
+  const histroy = useHistory();
+  
+  useEffect(() => {
+    if(window.localStorage.getItem("_tkn_")){
+      histroy.push("/");
+    }
+  }, [histroy]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
+
+    const res = await login({
+      username: data.get('username'),
       password: data.get('password'),
     });
+
+
+
+    window.localStorage.clear();
+    window.localStorage.setItem('_tkn_', res.data.token);
+    window.localStorage.setItem('_rftkn_', res.data.refreshToken);
+    
+    histroy.push('/');
+
   };
 
   return (
@@ -66,10 +92,10 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="username"
+              label="username "
+              name="username"
+              autoComplete="username"
               autoFocus
             />
             <TextField

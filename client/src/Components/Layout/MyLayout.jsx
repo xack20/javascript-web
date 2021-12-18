@@ -7,6 +7,8 @@ import HeaderMain from "../../Containers/Header/HeaderMain.jsx";
 import SiderDrawer from "../../Containers/SiderDrawer/SiderDrawer.jsx";
 import MainContent from "../../Containers/MainContent/MainContent.jsx";
 
+import { Redirect } from 'react-router-dom';
+
 // import LoadSpin from '../../Components/Spinner/LoadSpin.jsx';
 
 // const HeaderMain = React.lazy(() =>
@@ -20,15 +22,14 @@ import MainContent from "../../Containers/MainContent/MainContent.jsx";
 // );
 
 function MyLayout() {
-  return (
-      <Layout
-        style={{ backgroundColor: "#fafafa", height: "100vh" }}
-        width={100}
-      >
-        <HeaderMain />
-        <SiderDrawer />
-        <MainContent />
-      </Layout>
+  return window.localStorage.getItem("_tkn_") ? (
+    <Layout style={{ backgroundColor: "#fafafa", height: "100vh" }} width={100}>
+      <HeaderMain />
+      <SiderDrawer />
+      <MainContent />
+    </Layout>
+  ) : (
+    <Redirect to="/login" />
   );
 }
 
