@@ -54,9 +54,9 @@ public class JwtUtils {
 			Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token);
 			return true;
 		} catch (SignatureException | MalformedJwtException | UnsupportedJwtException | IllegalArgumentException ex) {
-			logger.error("Invalid token");
+			logger.error("Invalid token ->"+ex.getMessage());
 		} catch (ExpiredJwtException ex) {
-			logger.error("Expired token");
+			logger.error("Expired token ->"+ex.getMessage());
 		}
 
 		return false;

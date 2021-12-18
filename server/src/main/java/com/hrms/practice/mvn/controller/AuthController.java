@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hrms.practice.mvn.model.Employee;
@@ -18,7 +17,6 @@ import com.hrms.practice.mvn.security.jwt.JwtUtils;
 import com.hrms.practice.mvn.service.RefreshTokenService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -44,7 +42,7 @@ public class AuthController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody Employee employee, HttpServletResponse response) throws Exception {
-		Authentication auth = null;		
+		Authentication auth = null;
 		
 		try {
 			auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(employee.getUsername(), employee.getPassword()));
@@ -57,12 +55,7 @@ public class AuthController {
 		RefreshToken refreshToken = refreshTokenService.createRefreshToken(myEmployeeDetails.getId());
 		List<String> roles = myEmployeeDetails.getAuthorities().stream().map(item -> item.getAuthority()).collect(Collectors.toList());
 
-		response.addCookie(new Cookie("_tkn_", jwt));
-		response.addCookie(new Cookie("_rftkn_", refreshToken.getRefreshToken()));
-		response.setStatus(302);
-		
-		// return ResponseEntity.ok(new Response(true,"Authenticated!",new JwtResponse(myEmployeeDetails.getId(), myEmployeeDetails.getFullname(),myEmployeeDetails.getUsername() , roles)));
-		return ResponseEntity.ok().body(response);
+		return ResponseEntity.ok(new JwtResponse("Bearer", jwt, refreshToken.getRefreshToken(), myEmployeeDetails.getId(), myEmployeeDetails.getFullname(), myEmployeeDetails.getUsername() , roles));
 	}
 
 	@PostMapping("/logout")
