@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const commonSlice = createSlice({
+
   name: 'common',
+
+
+  
   initialState: {
     collapsedDV: false,
     collapsedMV: false,
@@ -28,6 +32,9 @@ export const commonSlice = createSlice({
       status:false
     }
   },
+
+
+
   reducers: {
     changeWidth: (state, action) => {
       state.windowWidth = action.payload;
@@ -82,8 +89,19 @@ export const commonSlice = createSlice({
       if (!panes.length) state.activeTab = 'empty';
       state.pane_size = panes.length;
     },
+
+
+    changeUser: (state, action) => {
+      state.user = action.payload;
+    },
+
   },
+
+
 });
+
+
+
 export const {
   changeDV,
   changeMV,
@@ -91,6 +109,7 @@ export const {
   addPane,
   removePane,
   changeWidth,
+  changeUser,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;
