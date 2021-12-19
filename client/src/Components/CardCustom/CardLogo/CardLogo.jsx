@@ -10,7 +10,7 @@ const CardLogo = () => {
         <div style={{ margin: '20px' }}>
             <Row gutter={16}>
                 <Col span={6}>
-                    <Card style={{ height:'140px'}}>
+                    <Card style={{ height:'140px',borderColor: "#7cb305"}}>
                         <ApartmentOutlined style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
                             <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
@@ -19,7 +19,7 @@ const CardLogo = () => {
                     </Card>
                 </Col>
                 <Col span={6}>
-                    <Card style={{ height:'140px'}}>
+                    <Card style={{ height:'140px',borderColor: "#096dd9"}}>
                     
                         <UsergroupDeleteOutlined style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
@@ -30,7 +30,7 @@ const CardLogo = () => {
                     
                 </Col>
                 <Col span={6}>
-                    <Card style={{ height:'140px'}}>
+                    <Card style={{ height:'140px',borderColor: "#08979c"}}>
                         <ContainerTwoTone style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
                             <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
@@ -41,7 +41,7 @@ const CardLogo = () => {
                 </Col>
                 <Col span={6}>
                     
-                    <Card style={{ height:'140px'}}>
+                    <Card style={{ height:'140px',borderColor: "#531dab"}}>
                         <UserOutlined  style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
                             <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
