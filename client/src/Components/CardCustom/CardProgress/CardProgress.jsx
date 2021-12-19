@@ -10,7 +10,7 @@ const CardProgress = () => {
          <div className="site-statistic-demo-card">
                 <Row gutter={16}>
                     <Col span={6}>
-                        <Card style={{  background: "#fff7e6", borderRadius: "20px",}}>
+                        <Card style={{  background: "#fff7e6", borderRadius: "20px",borderColor: "#096dd9"}}>
                             <Statistic
                                 title="New Tickets"
                                 value={20}
@@ -30,7 +30,7 @@ const CardProgress = () => {
                         </Card>
                     </Col>
                     <Col span={6}>
-                        <Card style={{  background: "#fcffe6", borderRadius: "20px" }}>
+                        <Card style={{  background: "#fcffe6", borderRadius: "20px",borderColor: "#08979c" }}>
                             <Statistic
                                 title="Solved Tickets"
                                 value={9.3}
@@ -53,7 +53,7 @@ const CardProgress = () => {
 
 
                     <Col span={6}>
-                    <Card style={{  background: "#e6f7ff", borderRadius: "20px" }}>
+                    <Card style={{  background: "#e6f7ff", borderRadius: "20px",borderColor: "#531dab" }}>
                             <Statistic
                                 title="Open Tickets"
                                 value={9.3}
@@ -75,7 +75,7 @@ const CardProgress = () => {
                     </Col>
 
                     <Col span={6}>
-                    <Card style={{  background: "#e6fffb", borderRadius: "20px" }}>
+                    <Card style={{  background: "#e6fffb", borderRadius: "20px",borderColor: "#7cb305" }}>
                             <Statistic
                                 title="Pending Tickets"
                                 value={11.28}
