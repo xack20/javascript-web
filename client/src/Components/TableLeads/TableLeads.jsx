@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Space, Table,Button } from 'antd';
 
 
@@ -49,14 +49,18 @@ const data = [
     },
 ];
 
-export default class TableLeads extends Component {
-    render() {
-        return (
-            <div>
 
-                <Table columns={columns} dataSource={data} />
 
-            </div>
-        )
-    }
-}
+const TableLeads = () => {
+    return (
+        <div>
+             <Table columns={columns} dataSource={data} />
+
+            
+        </div>
+    );
+};
+
+export default TableLeads;
+
+ <Table columns={columns} dataSource={data} />

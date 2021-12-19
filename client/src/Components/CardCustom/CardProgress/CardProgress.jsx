@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react';
 import { Statistic, Card, Row, Col } from 'antd';
 import { Progress } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
-export default class CardProgress extends Component {
-    render() {
-        return (
-            <div className="site-statistic-demo-card">
+
+
+const CardProgress = () => {
+    return (
+         <div className="site-statistic-demo-card">
                 <Row gutter={16}>
                     <Col span={6}>
                         <Card style={{  background: "#fff7e6", borderRadius: "20px",}}>
@@ -97,6 +98,6 @@ export default class CardProgress extends Component {
                     
                 </Row>
             </div>
-        )
-    }
-}
+    );
+}; 
+export default CardProgress;

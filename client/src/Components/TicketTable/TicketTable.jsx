@@ -1,6 +1,6 @@
 
-import React, { Component } from 'react';
-import { Space, Table,Button } from 'antd';
+import { Button, Space, Table } from 'antd';
+import  React from 'react';
 
 
 
@@ -50,14 +50,14 @@ const data = [
     },
 ];
 
-export default class TicketTable extends Component {
-    render() {
-        return (
-            <div>
 
-                <Table columns={columns} dataSource={data} />
+const TicketTable = () => {
+    return (
+        <div>
+              <Table columns={columns} dataSource={data} />
+            
+        </div>
+    );
+};
 
-            </div>
-        )
-    }
-}
+export default TicketTable;

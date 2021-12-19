@@ -1,10 +1,10 @@
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Cascader, DatePicker, Input, Space } from 'antd';
 import moment from 'moment';
-import React, { Component } from 'react';
-
-
+import React from 'react';
 import TicketTable from '../TicketTable/TicketTable';
+
+
 
 
 
@@ -64,48 +64,46 @@ function onChangeDate(dates, dateStrings) {
     console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
 
-////////////////////////////////////////////////////////
 
+const TicketSet = () => {
+    return (
+        <div className='m-3'>
 
-export default class TicketSet extends Component {
-    render() {
-        return (
-            <div className='m-3'>
+        <Search className='m-3' placeholder="Employee Name" onSearch={onSearch} style={{ width: 200 }} />
+        <Cascader className='m-3'
+            options={optionsStatus}
+            onChange={onChange}
+            placeholder="Status" />
 
-                <Search className='m-3' placeholder="Employee Name" onSearch={onSearch} style={{ width: 200 }} />
-                <Cascader className='m-3'
-                    options={optionsStatus}
-                    onChange={onChange}
-                    placeholder="Status" />
-
-                <Cascader className='m-3'
-                    options={optionsPrio}
-                    onChange={onChange}
-                    placeholder="Priority" />
+        <Cascader className='m-3'
+            options={optionsPrio}
+            onChange={onChange}
+            placeholder="Priority" />
 
 
 
-                <Space direction="vertical" size={12}>
-                    <RangePicker
-                        ranges={{
-                            Today: [moment(), moment()],
-                            'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        }}
-                        onChange={onChangeDate}
-                    />
-                </Space>
+        <Space direction="vertical" size={12}>
+            <RangePicker
+                ranges={{
+                    Today: [moment(), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                }}
+                onChange={onChangeDate}
+            />
+        </Space>
 
 
-                <Button className='m-3' type="primary" icon={<SearchOutlined />}>
-                    Search
-                </Button>
+        <Button className='m-3' type="primary" icon={<SearchOutlined />}>
+            Search
+        </Button>
 
-                <TicketTable></TicketTable>
-                    
+        <TicketTable></TicketTable>
+            
 
 
 
-            </div>
-        )
-    }
-}
+    </div>
+    );
+};
+
+export default TicketSet;
