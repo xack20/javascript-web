@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from "react";
+import CardLogo from "../../Components/CardCustom/CardLogo/CardLogo";
 import Composed from "../../Components/Charts/Composed";
 import PiChart from "../../Components/Charts/PiChart/PiChart";
 import { dashboard } from "../../Services/AdminDashboard";
@@ -39,6 +40,7 @@ export default function AdminDashboard() {
   return (
     <div>
       {RES.data.message}
+      <CardLogo></CardLogo>
 
       <div class="row">
 
