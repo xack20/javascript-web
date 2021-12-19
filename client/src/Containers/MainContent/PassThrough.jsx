@@ -2,6 +2,7 @@ import React from 'react';
 
 import FooterCustom from '../../Components/Footer/FooterCustom';
 import LoadSpin from '../../Components/Spinner/LoadSpin';
+
 import AdminDashboard from '../../Views/AdminDashboard/AdminDashboard';
 
 // import Attendance from '../../../Views/Attendance/Attendance';
@@ -31,6 +32,15 @@ const Tickets = React.lazy(() =>
   import('../../Views/Tickets/Tickets')
 );
 
+
+const Leads = React.lazy(() =>
+  import('../../Views/Leads/Leads')
+);
+
+
+const EmployeeDashboard = React.lazy(() =>
+  import('../../Views/EmployeeDashboard/EmployeeDashboard')
+);
 
 
 
@@ -67,6 +77,20 @@ export default function PassThrough(props) {
     comp = (
       <React.Suspense fallback={<LoadSpin />}>
         <Tickets />
+      </React.Suspense>
+    );
+
+    else if (props.page === 'Leads')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <Leads />
+      </React.Suspense>
+    );
+
+    else if (props.page === 'Employee Dashboard')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <EmployeeDashboard />
       </React.Suspense>
     );
 

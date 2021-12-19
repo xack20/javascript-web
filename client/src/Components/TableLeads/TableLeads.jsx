@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Space, Table,Button } from 'antd';
 
 
-
 const columns = [
     {
         title: '#',
@@ -13,26 +12,26 @@ const columns = [
         fixed: 'left',
     },
     {
-        title: 'Task ID',
+        title: 'Lead Name',
         width: 100,
         dataIndex: 'Task ID',
         key: 'Task ID',
         fixed: 'left',
     },
-    { title: 'Assigned Staff', dataIndex: 'address', key: '1' },
-    { title: 'Start Date', dataIndex: 'address', key: '2' },
-    { title: 'End Date', dataIndex: 'address', key: '3' },
-    { title: 'Last Reply', dataIndex: 'address', key: '4' },
-    { title: 'Priority', dataIndex: 'address', key: '5' },
-    { title: 'Status', dataIndex: 'address', key: '6' },
-
+    { title: 'Email', dataIndex: 'address', key: '1' },
+    { title: 'Mobile', dataIndex: 'address', key: '2' },
+    { title: 'Project', dataIndex: 'address', key: '3' },
+    { title: 'Assigned Staff', dataIndex: 'address', key: '4' },
+    { title: 'Status', dataIndex: 'address', key: '5' },
+    { title: 'Created', dataIndex: 'address', key: '6' },
+    
     {
         title: 'Action',
         key: 'operation',
         fixed: 'right',
         width: 100,
         render: () => ( <Space size="middle">
-        <Button type="primary" style={{ background: "#531dab" }}>Edit</Button>
+       <Button type="primary" style={{ background: "#531dab" }}>Edit</Button>
         <Button type="primary" danger>Delete</Button>
       </Space>)
     },
@@ -50,7 +49,7 @@ const data = [
     },
 ];
 
-export default class TicketTable extends Component {
+export default class TableLeads extends Component {
     render() {
         return (
             <div>
