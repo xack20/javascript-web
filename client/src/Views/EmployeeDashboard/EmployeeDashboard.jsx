@@ -11,6 +11,8 @@ import { dashboard } from "../../Services/EmployeeDashboard";
 function EmployeeDashboard(props) {
   
   const [today,setToday] = useState([{},{}]);
+  const [leave,setLeave] = useState([{},{}]);
+  const [toa,setTOA] = useState([{},{}]);
 
 
   // useEffect(() => {
@@ -67,17 +69,17 @@ function EmployeeDashboard(props) {
 
           <div>
             <p style={{ fontSize: "20px" }}>Your Leave</p>
-            <DividerVerticalV2></DividerVerticalV2>
+            <DividerVerticalV2 props={ {type : "leave", data  : leave} } />
           </div>
 
           <div>
             <p style={{ fontSize: "20px" }}>Time-off Allowance</p>
-            <DividerVerticalV2></DividerVerticalV2>
+            <DividerVerticalV2 props={{type : "toa", data  : toa}} />
           </div>
 
           <div>
             <p style={{ fontSize: "20px" }}>Upcoming Holiday</p>
-            <DividerVerticalV2></DividerVerticalV2>
+            <CardAvatar/>
           </div>
 
         </Col>
@@ -89,5 +91,6 @@ function EmployeeDashboard(props) {
     </div>
   );
 }
+
 
 export default EmployeeDashboard;
