@@ -22,8 +22,8 @@ const CardProgress = () => {
                             />
                             <Progress
                                 strokeColor={{
-                                    '0%': '#f857a6',
-                                    '100%': '#ff5858',
+                                    '0%': '#fa8c16',
+                                    '100%': '#fa8c16',
                                 }}
                                 percent={99.9}
                             />
@@ -43,8 +43,8 @@ const CardProgress = () => {
                             />
                              <Progress
                                 strokeColor={{
-                                    '0%': '#E6DADA',
-                                    '100%': '#274046',
+                                    '0%': '#fa8c16',
+                                    '100%': '#fa8c16',
                                 }}
                                 percent={99.9}
                             />
@@ -66,8 +66,8 @@ const CardProgress = () => {
                             />
                              <Progress
                                 strokeColor={{
-                                    '0%': '#870000',
-                                    '100%': '#190A05',
+                                    '0%': '#fa8c16',
+                                    '100%': '#fa8c16',
                                 }}
                                 percent={99.9}
                             />
@@ -87,8 +87,8 @@ const CardProgress = () => {
                             />
                             <Progress
                                 strokeColor={{
-                                    '0%': '#f2709c',
-                                    '100%': '#ff9472',
+                                    '0%': '#fa8c16',
+                                    '100%': '#fa8c16',
                                 }}
                                 percent={99.9}
                             />

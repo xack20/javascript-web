@@ -39,7 +39,7 @@ function EmployeeDashboard(props) {
 
         <Col span={18}>
           <div>
-            <p style={{ fontSize: "30px" }}>Today</p>
+            <p style={{ fontSize: "30px" }}>Today
             {
               today.map((item, index) => {
                 return (
@@ -47,15 +47,19 @@ function EmployeeDashboard(props) {
                 )
               })
             }
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: "30px" }}>Tomorrow
+            <CardAvatar />
+            </p>
             
           </div>
           <div>
-            <p style={{ fontSize: "30px" }}>Tomorrow</p>
+            <p style={{ fontSize: "30px" }}>Next 7 Days
             <CardAvatar />
-          </div>
-          <div>
-            <p style={{ fontSize: "30px" }}>Next 7 Days</p>
-            <CardAvatar />
+            </p>
+           
           </div>
 
 
@@ -63,23 +67,31 @@ function EmployeeDashboard(props) {
 
         <Col span={6}>
           <div>
-            <p style={{ fontSize: "20px" }}>Projects</p>
+            <p style={{ fontSize: "20px" }}>Projects
             <DividerVertical></DividerVertical>
+            </p>
+            
           </div>
 
           <div>
-            <p style={{ fontSize: "20px" }}>Your Leave</p>
+            <p style={{ fontSize: "20px" }}>Your Leave
             <DividerVerticalV2 props={ {type : "leave", data  : leave} } />
+            </p>
+           
           </div>
 
           <div>
-            <p style={{ fontSize: "20px" }}>Time-off Allowance</p>
+            <p style={{ fontSize: "20px" }}>Time-off Allowance
             <DividerVerticalV2 props={{type : "toa", data  : toa}} />
+            </p>
+            
           </div>
 
           <div>
-            <p style={{ fontSize: "20px" }}>Upcoming Holiday</p>
+            <p style={{ fontSize: "20px" }}>Upcoming Holiday
             <CardAvatar/>
+            </p>
+            
           </div>
 
         </Col>
