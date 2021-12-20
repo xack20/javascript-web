@@ -62,6 +62,7 @@ export default function SignIn () {
 
 
     window.localStorage.clear();
+    window.localStorage.setItem("_uid_", res.data.userid);
     window.localStorage.setItem('_tkn_', res.data.token);
     window.localStorage.setItem('_rftkn_', res.data.refreshToken);
     
