@@ -4,6 +4,7 @@ import CardLogo from "../../Components/CardCustom/CardLogo/CardLogo";
 import { default as BiBarChart } from "../../Components/Charts/BiBarChart/BiBarChart";
 import BiLineChart from "../../Components/Charts/BiLineChart/BiLineChart";
 import { dashboard } from "../../Services/AdminDashboard";
+import { Card, Col, Row } from 'antd';
 
 
 
@@ -42,17 +43,21 @@ export default function AdminDashboard() {
       {RES.data.message}
       <CardLogo></CardLogo>
 
-      <div class="row">
-
-        <div class="col-md-6 col-sm-6">
+      <div className="site-card-wrapper">
+    <Row gutter={16}>
+      <Col span={12}>
+        <Card style={{ borderRadius: "20px",borderColor: "#7cb305"}}>
           <BiBarChart></BiBarChart>
-        </div>
-      
-        <div class="col-md-6 col-sm-6">
+        </Card>
+      </Col>
+      <Col span={12}>
+        <Card style={{borderRadius: "20px",borderColor: "#531dab"}}>
           <BiLineChart></BiLineChart>
-        </div>
-            
-      </div>
+        </Card>
+      </Col>
+    </Row>
+  </div>
+      
 
     </div>
     );

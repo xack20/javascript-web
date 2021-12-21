@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart,CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
   
 
 const data = [
@@ -31,9 +31,12 @@ const data = [
 
 export default function BiBarChart() {
   return (
+    <div style={{ width: '100%', height: 300 }}>
+
+    <ResponsiveContainer>
     <BarChart
-      width={550}
-      height={300}
+      width={"100%"}
+      height={"100%"}
       data={data}
       margin={{
         top: 20,
@@ -47,9 +50,11 @@ export default function BiBarChart() {
       <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
       <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
       <Tooltip />
-      {/* <Legend /> */}
+      <Legend />
       <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
       <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
     </BarChart>
+    </ResponsiveContainer>
+    </div>
   );
 }
