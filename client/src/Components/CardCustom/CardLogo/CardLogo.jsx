@@ -13,8 +13,7 @@ const CardLogo = () => {
                     <Card style={{ height:'140px',borderColor: "#7cb305", borderRadius:"10px"}}>
                         <ApartmentOutlined style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
-                            <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
-                            <p>Projects</p>
+                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Projects</span>
                         </div>
                     </Card>
                 </Col>
@@ -23,8 +22,7 @@ const CardLogo = () => {
                     
                         <UsergroupDeleteOutlined style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
-                            <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
-                            <p>Clients</p>
+                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Clients</span>
                         </div>
                     </Card>
                     
@@ -33,8 +31,8 @@ const CardLogo = () => {
                     <Card style={{ height:'140px',borderColor: "#08979c", borderRadius:"10px"}}>
                         <ContainerTwoTone style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
-                            <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
-                            <p>Tasks</p>
+                            
+                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Tasks</span>
                         </div>
                     </Card>
                     
@@ -42,10 +40,10 @@ const CardLogo = () => {
                 <Col span={6}>
                     
                     <Card style={{ height:'140px',borderColor: "#531dab", borderRadius:"10px"}}>
-                        <UserOutlined  style={{ float: "left", fontSize: '40px', color: '#08c' }} />
+                        <UserOutlined  style={{  fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
-                            <p style={{ fontSize: "32px", fontWeight: "bold" }}>112</p>
-                            <p>Projects</p>
+                            
+                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Employees</span>
                         </div>
                     </Card>
                     

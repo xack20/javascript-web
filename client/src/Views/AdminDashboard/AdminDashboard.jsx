@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import CardLogo from "../../Components/CardCustom/CardLogo/CardLogo";
-import Composed from "../../Components/Charts/Composed";
-import PiChart from "../../Components/Charts/PiChart/PiChart";
+import { default as BiBarChart } from "../../Components/Charts/BiBarChart/BiBarChart";
+import BiLineChart from "../../Components/Charts/BiLineChart/BiLineChart";
 import { dashboard } from "../../Services/AdminDashboard";
 
 
@@ -45,18 +45,14 @@ export default function AdminDashboard() {
       <div class="row">
 
         <div class="col-md-6 col-sm-6">
-          <Composed></Composed>
+          <BiBarChart></BiBarChart>
         </div>
       
         <div class="col-md-6 col-sm-6">
-          <PiChart></PiChart>
+          <BiLineChart></BiLineChart>
         </div>
             
       </div>
-
-      
-
-
 
     </div>
     );
