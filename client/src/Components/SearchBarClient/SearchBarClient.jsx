@@ -5,7 +5,7 @@ import React from 'react';
 
 
 ///////////////////////////////////////////////Search/////////////
-const { Search } = Input;
+
 const onSearch = value => console.log(value);
 
 //////////////////////////Cascader///////////////////////////////
@@ -37,8 +37,8 @@ function onChange(value, selectedOptions) {
 const SearchBarClient = () => {
     return (
         <div>
-            <Search className='m-3' placeholder="Client ID" onSearch={onSearch} style={{ width: "25%" }} />
-            <Search className='m-3' placeholder="Client Name" onSearch={onSearch} style={{ width: "25%" }} />
+            <Input className='m-3' placeholder="Client ID" onSearch={onSearch} style={{ width: "25%" }} />
+            <Input className='m-3' placeholder="Client Name" onSearch={onSearch} style={{ width: "25%" }} />
 
             <Cascader className='m-3'
                 options={optionsPrio}

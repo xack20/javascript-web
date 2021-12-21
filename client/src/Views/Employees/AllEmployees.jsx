@@ -5,10 +5,17 @@ import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 
 import person from '../../Data/persons.js';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient';
+import AddButton from '../../Components/AddButton/AddButton';
 
 function AllEmployees() {
   return (
     <div>
+
+        <AddButton></AddButton>
+      <SearchBarClient></SearchBarClient>
+
+
       <Row
         gutter={[
           { xs: 8, sm: 16, md: 24 },

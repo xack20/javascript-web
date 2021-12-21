@@ -54,7 +54,7 @@ const data = [
 const TicketTable = () => {
     return (
         <div>
-              <Table columns={columns} dataSource={data} />
+              <Table style={{border:"10px"}} columns={columns} dataSource={data} bordered />
             
         </div>
     );

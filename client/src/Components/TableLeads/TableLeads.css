@@ -1,0 +1,13 @@
+
+.ant-table-thead > tr > th {
+  background-color: rgb(3,50,50);
+  color: white;
+}
+/* //  Odd line  */
+.table-color-odd {
+  background-color: rgb(9, 100, 100);
+}
+/* //  Even number line  */
+.table-color-even {
+  background-color: rgb(19, 147, 147);
+}

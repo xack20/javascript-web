@@ -15,10 +15,6 @@ const TicketSet = () => {
             <SearchBar></SearchBar>
 
             <TicketTable></TicketTable>
-
-
-
-
         </div>
     );
 };

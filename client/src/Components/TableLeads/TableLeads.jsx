@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Space, Table,Button } from 'antd';
-
+import "./TableLeads.css";
 
 const columns = [
     {
@@ -54,7 +54,7 @@ const data = [
 const TableLeads = () => {
     return (
         <div>
-             <Table columns={columns} dataSource={data} />
+             <Table bordered columns={columns} dataSource={data} />
 
             
         </div>
