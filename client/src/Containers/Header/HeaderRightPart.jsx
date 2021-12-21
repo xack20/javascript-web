@@ -2,22 +2,30 @@ import React from 'react';
 import { Menu, Dropdown, Button, Avatar } from 'antd';
 import SearchBar from '../../Components/Search/SearchBar.jsx';
 import './HeaderRightPart.css';
+import base64 from 'react-native-base64';
 
-const menu = (
-  <Menu>
-    <Menu.Item>
-    <Button type="text">Profile</Button>
-    </Menu.Item>
-    <Menu.Item>
-    <Button type="text">Settings</Button>
-    </Menu.Item>
-    <Menu.Item>
-    <Button type="text">Logout</Button>
-    </Menu.Item>
-  </Menu>
-);
+
 
 const HeaderRightPart = () => {
+
+  const logout = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  }
+
+  const menu = (
+    <Menu>
+      <Menu.Item>
+      <Button type="text">Profile</Button>
+      </Menu.Item>
+      {base64.decode(window.localStorage.getItem("_usrl_"))==="admin" && <Menu.Item><Button type="text">Settings</Button></Menu.Item>}
+      <Menu.Item>
+      <Button type="text" onClick={logout}>Logout</Button>
+      </Menu.Item>
+    </Menu>
+  );
+
+
   return (
     <div className="header-extention">
     <SearchBar />
@@ -26,7 +34,7 @@ const HeaderRightPart = () => {
       <Button style={{height:'48px'}}>
         <p>
         <Avatar  style={{marginRight:"15px"}} src="https://www.pinclipart.com/picdir/middle/559-5594866_necktie-drawing-vector-round-avatar-user-icon-png.png" size={40} />
-        Admin
+        {base64.decode(window.localStorage.getItem("_usnm_"))}
         </p>
         
       </Button>

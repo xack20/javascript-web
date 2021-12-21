@@ -13,13 +13,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import base64 from 'react-native-base64'
 
 
 import {login} from "../../Services/Auth";
 import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
-
-
 
 
 function Copyright(props) {
@@ -62,7 +61,11 @@ export default function SignIn () {
 
 
     window.localStorage.clear();
+
     window.localStorage.setItem("_uid_", res.data.userid);
+    window.localStorage.setItem("_usnm_", base64.encode(res.data.username));
+    window.localStorage.setItem('_usrl_', base64.encode(res.data.roles[0]));
+
     window.localStorage.setItem('_tkn_', res.data.token);
     window.localStorage.setItem('_rftkn_', res.data.refreshToken);
     
@@ -82,13 +85,13 @@ export default function SignIn () {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'blue' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
