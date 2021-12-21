@@ -63,8 +63,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
 			.antMatchers("/auth/login","/").permitAll()
-			.antMatchers("/admin").hasAuthority("admin")
-			.antMatchers("/employee").hasAnyAuthority("employee","admin")
+			.antMatchers("/admin/**").hasAuthority("admin")
+			.antMatchers("/employee","/auth/userinfo").hasAnyAuthority("employee","admin")
 			.anyRequest().authenticated()
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

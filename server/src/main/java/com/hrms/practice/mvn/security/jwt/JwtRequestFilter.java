@@ -7,6 +7,9 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.hrms.practice.mvn.Config;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +40,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 				final String username = jwtUtils.extractEmployeename(jwt);
 				final List<String> roles = jwtUtils.extractRoles(jwt);
 				final UserDetails userDetails = new User(username, "", roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+				Config.user_now = userDetails.getUsername();
+				Config.user_role = roles.get(0);
 				
 				UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 				usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
