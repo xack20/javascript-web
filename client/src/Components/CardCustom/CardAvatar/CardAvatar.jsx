@@ -7,8 +7,8 @@ const CardAvatar = ({index,item}) => {
     <div>
 
       <div>
-        <Card style={{  background:( index&1 ? "#00474f" : "#22075e"), borderRadius: "20px" }}>
-          <p style={{color:"white"}}> <Avatar src="https://joeschmoe.io/api/v1/random" /> Hello</p>
+        <Card style={{  background:( index&1 ? "#e6fffb" : "#e6f7ff"), borderColor:( index&1 ? "#531dab" : "#7cb305"), marginTop:"5px", borderRadius: "20px" }}>
+          <p style={{color:"black"}}> <Avatar  size={40} src="https://joeschmoe.io/api/v1/random" /> Hello</p>
         </Card>
       </div>
 

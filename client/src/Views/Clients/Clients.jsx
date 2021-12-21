@@ -1,14 +1,21 @@
+import { DeleteOutlined, EditOutlined,PlusOutlined } from '@ant-design/icons';
+import { Card, Col, Row,Button } from 'antd';
 import React from 'react';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { Row, Col, Card } from 'antd';
-
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
+import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
 import person from '../../Data/persons.js';
 import './Clients.css';
+
 
 const Clients = () => {
   return (
     <div>
+      <Button style={{ width: "10%", height:"40px", background: "#fa8c16" , borderRadius:"20px" }} className='m-3' type="primary" icon={<PlusOutlined />}>
+                Add Client
+            </Button>
+
+      <SearchBarClient></SearchBarClient>
+
     <Row
       gutter={[
         { xs: 8, sm: 16, md: 24 },

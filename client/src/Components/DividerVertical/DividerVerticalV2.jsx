@@ -14,14 +14,14 @@ const DividerVerticalV2 = ({props}) => {
       {console.log(props.type,props.data)}
       <Card style={{ backgroundColor: "#006d75", color: "white", borderRadius: "25px" }}>
         <Row >
-          <Col span={"50%"}>
+          <Col span={12}>
             <div>
               <p>14</p>
               <p>Approved</p>
             </div>
           </Col>
           <Divider type="vertical" style={{ 'background-color': 'white', height: "65px" }} />
-          <Col span={"50%"}>
+          <Col span={6}>
             <div>
               <p>14</p>
               <p>Remaining</p>
