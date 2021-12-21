@@ -11,18 +11,19 @@ const CardLogo = () => {
             <Row gutter={16}>
                 <Col span={6}>
                     <Card style={{ height:'140px',borderColor: "#7cb305", borderRadius:"10px"}}>
-                        <ApartmentOutlined style={{ float: "left", fontSize: '40px', color: '#08c' }} />
+                        <ApartmentOutlined style={{ float: "left", fontSize: '40px', color: '#531dab' }} />
                         <div style={{ float: "right" }}>
-                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Projects</span>
+                            
+                            <p style={{ fontSize: "20px"}}><span style={{ fontSize: "30px", fontWeight: "bold" }}>112 </span> <br /> Projects </p>
                         </div>
                     </Card>
                 </Col>
                 <Col span={6}>
                     <Card style={{ height:'140px',borderColor: "#096dd9", borderRadius:"10px"}}>
                     
-                        <UsergroupDeleteOutlined style={{ float: "left", fontSize: '40px', color: '#08c' }} />
+                        <UsergroupDeleteOutlined style={{ float: "left", fontSize: '40px', color: '#00474f' }} />
                         <div style={{ float: "right" }}>
-                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Clients</span>
+                            <p style={{ fontSize: "20px"}}><span style={{ fontSize: "30px", fontWeight: "bold" }}>112 </span> <br /> Clients </p>
                         </div>
                     </Card>
                     
@@ -31,8 +32,8 @@ const CardLogo = () => {
                     <Card style={{ height:'140px',borderColor: "#08979c", borderRadius:"10px"}}>
                         <ContainerTwoTone style={{ float: "left", fontSize: '40px', color: '#08c' }} />
                         <div style={{ float: "right" }}>
+                        <p style={{ fontSize: "20px"}}><span style={{ fontSize: "30px", fontWeight: "bold" }}>112 </span> <br /> Tasks </p>
                             
-                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Tasks</span>
                         </div>
                     </Card>
                     
@@ -40,10 +41,10 @@ const CardLogo = () => {
                 <Col span={6}>
                     
                     <Card style={{ height:'140px',borderColor: "#531dab", borderRadius:"10px"}}>
-                        <UserOutlined  style={{  fontSize: '40px', color: '#08c' }} />
+                        <UserOutlined  style={{  fontSize: '40px', color: '#ad4e00' }} />
                         <div style={{ float: "right" }}>
+                        <p style={{ fontSize: "20px"}}><span style={{ fontSize: "30px", fontWeight: "bold" }}>112 </span> <br /> Employees </p>
                             
-                            <span style={{ fontSize: "24px", fontWeight: "bold" }}>112 <br /> Employees</span>
                         </div>
                     </Card>
                     
