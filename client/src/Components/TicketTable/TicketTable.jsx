@@ -1,7 +1,7 @@
 
 import { Button, Space, Table } from 'antd';
 import  React from 'react';
-
+import "./styles.css"
 
 
 const columns = [
@@ -32,8 +32,8 @@ const columns = [
         fixed: 'right',
         width: 100,
         render: () => ( <Space size="middle">
-        <Button type="primary" style={{ background: "#531dab" }}>Edit</Button>
-        <Button type="primary" danger>Delete</Button>
+        <Button type="primary" style={{ background: "#531dab", borderRadius:"10px" }}>Edit</Button>
+        <Button type="primary" danger style={{borderRadius:"10px"}}>Delete</Button>
       </Space>)
     },
 ];
