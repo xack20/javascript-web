@@ -32,8 +32,8 @@ const columns = [
         fixed: 'right',
         width: 100,
         render: () => ( <Space size="middle">
-        <Button type="primary" style={{ background: "#531dab", borderRadius:"10px" }}>Edit</Button>
-        <Button type="primary" danger style={{borderRadius:"10px"}}>Delete</Button>
+         <Button ghost type="primary" style={{ borderRadius: "10px" }}>Edit</Button>
+        <Button ghost type="primary" danger style={{borderRadius:"10px"}}>Delete</Button>
       </Space>)
     },
 ];
