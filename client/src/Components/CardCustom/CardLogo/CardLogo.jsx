@@ -41,7 +41,7 @@ const CardLogo = () => {
                 <Col span={6}>
                     
                     <Card style={{ height:'140px',borderColor: "#531dab", borderRadius:"10px"}}>
-                        <UserOutlined  style={{  fontSize: '40px', color: '#ad4e00' }} />
+                        <UserOutlined  style={{  fontSize: '40px', color: '#096dd9' }} />
                         <div style={{ float: "right" }}>
                         <p style={{ fontSize: "20px"}}><span style={{ fontSize: "30px", fontWeight: "bold" }}>112 </span> <br /> Employees </p>
                             

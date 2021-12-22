@@ -88,7 +88,7 @@ const SearchBar = () => {
             </Space>
 
 
-            <Button className='m-3' type="primary" icon={<SearchOutlined />}>
+            <Button ghost className='m-3' type="primary" icon={<SearchOutlined />}>
                 Search
             </Button>
 

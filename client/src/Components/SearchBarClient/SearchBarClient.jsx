@@ -47,7 +47,7 @@ const SearchBarClient = () => {
                 style={{ width: "25%" }}
                 />
 
-            <Button style={{ width: "14%", background: "#52c41a" , borderRadius: "5px" }} className='m-3' type="primary" icon={<SearchOutlined />}>
+            <Button ghost style={{ width: "14%", borderColor:"#135200", borderRadius: "5px" }} className='m-3' type="primary" icon={<SearchOutlined />}>
                 Search
             </Button>
 

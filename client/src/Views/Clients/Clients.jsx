@@ -30,7 +30,7 @@ const Clients = () => {
       {person.map((element, idx) => {
         return (
           <Col xs={24} sm={12} md={12} lg={12} xl={8} xxl={6} key={idx}>
-            <Card
+            <Card style={{borderColor:( idx&1 ? "#531dab" : "#7cb305") , borderRadius:" 10px"}}
               actions={[
                 <EditOutlined key="ellipsis" />,
                 <DeleteOutlined key="delete" />,
