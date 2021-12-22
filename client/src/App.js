@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { changeWidth } from "./Redux/CommonSlice";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 
-import SignIn from "./Views/Login/SignIn";
+import Form from "./Views/Login/SignIn";
 import MyLayout from "./Components/Layout/MyLayout";
 
 
@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login" component={SignIn} />
+        <Route exact path="/login" component={Form} />
         <Route exact path="*" component={MyLayout} />
       </Switch>
     </BrowserRouter>
