@@ -1,17 +1,23 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Card, Col, Row } from 'antd';
-import React from 'react';
+import React, {useState} from 'react';
 import AddButton from '../../Components/AddButton/AddButton.jsx';
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
+import MyModal from '../../Components/MyModal/MyModal.jsx';
 import person from '../../Data/persons.js';
 import './Clients.css';
 
 
 const Clients = () => {
+  const [modalVisibility, setModalVisibility] = useState(false);
   return (
     <div>
-      <AddButton></AddButton>
+      <AddButton setModalVisibility={setModalVisibility} buttonName={"Add Client"}></AddButton>
+      <MyModal Width={900} Title={"Add Client"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
+        <p>Hello</p>
+        <p>Hello</p>
+      </MyModal>
 
       <SearchBarClient></SearchBarClient>
 
