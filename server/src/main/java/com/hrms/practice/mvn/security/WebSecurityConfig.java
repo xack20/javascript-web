@@ -1,7 +1,7 @@
 package com.hrms.practice.mvn.security;
 
 import com.hrms.practice.mvn.security.jwt.JwtRequestFilter;
-import com.hrms.practice.mvn.service.MyEmployeeDetailsService;
+import com.hrms.practice.mvn.service.MyUserDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +24,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private MyEmployeeDetailsService employeeDetailsService;
+	private MyUserDetailsService employeeDetailsService;
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 
@@ -62,9 +62,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.cors().and()
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
-			.antMatchers("/auth/login","/").permitAll()
-			.antMatchers("/admin/**").hasAuthority("admin")
-			.antMatchers("/employee","/auth/userinfo").hasAnyAuthority("employee","admin")
+			.antMatchers("/auth/login").permitAll()
+			.antMatchers("/user/register-admin",
+						"/user/register-employee"
+						).hasAuthority("admin")
 			.anyRequest().authenticated()
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -12,7 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-public class MyEmployeeDetails implements UserDetails {
+public class MyUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	private Long id; 
@@ -23,7 +23,7 @@ public class MyEmployeeDetails implements UserDetails {
 	@JsonIgnore
 	private String password;
 
-	public MyEmployeeDetails(Long id, String fullname, String username, String password,
+	public MyUserDetails(Long id, String fullname, String username, String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.setId(id);
 		this.setFullname(fullname);
@@ -32,15 +32,15 @@ public class MyEmployeeDetails implements UserDetails {
 		this.authorities = authorities;
 	}
 
-	public static MyEmployeeDetails build(Employee employee) {
+	public static MyUserDetails build(User user) {
 		List<GrantedAuthority> roles = new ArrayList<>();
 
-		for (Role role : employee.getRoles()) {
+		for (Role role : user.getRoles()) {
 			roles.add(new SimpleGrantedAuthority(role.getRole()));
 		}
 
-		return new MyEmployeeDetails(employee.getId(), employee.getFullname(), employee.getUsername(),
-				employee.getPassword(), roles);
+		return new MyUserDetails(user.getId(), user.getFullname(), user.getUsername(),
+				user.getPassword(), roles);
 	}
 
 	public Long getId() {
@@ -100,7 +100,7 @@ public class MyEmployeeDetails implements UserDetails {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		MyEmployeeDetails user = (MyEmployeeDetails) o;
+		MyUserDetails user = (MyUserDetails) o;
 		return Objects.equals(id, user.id);
 	}
 

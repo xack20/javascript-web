@@ -1,7 +1,7 @@
 package com.hrms.practice.mvn.service;
 
-import com.hrms.practice.mvn.model.Employee;
-import com.hrms.practice.mvn.model.MyEmployeeDetails;
+import com.hrms.practice.mvn.model.User;
+import com.hrms.practice.mvn.model.MyUserDetails;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,17 +10,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MyEmployeeDetailsService implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
     @Autowired
-    private EmployeeService employeeService;
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Employee employee = employeeService.getEmployeeByUsername(username);
+        User user = userService.getUserByUsername(username);
 
-        if(employee == null)
-            throw new UsernameNotFoundException("Employee Not Found");
+        if(user == null)
+            throw new UsernameNotFoundException("User Not Found");
 
-        return MyEmployeeDetails.build(employee);
+        return MyUserDetails.build(user);
     }
 }

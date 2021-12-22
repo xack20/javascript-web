@@ -1,6 +1,6 @@
 package com.hrms.practice.mvn.repository;
 
-import com.hrms.practice.mvn.model.Employee;
+import com.hrms.practice.mvn.model.User;
 import com.hrms.practice.mvn.model.RefreshToken;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +14,6 @@ public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long
 
 
 	@Modifying
-	int deleteByEmployee(Employee employee);
+	int deleteByUser(User employee);
 
 }

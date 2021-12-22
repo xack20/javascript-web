@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.transaction.Transactional;
 
 import com.hrms.practice.mvn.model.RefreshToken;
-import com.hrms.practice.mvn.repository.EmployeeRepository;
+import com.hrms.practice.mvn.repository.UserRepository;
 import com.hrms.practice.mvn.repository.RefreshTokenRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class RefreshTokenService {
 	@Autowired
 	private RefreshTokenRepository refreshTokenRepository;
 	@Autowired
-	private EmployeeRepository empployeeRepository;
+	private UserRepository userRepository;
 
 	public RefreshToken findByRefreshToken(String token) {
 		return refreshTokenRepository.findByRefreshToken(token);
@@ -30,7 +30,7 @@ public class RefreshTokenService {
 	public RefreshToken createRefreshToken(Long userId) {
 		RefreshToken refreshToken = new RefreshToken();
 
-		refreshToken.setEmployee(empployeeRepository.findById(userId).get());
+		refreshToken.setUser(userRepository.findById(userId).get());
 		refreshToken.setExpDate(Instant.now().plusMillis(refreshTokenDurationMs));
 		refreshToken.setRefreshToken(UUID.randomUUID().toString());
 		refreshToken = refreshTokenRepository.save(refreshToken);
@@ -49,7 +49,7 @@ public class RefreshTokenService {
 
 	@Transactional
 	public int deleteByUserId(Long userId) {
-		return refreshTokenRepository.deleteByEmployee(empployeeRepository.findById(userId).get());
+		return refreshTokenRepository.deleteByUser(userRepository.findById(userId).get());
 	}
 	
 }
