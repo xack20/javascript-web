@@ -68,17 +68,21 @@ const SearchBar = () => {
             <Cascader className='m-3'
                 options={optionsStatus}
                 onChange={onChange}
-                placeholder="Status" />
+                placeholder="Status" 
+                style={{ borderColor: "#135200"}}
+                />
 
             <Cascader className='m-3'
                 options={optionsPrio}
                 onChange={onChange}
-                placeholder="Priority" />
+                placeholder="Priority"
+                style={{ borderColor: "#135200"}}
+                />
 
 
 
             <Space direction="vertical" size={12}>
-                <RangePicker
+                <RangePicker style={{ borderColor: "#135200"}}
                     ranges={{
                         Today: [moment(), moment()],
                         'This Month': [moment().startOf('month'), moment().endOf('month')],

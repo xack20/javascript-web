@@ -8,6 +8,7 @@ import person from '../../Data/persons.js';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient';
 import AddButton from '../../Components/AddButton/AddButton';
+import EmployeeForm from '../../Components/EmployeeForm/EmployeeForm';
 
 const AllEmployees = ()=> {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -16,8 +17,7 @@ const AllEmployees = ()=> {
     <div>
     <AddButton setModalVisibility={setModalVisibility} buttonName={"Add Employee"}></AddButton>
       <MyModal Width={900} Title={"Add Employee"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
-        <p>Hello</p>
-        <p>Hello</p>
+        <EmployeeForm></EmployeeForm>
       </MyModal>
         
       <SearchBarClient></SearchBarClient>

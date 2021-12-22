@@ -44,7 +44,7 @@ const SearchBarClient = () => {
                 options={optionsPrio}
                 onChange={onChange}
                 placeholder="Company Name" 
-                style={{ width: "25%" }}
+                style={{ width: "25%", borderColor: "#135200" }}
                 />
 
             <Button ghost style={{ width: "14%", borderColor:"#135200", borderRadius: "5px" }} className='m-3' type="primary" icon={<SearchOutlined />}>

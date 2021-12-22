@@ -4,9 +4,11 @@ import React, {useState} from 'react';
 import AddButton from '../../Components/AddButton/AddButton.jsx';
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
+import ClientForm from '../../Components/ClientForm/ClientForm.jsx';
 import MyModal from '../../Components/MyModal/MyModal.jsx';
 import person from '../../Data/persons.js';
 import './Clients.css';
+
 
 
 const Clients = () => {
@@ -15,8 +17,7 @@ const Clients = () => {
     <div>
       <AddButton setModalVisibility={setModalVisibility} buttonName={"Add Client"}></AddButton>
       <MyModal Width={900} Title={"Add Client"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
-        <p>Hello</p>
-        <p>Hello</p>
+        <ClientForm></ClientForm>
       </MyModal>
 
       <SearchBarClient></SearchBarClient>
@@ -44,6 +45,7 @@ const Clients = () => {
         );
       })}
     </Row>
+    <ClientForm></ClientForm>
   </div>
   );
 };
