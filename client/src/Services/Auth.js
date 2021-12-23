@@ -24,7 +24,7 @@ export const  logout =  () => {
 
 
 export const refreshToken =  () => {
-    return axios.get('/api/v1/auth/refresh', {
+    return axios.get('/api/v1/auth/refresh-token', {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('_tkn_')}`
         },
