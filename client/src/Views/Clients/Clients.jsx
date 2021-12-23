@@ -1,11 +1,12 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Card, Col, Row } from 'antd';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import AddButton from '../../Components/AddButton/AddButton.jsx';
-import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
-import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
+import BasicCard from '../../Components/CardCustom/CardProfile/BasicCard/BasicCard.jsx';
 import ClientForm from '../../Components/ClientForm/ClientForm.jsx';
+import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 import MyModal from '../../Components/MyModal/MyModal.jsx';
+import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
 import person from '../../Data/persons.js';
 import './Clients.css';
 
@@ -45,6 +46,10 @@ const Clients = () => {
         );
       })}
     </Row>
+
+
+    <BasicCard></BasicCard>
+
     
   </div>
   );
