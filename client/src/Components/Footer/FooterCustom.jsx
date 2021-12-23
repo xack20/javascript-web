@@ -14,7 +14,7 @@ export default function FooterCustom() {
         height: '5px',
         borderTop: '.1px dotted grey',
 
-        position: 'sticky',
+        
         bottom: 0,
       }}
     >

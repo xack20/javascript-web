@@ -45,7 +45,7 @@ const Clients = () => {
         );
       })}
     </Row>
-    <ClientForm></ClientForm>
+    
   </div>
   );
 };
