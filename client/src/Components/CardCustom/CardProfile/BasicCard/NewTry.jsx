@@ -1,8 +1,8 @@
+import { Avatar, Card, Table } from 'antd';
 import React from "react";
-import { Card, Table,Button } from 'antd';
+import MenuBar from "./MenuBar";
+import "./NewTry.css";
 
-import { Avatar } from 'antd';
-import "./NewTry.css"
 const { Column } = Table;
 
 
@@ -95,7 +95,7 @@ const gridStyle = {
 
 const NewTry = () => {
     return (
-        <div>
+        <div style={{marginTop:"5px"}}>
 
             <Card
             
@@ -129,6 +129,9 @@ const NewTry = () => {
                     </Table>
                 </Card.Grid>
             </Card>
+
+
+            <MenuBar></MenuBar>
 
 
 

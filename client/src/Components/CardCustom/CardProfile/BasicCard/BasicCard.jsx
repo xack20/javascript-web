@@ -3,6 +3,7 @@ import { Button, Row } from 'antd';
 
 import { EditOutlined } from '@ant-design/icons';
 import NewTry from './NewTry';
+import PersonalInfo from './PersonalInfo';
 
 
 
@@ -15,6 +16,8 @@ const BasicCard = () => {
             <div>
                 <NewTry></NewTry>
 
+                <PersonalInfo></PersonalInfo>
+
 
                 <Row type="flex" justify="center" align="middle" style={{ minHeight: '10vh' }}>
 
@@ -23,10 +26,6 @@ const BasicCard = () => {
 
 
             </div>
-
-
-
-
 
         </div>
     );
