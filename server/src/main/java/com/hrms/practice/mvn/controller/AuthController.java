@@ -70,8 +70,6 @@ public class AuthController {
 	    return ResponseEntity.ok().body("User logged out");
 	}
 
-
-
 	
 	@PostMapping("/refresh-token")
 	public ResponseEntity<?> refreshtoken(@RequestBody Map<String, String> refreshToken) {
