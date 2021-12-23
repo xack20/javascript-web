@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Table,Button } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+
 import { Avatar } from 'antd';
 import "./NewTry.css"
 const { Column } = Table;
@@ -118,7 +118,7 @@ const NewTry = () => {
                 <Card.Grid hoverable={false} style={gridStyle}>
 
             
-                    <Button style={{float :' right'}} icon={<EditOutlined/>} />
+                  
                         
 
 
