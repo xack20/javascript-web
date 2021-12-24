@@ -13,15 +13,25 @@ const login = ({username,password}) => {
 };
 
 const  logout =  () => {
+    
+    const uid = localStorage.getItem('_uid_');
+    const refToken= localStorage.getItem('_rftkn_');
+    const accessToken = localStorage.getItem('_tkn_');
     localStorage.clear();
+    
     return axios({
         method: 'post',
         url: "/api/v1/auth/logout",
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
         data: {
-            "id" : `${localStorage.getItem('_uid_')}`
+            "id" : `${uid}`,
+            "refToken": `${refToken}`
         },
         withCredentials: true
       });
+
 };
 
 

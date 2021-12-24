@@ -17,8 +17,14 @@ export default function AdminDashboard() {
       try {
         const { data, status } = await dashboard();
         setData({ data: data, status: status });
+        
+        console.log("All data fetched successfully");
+      
       } catch (error) {
+        
         // access token refresh
+        console.log("Error in fetching data");
+
         const statusCode = error.message.split(" ")[error.message.split(" ").length - 1];
         if (statusCode === "401") {
           try {
@@ -27,15 +33,22 @@ export default function AdminDashboard() {
               localStorage.setItem("_tkn_", accessToken);
               localStorage.setItem("_rftkn_", refreshToken);
 
+              console.log(accessToken, refreshToken);
+              console.log("Access token refreshed successfully");
+
               try {
-                // try to get data again
+                  // try to get data again
                 const { data, status } = await dashboard();
                 setData({ data: data, status: status });
               } catch (error) {
                 // window.location.href = "/";
+                console.log("Error in fetching data, again!");
               }
+              
           } catch (error) {
             // refresh token expired
+            console.log("Refresh token expired");
+            
             window.localStorage.clear();
             window.location.reload();
           }

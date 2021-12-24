@@ -3,12 +3,21 @@ import { Menu, Dropdown, Button, Avatar } from 'antd';
 import SearchBar from '../../Components/Search/SearchBar.jsx';
 import './HeaderRightPart.css';
 import base64 from 'react-native-base64';
+import {logout} from '../../Services/Auth';
 
 
 
 const HeaderRightPart = () => {
 
-  const logout = () => {
+  const LogOut = async() => {
+    
+    try {
+      const res = await logout();
+      console.log(res.status);
+    } catch (error) {
+      console.log(error.message);
+    }
+    
     window.localStorage.clear();
     window.location.reload();
   }
@@ -20,7 +29,7 @@ const HeaderRightPart = () => {
       </Menu.Item>
       {base64.decode(window.localStorage.getItem("_usrl_"))==="admin" && <Menu.Item><Button type="text">Settings</Button></Menu.Item>}
       <Menu.Item>
-      <Button type="text" onClick={logout}>Logout</Button>
+      <Button type="text" onClick={LogOut}>Logout</Button>
       </Menu.Item>
     </Menu>
   );

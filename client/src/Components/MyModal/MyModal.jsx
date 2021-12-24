@@ -23,7 +23,7 @@ const componentName = ({ children, Width, Title, modalVisibility, setModalVisibi
         borderRadius: "5px",
       }}
       width={Width}
-      zIndex={10000000}
+      zIndex={10000}
       className="shadow-sm bg-body rounded"
     >
       <h3 style={{ textAlign: "center", marginBottom: "30px" }}>
