@@ -16,6 +16,7 @@ import BreadCrumb from '../../Components/BreadCrumb/BreadCrumb.jsx'
 
 // CSS Imports
 import './MainContent.css'
+import Profile from '../../Views/Profile/Profile.jsx'
 
 // De-Structuring Components
 const { Content } = Layout
@@ -41,6 +42,7 @@ function MainContent () {
     <Layout className={`${cssStyle} ml`}>
       <Content className='main-content'>
         <Switch>
+          
           <Route exact path='/'>
             <Redirect to='/admin-dashboard' />
           </Route>
@@ -67,16 +69,24 @@ function MainContent () {
             })
           })}
 
-          <Route path='/empty'>
+          <Route exact path='/empty'>
             <Empty
               description={'Nothing To Display'}
               image={Empty.PRESENTED_IMAGE_SIMPLE}
               style={{ marginTop: '300px' }}
             />
           </Route>
+
+          <Route exact path='/employee/profile'>
+            <Profile/>
+          </Route>
+
+          <Route exact path='/employee/profile/:id' component={Profile}/>
+          
           <Route path='*'>
             <NotFound name={'This'} />
           </Route>
+
         </Switch>
       </Content>
     </Layout>

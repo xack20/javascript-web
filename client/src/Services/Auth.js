@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const login = ({username,password}) => {
+const login = ({username,password}) => {
     return axios({
         method: 'post',
         url: "/api/v1/auth/login",
@@ -12,24 +12,58 @@ export const login = ({username,password}) => {
       });
 };
 
-export const  logout =  () => {
+const  logout =  () => {
     localStorage.clear();
-    return axios.get('/api/v1/auth/logout', {
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('_tkn_')}`
-        }
-    });
-};
-
-
-
-export const refreshToken =  () => {
-    return axios.get('/api/v1/auth/refresh-token', {
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('_tkn_')}`
-        },
+    return axios({
+        method: 'post',
+        url: "/api/v1/auth/logout",
         data: {
-            'token': localStorage.getItem('_rftkn_')
-        }
-    });
+            "id" : `${localStorage.getItem('_uid_')}`
+        },
+        withCredentials: true
+      });
 };
+
+
+
+const accessTokenRefresh =  () => {
+    return axios({
+        method: 'post',
+        url: "/api/v1/auth/refresh-token",
+        data: {
+            "refToken": `${localStorage.getItem('_rftkn_')}`
+        }
+      });
+};
+
+
+// const parseJwt = (token) => {
+//     try {
+//       return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString('ascii'));
+//     } catch (e) {
+//       return null;
+//     }
+//   };
+
+// const recheck = (status,recall) => {
+//     const token = localStorage.getItem('_tkn_');
+//     const refToken = localStorage.getItem('_rftkn_');
+//     const decodedJwt = parseJwt(token);
+//     if (decodedJwt.exp * 1000 < Date.now()) {
+//         refreshToken().then(res => {
+//             if (res.status === 200) {
+//                 localStorage.setItem('_tkn_', res.data.accessToken);
+//                 localStorage.setItem('_rftkn_', res.data.refreshToken);
+//                 // recall();
+//                 console.log("ok");
+//             }
+//         });
+//         // console.log(res);
+//         // recall();
+//     }
+//     // console.log(decodeJWt);
+//     // recall();
+// }
+
+export {login,logout,accessTokenRefresh};
+

@@ -74,15 +74,15 @@ public class AuthController {
 	@PostMapping("/refresh-token")
 	public ResponseEntity<?> refreshtoken(@RequestBody Map<String, String> refreshToken) {
 
-		RefreshToken token = refreshTokenService.findByRefreshToken(refreshToken.get("token"));
+		RefreshToken refToken = refreshTokenService.findByRefreshToken(refreshToken.get("refToken"));
 
-		if(token != null && refreshTokenService.verifyExpiration(token) != null) {
-			User user = token.getUser();
+		if(refToken != null && refreshTokenService.verifyExpiration(refToken) != null) {
+			User user = refToken.getUser();
 			Map<String, Object> claims = new HashMap<>();
 			claims.put("ROLES", user.getRoles().stream().map(item -> item.getRole()).collect(Collectors.toList()));
 			String jwt = jwtUtils.createToken(claims, user.getUsername());
 			
-			return ResponseEntity.ok(new RefreshTokenResponse("Bearer", jwt, refreshToken.get("token")));
+			return ResponseEntity.ok(new RefreshTokenResponse("Bearer", jwt, refreshToken.get("refToken")));
 		}
 		
 		return ResponseEntity.badRequest().body("Refresh token has expired/Not found!");
