@@ -40,7 +40,7 @@ public class RefreshTokenService {
 
 	public RefreshToken verifyExpiration(RefreshToken token) {
 		if (token.getExpDate().compareTo(Instant.now()) < 0) {
-			refreshTokenRepository.delete(token);
+			refreshTokenRepository.deleteByRefreshToken(token.getRefreshToken());
 			return null;
 		}
 
