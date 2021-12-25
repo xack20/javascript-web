@@ -5,7 +5,6 @@ import AddButton from '../../Components/AddButton/AddButton.jsx';
 import ClientForm from '../../Components/ClientForm/ClientForm.jsx';
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 import MyModal from '../../Components/MyModal/MyModal.jsx';
-import Project from '../../Components/Project/Project.jsx';
 import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
 import person from '../../Data/persons.js';
 import './Clients.css';
@@ -48,7 +47,7 @@ const Clients = () => {
     </Row>
 
 
-    <Project></Project>
+    
 
     
   </div>

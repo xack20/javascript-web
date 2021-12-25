@@ -5,6 +5,7 @@ import CardProgress from "../../Components/CardCustom/CardProgress/CardProgress"
 import TicketSet from "../../Components/TicketSet/TicketSet";
 import MyModal from '../../Components/MyModal/MyModal.jsx';
 import TicketForm from "../../Components/TicketForm/TicketForm";
+import LeaveForm from "../../Components/Leave/LeaveForm/LeaveForm";
 
 const Tickets = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -16,6 +17,11 @@ const Tickets = () => {
       </MyModal>
       <CardProgress></CardProgress>
       <TicketSet></TicketSet>
+
+
+
+
+      <LeaveForm></LeaveForm>
 
     </div>
   );
