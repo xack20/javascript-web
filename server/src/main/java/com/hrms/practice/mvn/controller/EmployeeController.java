@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/employee")
+public class EmployeeController {
 
 
 	@Autowired
@@ -46,19 +46,6 @@ public class UserController {
 		UserInfo.put("roles", user.getRoles().stream().map(item -> item.getRole()).collect(Collectors.toList()));
 		
 		return ResponseEntity.ok().body(new Response(true, "User found!", UserInfo));
-	}
-
-
-	@PostMapping("/register-admin")
-	public ResponseEntity<?> registerAdmin(@RequestBody User user) {
-		User regUser = userService.getUserByUsername(user.getUsername());
-		
-		if(regUser != null)
-			return ResponseEntity.badRequest().body(new Response(false, "Admin already exists!", null));
-		
-		
-		regUser = userService.saveAdmin(user);
-		return ResponseEntity.ok().body(regUser);
 	}
 
 
