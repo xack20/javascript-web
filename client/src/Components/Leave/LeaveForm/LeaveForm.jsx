@@ -83,9 +83,8 @@ const LeaveForm = ({setModalVisibility}) => {
                         },
                     ]}
                 >
-                     <Cascader className='popup'
+                     <Cascader dropdownClassName='popup'
                 options={optionsPrio}
-                size="middle"
                 onChange={onChange}
                 placeholder="Select Leave Type" 
                 style={{ borderColor: "#135200"}}

@@ -1,11 +1,11 @@
 
-import React,{useState} from "react";
+import React, { useState } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import CardProgress from "../../Components/CardCustom/CardProgress/CardProgress";
-import TicketSet from "../../Components/TicketSet/TicketSet";
+import LeavePage from "../../Components/Leave/LeavePage/LeavePage";
 import MyModal from '../../Components/MyModal/MyModal.jsx';
 import TicketForm from "../../Components/TicketForm/TicketForm";
-import LeaveForm from "../../Components/Leave/LeaveForm/LeaveForm";
+import TicketSet from "../../Components/TicketSet/TicketSet";
 
 const Tickets = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -20,8 +20,8 @@ const Tickets = () => {
 
 
 
-
-      <LeaveForm></LeaveForm>
+    <LeavePage></LeavePage>
+      
 
     </div>
   );
