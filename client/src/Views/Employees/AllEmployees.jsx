@@ -17,7 +17,7 @@ const AllEmployees = ()=> {
     <div>
     <AddButton setModalVisibility={setModalVisibility} buttonName={"Add Employee"}></AddButton>
       <MyModal Width={900} Title={"Add Employee"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
-        <EmployeeForm></EmployeeForm>
+        <EmployeeForm setModalVisibility={setModalVisibility}></EmployeeForm>
       </MyModal>
         
       <SearchBarClient></SearchBarClient>

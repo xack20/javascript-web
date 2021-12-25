@@ -2,11 +2,8 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Card, Col, Row } from 'antd';
 import React, { useState } from 'react';
 import AddButton from '../../Components/AddButton/AddButton.jsx';
-import ProjectInfo from '../../Components/CardCustom/CardProfile/ProjectInfo/ProjectInfo.jsx';
 import ClientForm from '../../Components/ClientForm/ClientForm.jsx';
-import Invoice from '../../Components/Invoice/Invoice.jsx';
-import InvoiceCreate from '../../Components/Invoice/InvoiceCreate/InvoiceCreate.jsx';
-import InvoiceSearch from '../../Components/Invoice/InvoiceSearch/InvoiceSearch.jsx';
+import Invoice from '../../Components/Invoice/Invoice';
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 import MyModal from '../../Components/MyModal/MyModal.jsx';
 import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient.jsx';
@@ -51,7 +48,7 @@ const Clients = () => {
     </Row>
 
 
-    <InvoiceSearch></InvoiceSearch>
+    <Invoice></Invoice>
 
     
   </div>

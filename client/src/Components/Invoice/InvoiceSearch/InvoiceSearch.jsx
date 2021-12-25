@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import { DatePicker, Button, Col, Row, Cascader } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -37,10 +37,10 @@ const InvoiceSearch = () => {
     return (
         <div>
 
-<AddButton setModalVisibility={setModalVisibility} buttonName={"Create Invoice"}></AddButton>
-      <MyModal Width={900} Title={"Create Invoice"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
-       <InvoiceCreate></InvoiceCreate>
-      </MyModal>
+            <AddButton setModalVisibility={setModalVisibility} buttonName={"Create Invoice"}></AddButton>
+            <MyModal Width={900} Title={"Create Invoice"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
+                <InvoiceCreate></InvoiceCreate>
+            </MyModal>
 
             <Row gutter={16} style={{ marginTop: "10px" }}>
                 <Col span={6}>
@@ -80,7 +80,7 @@ const InvoiceSearch = () => {
 
 
 
-            
+
 
 
 

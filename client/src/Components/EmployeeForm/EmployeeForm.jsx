@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button,Cascader } from 'antd';
+import { Form, Input, Button,notification } from 'antd';
 
 
 
@@ -13,28 +13,7 @@ const layout = {
 };
 
 
-const optionsPrio = [
-    {
-        value: 'High',
-        label: 'High',
 
-    },
-    {
-        value: 'Medium',
-        label: 'Medium',
-
-    },
-    {
-        value: 'Low',
-        label: 'Low',
-
-    }
-
-];
-
-function onChange(value, selectedOptions) {
-    console.log(value, selectedOptions);
-}
 
 
 /* eslint-disable no-template-curly-in-string */
@@ -52,11 +31,20 @@ const validateMessages = {
 
 
 
-const EmployeeForm = () => {
+const EmployeeForm = ({setModalVisibility}) => {
 
 
     const onFinish = (values) => {
-        console.log(values);
+
+        setModalVisibility(false);
+
+        notification["success"]({
+            message: 'Employee Added Successfully',
+            description:'',
+            placement:"bottomRight"
+          });
+
+        //console.log(values);
     };
 
     return (
