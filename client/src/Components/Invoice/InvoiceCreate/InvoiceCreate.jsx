@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Input, Row } from 'antd';
 import { DatePicker, Table } from 'antd';
-import "./style.css";
+ import "./style.css";
 
 const { TextArea } = Input;
 

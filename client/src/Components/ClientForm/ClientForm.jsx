@@ -43,7 +43,7 @@ const ClientForm = () => {
 
             <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
                 <Form.Item
-                    name={['client', 'fname']}
+                    name='firstname'
                     label="First Name"
                     rules={[
                         {
@@ -56,7 +56,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name={['client', 'lname']}
+                    name='last name'
                     label="Last Name"
                 >
                     <Input />
@@ -66,7 +66,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name={['user', 'name']}
+                    name='username'
                     label="Username"
                     rules={[
                         {
@@ -74,14 +74,14 @@ const ClientForm = () => {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input autoComplete='false'/>
                 </Form.Item>
 
 
 
 
                 <Form.Item
-                    name={['user', 'email']}
+                    name='email'
                     label="Email"
                     rules={[
                         {
@@ -95,58 +95,11 @@ const ClientForm = () => {
 
 
 
-                {/* Password field */}
+              
 
 
                 <Form.Item
-                    name="password"
-                    label="Password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your password!',
-                        },
-
-                        {
-                            
-                            min: 3, 
-                            max: 8,
-                            message: 'Password must be in between 3 to 8 characters.'
-                        },
-
-                    ]}
-                    hasFeedback
-                >
-                    <Input.Password />
-                </Form.Item>
-
-                <Form.Item
-                    name="confirm"
-                    label="Confirm Password"
-                    dependencies={['password']}
-                    hasFeedback
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please confirm your password!',
-                        },
-                        ({ getFieldValue }) => ({
-                            validator(_, value) {
-                                if (!value || getFieldValue('password') === value) {
-                                    return Promise.resolve();
-                                }
-
-                                return Promise.reject(new Error('The two passwords that you entered do not match!'));
-                            },
-                        }),
-                    ]}
-                >
-                    <Input.Password />
-                </Form.Item>
-
-
-                <Form.Item
-                    name={['client', 'id']}
+                    name='id'
                     label="Client ID"
                     rules={[
                         {
@@ -180,7 +133,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name={['company', 'name']}
+                    name='comname'
                     label="Company Name"
                     rules={[
                         {

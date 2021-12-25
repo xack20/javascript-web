@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import InvoiceSearch from './InvoiceSearch/InvoiceSearch';
-import InvoiceTable from './InvoiceTable/InvoiceTable';
+//import InvoiceTable from './InvoiceTable/InvoiceTable';
 
 import AddButton from '../../Components/AddButton/AddButton.jsx';
 import MyModal from '../../Components/MyModal/MyModal.jsx';
@@ -20,7 +20,7 @@ const Invoice = () => {
 
             <InvoiceSearch></InvoiceSearch>
 
-            <InvoiceTable></InvoiceTable>
+            {/* <InvoiceTable></InvoiceTable> */}
 
             <InvoiceDetails></InvoiceDetails>
 

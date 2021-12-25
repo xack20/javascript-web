@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button,Cascader } from 'antd';
 
 
 
@@ -12,6 +12,29 @@ const layout = {
     },
 };
 
+
+const optionsPrio = [
+    {
+        value: 'High',
+        label: 'High',
+
+    },
+    {
+        value: 'Medium',
+        label: 'Medium',
+
+    },
+    {
+        value: 'Low',
+        label: 'Low',
+
+    }
+
+];
+
+function onChange(value, selectedOptions) {
+    console.log(value, selectedOptions);
+}
 
 
 /* eslint-disable no-template-curly-in-string */
@@ -41,7 +64,7 @@ const EmployeeForm = () => {
 
             <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
                 <Form.Item
-                    name={['employee', 'fname']}
+                    name='firstname'
                     label="First Name"
                     rules={[
                         {
@@ -49,22 +72,22 @@ const EmployeeForm = () => {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input autoComplete='off' allowClear='true'/>
                 </Form.Item>
 
 
                 <Form.Item
-                    name={['employee', 'lname']}
+                    name='lastname'
                     label="Last Name"
                 >
-                    <Input />
+                    <Input autoComplete='off' allowClear='true'/>
                 </Form.Item>
 
             
 
 
             <Form.Item
-                name={['user', 'name']}
+                name='username'
                 label="Username"
                 rules={[
                     {
@@ -72,14 +95,14 @@ const EmployeeForm = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input  autoComplete='off' allowClear='true'/>
             </Form.Item>
 
 
 
 
             <Form.Item
-                name={['user', 'email']}
+                name='email'
                 label="Email"
                 rules={[
                     {
@@ -87,7 +110,7 @@ const EmployeeForm = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input autoComplete='off' allowClear='true'/>
             </Form.Item>
 
 
@@ -113,7 +136,7 @@ const EmployeeForm = () => {
                 ]}
                 hasFeedback
             >
-                <Input.Password />
+                <Input.Password autoComplete='off' allowClear='true'/>
             </Form.Item>
 
             <Form.Item
@@ -137,12 +160,12 @@ const EmployeeForm = () => {
                     }),
                 ]}
             >
-                <Input.Password />
+                <Input.Password autoComplete='off' allowClear='true'/>
             </Form.Item>
 
 
             <Form.Item
-                name={['employee', 'id']}
+                name='id'
                 label="Employee ID"
                 rules={[
                     {
@@ -150,7 +173,7 @@ const EmployeeForm = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input autoComplete='off' allowClear='true'/>
             </Form.Item>
 
 
@@ -165,24 +188,25 @@ const EmployeeForm = () => {
                     style={{
                         width: '100%',
                     }}
+                    autoComplete='off' allowClear='true'
                 />
             </Form.Item>
 
 
             <Form.Item
-                name={['company', 'name']}
-                label="Company Name"
+                name='role'
+                label="Role"
                 rules={[
                     {
                         required: true,
                     },
                 ]}
             >
-                <Input />
+                <Input autoComplete='off' allowClear='true'/>
             </Form.Item>
 
             <Form.Item
-                name={['employee', 'designation']}
+                name= 'designation'
                 label="Designation"
                 rules={[
                     {
@@ -190,11 +214,11 @@ const EmployeeForm = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input autoComplete='off' allowClear='true'/>
             </Form.Item>
 
             <Form.Item
-                name={['eployee', 'department']}
+                name='department'
                 label="Department"
                 rules={[
                     {
@@ -202,7 +226,7 @@ const EmployeeForm = () => {
                     },
                 ]}
             >
-                <Input />
+               <Input autoComplete='off' allowClear='true'/>
             </Form.Item>
 
 

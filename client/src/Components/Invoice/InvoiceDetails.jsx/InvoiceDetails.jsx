@@ -36,7 +36,7 @@ const InvoiceDetails = () => {
                             </tr>
                         </tbody></table>
 
-                </Col>
+                </Col>e
             </Row>
 
             <Row style={{ marginTop: 48 }}>
