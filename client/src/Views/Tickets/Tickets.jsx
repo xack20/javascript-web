@@ -2,10 +2,13 @@
 import React, { useState } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import CardProgress from "../../Components/CardCustom/CardProgress/CardProgress";
-import LeavePageAdmin from "../../Components/Leave/LeavePage/LeavePageAdmin";
 import MyModal from '../../Components/MyModal/MyModal.jsx';
+import ProfileTableEmpTop from "../../Components/ProfileEmployee/ProfileTable/ProfileTableEmpTop";
 import TicketForm from "../../Components/TicketForm/TicketForm";
 import TicketSet from "../../Components/TicketSet/TicketSet";
+import LeavePage from '../../Components/Leave/LeavePage/LeavePageAdmin';
+import ProfileTableCilentTop from "../../Components/ProfileClient/ProfileTableClientTop";
+import ProfileClient from "../../Components/ProfileClient/ProfileClient";
 
 const Tickets = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -19,9 +22,8 @@ const Tickets = () => {
       <TicketSet></TicketSet>
 
 
-
-    <LeavePageAdmin></LeavePageAdmin>
-      
+      {/* <ProfileTableEmpTop></ProfileTableEmpTop> */}
+      <ProfileClient></ProfileClient>    
 
     </div>
   );
