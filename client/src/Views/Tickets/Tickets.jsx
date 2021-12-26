@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import CardProgress from "../../Components/CardCustom/CardProgress/CardProgress";
-import LeavePage from "../../Components/Leave/LeavePage/LeavePage";
+import LeavePageAdmin from "../../Components/Leave/LeavePage/LeavePageAdmin";
 import MyModal from '../../Components/MyModal/MyModal.jsx';
 import TicketForm from "../../Components/TicketForm/TicketForm";
 import TicketSet from "../../Components/TicketSet/TicketSet";
@@ -20,7 +20,7 @@ const Tickets = () => {
 
 
 
-    <LeavePage></LeavePage>
+    <LeavePageAdmin></LeavePageAdmin>
       
 
     </div>

@@ -1,7 +1,8 @@
-
 import React from 'react';
 import { Space, Table,Button } from 'antd';
-import "./TableLeads.css";
+
+
+
 
 const columns = [
     {
@@ -12,18 +13,19 @@ const columns = [
         fixed: 'left',
     },
     {
-        title: 'Lead Name',
+        title: 'Employee Name',
         width: 100,
         dataIndex: 'Task ID',
         key: 'Task ID',
         fixed: 'left',
     },
-    { title: 'Email', dataIndex: 'address', key: '1' },
-    { title: 'Mobile', dataIndex: 'address', key: '2' },
-    { title: 'Project', dataIndex: 'address', key: '3' },
-    { title: 'Assigned Staff', dataIndex: 'address', key: '4' },
-    { title: 'Status', dataIndex: 'address', key: '5' },
-    { title: 'Created', dataIndex: 'address', key: '6' },
+    { title: 'Leave Type', dataIndex: 'address', key: '1' },
+    { title: 'From', dataIndex: 'address', key: '2' },
+    { title: 'To', dataIndex: 'address', key: '3' },
+    { title: 'No of days', dataIndex: 'address', key: '4' },
+    { title: 'Reason', dataIndex: 'address', key: '5' },
+    { title: 'Status', dataIndex: 'address', key: '6' },
+    
     
     {
         title: 'Action',
@@ -50,16 +52,13 @@ const data = [
 ];
 
 
-
-const TableLeads = () => {
+const LeavePageTableAdmin = () => {
     return (
-        <div>
-             <Table bordered columns={columns} dataSource={data} />
-
+        <div style={{marginTop:"20px"}}>
+              <Table bordered columns={columns} dataSource={data} />
             
         </div>
     );
 };
 
-export default TableLeads;
-
+export default LeavePageTableAdmin;

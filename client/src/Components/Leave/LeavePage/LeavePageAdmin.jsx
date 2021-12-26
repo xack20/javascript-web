@@ -2,9 +2,10 @@ import React,{useState} from 'react';
 import AddButton from '../../AddButton/AddButton';
 import MyModal from '../../MyModal/MyModal';
 import LeaveForm from "../LeaveForm/LeaveForm";
-import LeavePageCard from '../LeavePageCard/LeavePageCard';
+import LeavePageCardAdmin from '../LeavePageCard/LeavePageCardAdmin';
+import LeavePageTableAdmin from '../LeavePageTableEmp/LeavePageTableAdmin';
 
-const LeavePage = () => {
+const LeavePageAdmin = () => {
     const [modalVisibility, setModalVisibility] = useState(false);
     return (
         <div>
@@ -14,10 +15,11 @@ const LeavePage = () => {
                 <LeaveForm></LeaveForm>
             </MyModal>
 
-            <LeavePageCard></LeavePageCard>
+            <LeavePageCardAdmin></LeavePageCardAdmin>
+            <LeavePageTableAdmin></LeavePageTableAdmin>
 
         </div>
     );
 };
 
-export default LeavePage;
+export default LeavePageAdmin;
