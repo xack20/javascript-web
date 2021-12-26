@@ -9,6 +9,8 @@ import TicketSet from "../../Components/TicketSet/TicketSet";
 import LeavePage from '../../Components/Leave/LeavePage/LeavePageAdmin';
 import ProfileTableCilentTop from "../../Components/ProfileClient/ProfileTableClientTop";
 import ProfileClient from "../../Components/ProfileClient/ProfileClient";
+import LowerPart from "../../Components/ProfileEmployee/LowerPart/LowerPart";
+import EmpProfilePage from "../../Components/ProfileEmployee/EmpProfilePage/EmpProfilePage";
 
 const Tickets = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -22,8 +24,8 @@ const Tickets = () => {
       <TicketSet></TicketSet>
 
 
-      {/* <ProfileTableEmpTop></ProfileTableEmpTop> */}
-      <ProfileClient></ProfileClient>    
+      <EmpProfilePage></EmpProfilePage>
+        
 
     </div>
   );
