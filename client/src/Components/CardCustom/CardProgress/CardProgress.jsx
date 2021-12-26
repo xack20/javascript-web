@@ -2,10 +2,16 @@ import React from 'react';
 import { Statistic, Card, Row, Col } from 'antd';
 import { Progress } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 
 
 const CardProgress = () => {
+    const [newTicketChangeStat,setNewTicketChangeStat] = useState(20)
+    const [oldTicketChangeStat,setOldTicketChangeStat] = useState(9.3)
+    
+
+
     return (
          <div className="site-statistic-demo-card">
                 <Row gutter={16}>
@@ -13,9 +19,9 @@ const CardProgress = () => {
                         <Card style={{  background: "#fff7e6", borderRadius: "20px",borderColor: "#096dd9"}}>
                             <Statistic
                                 title="New Tickets"
-                                value={20}
+                                value={newTicketChangeStat}
                                 precision={2}
-                                valueStyle={{ color: '#3f8600' }}
+                                valueStyle={{ color: `${ newTicketChangeStat >= 0 ? "#3f8600" : "#cf1322" }` }}
                                 prefix={<ArrowUpOutlined />}
                                 suffix="%"
                                 style={{fontWeight: "bold"}}
@@ -33,9 +39,9 @@ const CardProgress = () => {
                         <Card style={{  background: "#fcffe6", borderRadius: "20px",borderColor: "#08979c" }}>
                             <Statistic
                                 title="Solved Tickets"
-                                value={9.3}
+                                value={oldTicketChangeStat}
                                 precision={2}
-                                valueStyle={{ color: '#cf1322' }}
+                                valueStyle={{ color: "cf1322" }}
                                 prefix={<ArrowDownOutlined />}
                                 suffix="%"
                                 style={{fontWeight: "bold"}}
