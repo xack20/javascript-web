@@ -32,7 +32,7 @@ const DividerVerticalV2 = ({props}) => {
 
         <div class="row">
           <div class="col text-center">
-            <Button type="primary" style={{ background: "#531dab", borderRadius:"10px" }} onClick={onApply}>Apply</Button>
+            <Button ghost type="primary" style={{  borderRadius:"10px" }} onClick={onApply}>Apply</Button>
           </div>
         </div>
 

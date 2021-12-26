@@ -1,4 +1,4 @@
-import { Table, Row, Col, Avatar, Card, Divider } from 'antd';
+import { Avatar, Col, Divider, Row, Table } from 'antd';
 import React from 'react';
 
 const { Column } = Table;

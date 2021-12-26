@@ -1,7 +1,6 @@
-import { Row, Col, Table, } from 'antd';
+import { Col, Row, Steps, Table } from 'antd';
 import React from 'react';
 
-import { Steps, Divider } from 'antd';
 
 const { Step } = Steps;
 

@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const CardProgress = () => {
     const [newTicketChangeStat,setNewTicketChangeStat] = useState(20)
-    const [oldTicketChangeStat,setOldTicketChangeStat] = useState(9.3)
+    const [oldTicketChangeStat,setOldTicketChangeStat] = useState(-9.3)
     
 
 
@@ -16,7 +16,7 @@ const CardProgress = () => {
          <div className="site-statistic-demo-card">
                 <Row gutter={16}>
                     <Col span={6}>
-                        <Card style={{  background: "#fff7e6", borderRadius: "20px",borderColor: "#096dd9"}}>
+                        <Card style={{  background: `${ newTicketChangeStat >= 0 ?   "#e6fffb"  : "#fff1f0"}`, borderRadius: "20px",borderColor: "#096dd9"}}>
                             <Statistic
                                 title="New Tickets"
                                 value={newTicketChangeStat}
@@ -28,20 +28,20 @@ const CardProgress = () => {
                             />
                             <Progress
                                 strokeColor={{
-                                    '0%': '#fa8c16',
-                                    '100%': '#fa8c16',
+                                    '0%': '#00474f',
+                                    '100%': '#00474f',
                                 }}
                                 percent={99.9}
                             />
                         </Card>
                     </Col>
                     <Col span={6}>
-                        <Card style={{  background: "#fcffe6", borderRadius: "20px",borderColor: "#08979c" }}>
+                        <Card style={{  background: `${ oldTicketChangeStat < 0 ?      "#fff1f0" : "#e6fffb"}`, borderRadius: "20px",borderColor: "#08979c" }}>
                             <Statistic
                                 title="Solved Tickets"
-                                value={oldTicketChangeStat}
+                                value={Math.abs(oldTicketChangeStat)}
                                 precision={2}
-                                valueStyle={{ color: "cf1322" }}
+                                valueStyle={{ color: `${ oldTicketChangeStat < 0 ?  "#cf1322" : "#3f8600"}` }}
                                 prefix={<ArrowDownOutlined />}
                                 suffix="%"
                                 style={{fontWeight: "bold"}}
@@ -49,8 +49,8 @@ const CardProgress = () => {
                             />
                              <Progress
                                 strokeColor={{
-                                    '0%': '#fa8c16',
-                                    '100%': '#fa8c16',
+                                    '0%': '#00474f',
+                                    '100%': '#00474f',
                                 }}
                                 percent={99.9}
                             />
@@ -59,12 +59,12 @@ const CardProgress = () => {
 
 
                     <Col span={6}>
-                    <Card style={{  background: "#e6f7ff", borderRadius: "20px",borderColor: "#531dab" }}>
+                    <Card style={{  background: `${ oldTicketChangeStat < 0 ?      "#fff1f0" : "#e6fffb"}`, borderRadius: "20px",borderColor: "#531dab" }}>
                             <Statistic
                                 title="Open Tickets"
-                                value={9.3}
+                                value={Math.abs(oldTicketChangeStat)}
                                 precision={2}
-                                valueStyle={{ color: '#cf1322' }}
+                                valueStyle={{ color: `${ oldTicketChangeStat < 0 ?  "#cf1322" : "#3f8600"}`}}
                                 prefix={<ArrowDownOutlined />}
                                 suffix="%"
                                 style={{fontWeight: "bold"}}
@@ -72,8 +72,8 @@ const CardProgress = () => {
                             />
                              <Progress
                                 strokeColor={{
-                                    '0%': '#fa8c16',
-                                    '100%': '#fa8c16',
+                                    '0%': '#00474f',
+                                    '100%': '#00474f',
                                 }}
                                 percent={99.9}
                             />
@@ -81,20 +81,20 @@ const CardProgress = () => {
                     </Col>
 
                     <Col span={6}>
-                    <Card style={{  background: "#e6fffb", borderRadius: "20px",borderColor: "#7cb305" }}>
+                    <Card style={{  background: `${ newTicketChangeStat >= 0 ?   "#e6fffb"  : "#fff1f0"}` , borderRadius: "20px",borderColor: "#7cb305" }}>
                             <Statistic
                                 title="Pending Tickets"
-                                value={11.28}
+                                value={newTicketChangeStat}
                                 precision={2}
-                                valueStyle={{ color: '#3f8600' }}
+                                valueStyle={{ color: `${ newTicketChangeStat >= 0 ?   "#3f8600"  : "#cf1322"}` }}
                                 prefix={<ArrowUpOutlined />}
                                 suffix="%"
                                 style={{fontWeight: "bold"}}
                             />
                             <Progress
                                 strokeColor={{
-                                    '0%': '#fa8c16',
-                                    '100%': '#fa8c16',
+                                    '0%': '#00474f',
+                                    '100%': '#00474f',
                                 }}
                                 percent={99.9}
                             />
