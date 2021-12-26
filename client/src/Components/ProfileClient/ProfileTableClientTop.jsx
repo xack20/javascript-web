@@ -1,4 +1,4 @@
-import { Table, Row, Col, Avatar, Card } from 'antd';
+import { Table, Row, Col, Avatar, Card, Divider } from 'antd';
 import React from 'react';
 
 const { Column } = Table;
@@ -94,6 +94,8 @@ const ProfileTableCilentTop = () => {
                 </Col>
 
             </Row>
+
+            <Divider></Divider>
 
 
 
