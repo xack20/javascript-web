@@ -31,5 +31,63 @@ public class Education{
     @Column(name = "msc")
     private int msc;
 
+    @Column(name = "user_id")
+    private int user_id;
+
+
+    public int getEd_id() {
+        return this.ed_id;
+    }
+
+    public void setEd_id(int ed_id) {
+        this.ed_id = ed_id;
+    }
+
+
+    public int getSsc() {
+        return this.ssc;
+    }
+
+    public void setSsc(int ssc) {
+        this.ssc = ssc;
+    }
+
+
+
+    public int getHsc() {
+        return this.hsc;
+    }
+
+    public void setHsc(int hsc) {
+        this.hsc = hsc;
+    }
+
+
+
+    public int getBsc() {
+        return this.bsc;
+    }
+
+    public void setBsc(int bsc) {
+        this.bsc = bsc;
+    }
+
+    public int getMsc() {
+        return this.msc;
+    }
+
+    public void setMsc(int msc) {
+        this.msc = msc;
+    }
+
+
+    public int getUser_id() {
+        return this.user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
     
 }
