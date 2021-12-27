@@ -1,49 +1,49 @@
-import * as React from 'react';
-import SendIcon from '@mui/icons-material/Send';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import base64 from 'react-native-base64'
+import * as React from "react";
+import SendIcon from "@mui/icons-material/Send";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import base64 from "react-native-base64";
 
+import { notification } from "antd";
 
-import {login} from "../../Services/Auth";
-import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
-
+import { login } from "../../Services/Auth";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 function Copyright(props) {
-  
-
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       {new Date().getFullYear()}
-     All Right Reserved | Designed by {'Mohammad Farhan Sadik'}  
-      {'.'}
-    </Typography>  
+      All Right Reserved | Designed by {"Mohammad Farhan Sadik"}
+      {"."}
+    </Typography>
   );
 }
 
 const theme = createTheme();
 
-
-
-export default function SignIn () {
-
+export default function SignIn() {
   const histroy = useHistory();
-  
+
   useEffect(() => {
-    if(window.localStorage.getItem("_tkn_")){
+    if (window.localStorage.getItem("_tkn_")) {
       histroy.push("/");
     }
   }, [histroy]);
@@ -53,24 +53,36 @@ export default function SignIn () {
 
     const data = new FormData(event.currentTarget);
 
-    const res = await login({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
+    try {
+      const res = await login({
+        username: data.get("username"),
+        password: data.get("password"),
+      });
+      window.localStorage.clear();
+
+      window.localStorage.setItem("_uid_", res.data.userid);
+      window.localStorage.setItem("_usnm_", base64.encode(res.data.username));
+      window.localStorage.setItem("_usrl_", base64.encode(res.data.roles[0]));
+
+      window.localStorage.setItem("_tkn_", res.data.token);
+      window.localStorage.setItem("_rftkn_", res.data.refreshToken);
+
+      notification.success({
+        message: `Welcome ${res.data.username}`,
+        description: "Successfully Logged In",
+        placement: "bottomRight",
+      });
 
 
+      histroy.push("/");
+    } catch (error) {
+      notification.error({
+        message: "Incorrect Username or Password",
+        description: error.message,
+        placement: "bottomRight",
+      });
 
-    window.localStorage.clear();
-
-    window.localStorage.setItem("_uid_", res.data.userid);
-    window.localStorage.setItem("_usnm_", base64.encode(res.data.username));
-    window.localStorage.setItem('_usrl_', base64.encode(res.data.roles[0]));
-
-    window.localStorage.setItem('_tkn_', res.data.token);
-    window.localStorage.setItem('_rftkn_', res.data.refreshToken);
-    
-    histroy.push('/');
-
+    }
   };
 
   return (
@@ -80,12 +92,12 @@ export default function SignIn () {
         <Box
           sx={{
             marginTop: 20,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'blue' }}>
+          <Avatar sx={{ m: 1, bgcolor: "blue" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -116,12 +128,16 @@ export default function SignIn () {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-           
-            <Button type="submit"
+
+            <Button
+              type="submit"
               fullWidth
               sx={{ mt: 3, mb: 2 }}
-               variant="contained" endIcon={<SendIcon/>}>Sign in
-               </Button>
+              variant="contained"
+              endIcon={<SendIcon />}
+            >
+              Sign in
+            </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
