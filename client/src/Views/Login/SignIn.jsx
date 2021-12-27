@@ -76,11 +76,20 @@ export default function SignIn() {
 
       histroy.push("/");
     } catch (error) {
-      notification.error({
-        message: "Incorrect Username or Password",
-        description: error.message,
-        placement: "bottomRight",
-      });
+      if(error.response.status === 401){
+        notification.error({
+          message: "Error",
+          description: "Invalid Username or Password",
+          placement: "bottomRight",
+        });
+      }
+      else{
+        notification.error({
+          message: "Server Error",
+          description: "Something went wrong",
+          placement: "bottomRight",
+        });
+      }
 
     }
   };
