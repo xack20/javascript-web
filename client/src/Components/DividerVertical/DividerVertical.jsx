@@ -8,10 +8,10 @@ import { Row, Col } from "antd";
 
 const DividerVertical = () => {
   return (
-    <div>
+    <div style={{marginTop:"10px"}}>
       <Card style={{ backgroundColor: "#fff7e6", color: "black", borderRadius: "25px", borderColor:"#096dd9" }}>
         <Row >
-          <Col span={6} style={{textAlign:"center"}}>
+          <Col span={6} style={{textAlign:"center",height:"150px"}}>
             <p>14</p>
             <p>Assigned Token</p>
           </Col>

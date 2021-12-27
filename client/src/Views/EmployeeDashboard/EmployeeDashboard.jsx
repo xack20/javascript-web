@@ -6,6 +6,7 @@ import CardAvatar from "../../Components/CardCustom/CardAvatar/CardAvatar";
 import DividerVertical from "../../Components/DividerVertical/DividerVertical";
 import DividerVerticalV2 from "../../Components/DividerVertical/DividerVerticalV2";
 import { dashboard } from "../../Services/EmployeeDashboard";
+import CardNew from "../../Components/CardCustom/CardAvatar/CardNew";
 
 
 function EmployeeDashboard(props) {
@@ -37,13 +38,13 @@ function EmployeeDashboard(props) {
 
       <Row gutter={[8, 8]}>
 
-        <Col span={18}>
+        <Col span={17}>
           <div>
             <p style={{ fontSize: "30px" }}>Today
             {
               today.map((item, index) => {
                 return (
-                  <CardAvatar index={index} item={item}/>
+                  <CardAvatar  index={index} item={item}/>
                 )
               })
             }
@@ -67,29 +68,29 @@ function EmployeeDashboard(props) {
 
         <Col span={6}>
           <div>
-            <p style={{ fontSize: "20px" }}>Projects
+            <p style={{ fontSize: "20px", textAlign:"center"}}>Projects
             <DividerVertical></DividerVertical>
             </p>
             
           </div>
 
           <div>
-            <p style={{ fontSize: "20px" }}>Your Leave
+            <p style={{ fontSize: "20px" , textAlign:"center"}}>Your Leave
             <DividerVerticalV2 props={ {type : "leave", data  : leave} } />
             </p>
            
           </div>
 
           <div>
-            <p style={{ fontSize: "20px" }}>Time-off Allowance
+            <p style={{ fontSize: "20px" , textAlign:"center" }}>Time-off Allowance
             <DividerVerticalV2 props={{type : "toa", data  : toa}} />
             </p>
             
           </div>
 
           <div>
-            <p style={{ fontSize: "20px" }}>Upcoming Holiday
-            <CardAvatar/>
+            <p style={{ fontSize: "20px" , textAlign:"center"  }}>Upcoming Holiday
+            <CardNew/>
             </p>
             
           </div>

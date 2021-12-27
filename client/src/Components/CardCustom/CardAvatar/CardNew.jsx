@@ -1,14 +1,14 @@
 import React from "react";
 import { Card } from "antd";
-import { Avatar } from "antd";
 
-const CardAvatar = ({index,item}) => {
+
+const CardNew = ({index,item}) => {
   return (
     <div>
 
       <div style={{marginTop:"20px"}}>
         <Card style={{  background:( index&1 ? "#e6fffb" : "#e6f7ff"), borderColor:( index&1 ? "#531dab" : "#7cb305"), marginTop:"5px", borderRadius: "20px", height:"9vh",width:"90%" }}>
-          <p style={{color:"black"}}> <Avatar  size={40} src="https://joeschmoe.io/api/v1/random" /> Hello</p>
+          <p style={{color:"black"}}> Hello</p>
         </Card>
       </div>
 
@@ -16,4 +16,4 @@ const CardAvatar = ({index,item}) => {
   );
 };
 
-export default CardAvatar;
+export default CardNew;

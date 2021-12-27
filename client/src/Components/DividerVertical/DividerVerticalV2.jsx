@@ -10,7 +10,7 @@ const DividerVerticalV2 = ({props}) => {
   }
 
   return (
-    <div>
+    <div style={{marginTop:"10px"}}>
       {console.log(props.type,props.data)}
       <Card style={{ backgroundColor: "#e6fffb", color: "black", borderRadius: "25px", borderColor:"#096dd9" }}>
         <Row >
