@@ -59,19 +59,20 @@ public class EmployeeController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> employeeInfo(@PathVariable long id) {
 
-		Employee employee = employeeRepository.findByUserId(id);
 		User user = userRepository.findByUserId(id);
+		Employee employee = employeeRepository.findByUserId(id);
 
-
-		if(user == null || employee == null)
+		if(user == null || employee == null) 
 			return ResponseEntity.badRequest().body(new Response(false, "No user found by this ID!", null));
 
 
 		if(!Config.user_role.equals("ADMIN") && !Config.user_now.equals(user.getUsername())) 
 			return ResponseEntity.badRequest().body("You are not authorized to view this page!");
+
+		Map<String,Object>fullEmpDetails = employeeService.getOneEmployee(id);
 	
 		
-		return ResponseEntity.ok().body(new Response(true, "User found!", employee));
+		return ResponseEntity.ok().body(new Response(true, "User found!", fullEmpDetails));
 	}
 
 

@@ -76,9 +76,9 @@ export default function SignIn() {
 
       histroy.push("/");
     } catch (error) {
-      if(error.response.status === 401){
+      if(error.response.status === 400){
         notification.error({
-          message: "Error",
+          message: "Credentials Error",
           description: "Invalid Username or Password",
           placement: "bottomRight",
         });

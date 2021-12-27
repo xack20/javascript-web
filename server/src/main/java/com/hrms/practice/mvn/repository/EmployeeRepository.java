@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    @Query(value="SELECT * FROM testdb.employees WHERE user_id = ?1",nativeQuery = true)
+    @Query(value="SELECT * FROM testdb.employees WHERE user_id = ?1 AND deleted = false",nativeQuery = true)
     Employee findByUserId(long id);
 
     

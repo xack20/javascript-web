@@ -186,4 +186,27 @@ public class EmployeeService {
 	public User getUserByUserId(long id) {
 		return userRepository.findByUserId(id);
 	}
+
+    public Map<String, Object> getOneEmployee(long id) {
+
+		Map<String,Object> employeeFullDetails = new HashMap<String,Object>();
+
+		Employee employee = employeeRepository.findByUserId(id);
+		BankInfo bankInfo = bankInfoRepository.findByUserId(id);
+		Education education = educationRepository.findByUserId(id);
+		EmergencyContact emergencyContact = emergencyContactRepository.findByUserId(id);
+		Experience experience = experienceRepository.findByUserId(id);
+		FamilyInfo familyInfo = familyInfoRepository.findByUserId(id);
+
+		employeeFullDetails.put("employee",employee);
+		employeeFullDetails.put("bankInfo",bankInfo);
+		employeeFullDetails.put("education",education);
+		employeeFullDetails.put("emergencyContact",emergencyContact);
+		employeeFullDetails.put("experience",experience);
+		employeeFullDetails.put("familyInfo",familyInfo);
+		
+
+		return employeeFullDetails;
+		
+    }
 }

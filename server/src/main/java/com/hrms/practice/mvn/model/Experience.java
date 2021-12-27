@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "education")
+@Table(name = "experience")
 @Component
 public class Experience{
     @Id
