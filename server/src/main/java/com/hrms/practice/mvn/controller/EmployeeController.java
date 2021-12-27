@@ -121,13 +121,13 @@ public class EmployeeController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> updateEmployee(@PathVariable long id,@RequestBody Map<String,Object> payload) {
 		
-		Employee employee = employeeService.updateEmployee(payload,id);
+		Map<String,Object> employeeFullDetails = employeeService.updateEmployee(payload,id);
 
-		if(employee == null){
+		if(employeeFullDetails == null){
 			return ResponseEntity.badRequest().body(new Response(true, "User Not Found!", null));	
 		}
 
-		return ResponseEntity.ok().body(new Response(true, "User Updated Successfully!", employee));
+		return ResponseEntity.ok().body(new Response(true, "User Updated Successfully!", employeeFullDetails));
 	}
 
 }

@@ -29,7 +29,7 @@ public class Employee {
     private String email;
 
     @Column(name = "user_id", unique = true)
-    private Long user_id;
+    private long user_id;
 
     @Column(name = "employee_id", unique = true)
     private String employee_id;
@@ -46,8 +46,8 @@ public class Employee {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "birtday")
-    private String birtday;
+    @Column(name = "birthday")
+    private String birthday;
 
     @Column(name = "Gender")
     private String gender;
@@ -112,12 +112,12 @@ public class Employee {
     }
 
 
-    public String getBirtday() {
-        return this.birtday;
+    public String getBirthday() {
+        return this.birthday;
     }
 
-    public void setBirtday(String birtday) {
-        this.birtday = birtday;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getGender() {
@@ -223,7 +223,7 @@ public class Employee {
         this.email = email;
     }
 
-    public Long getUser_id() {
+    public long getUser_id() {
         return this.user_id;
     }
 

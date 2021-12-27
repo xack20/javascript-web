@@ -18,22 +18,22 @@ public class FamilyInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fi_id")
-    private int bi_id;
+    private Long bi_id;
 
     @Column(name = "name")
-    private int name;
+    private String name;
 
     @Column(name = "relashionship")
-    private int relashionship;
+    private String relashionship;
 
     @Column(name = "birthday")
-    private int birthday;
+    private String birthday;
 
     @Column(name = "phone")
-    private int phone;
+    private String phone;
 
     @Column(name = "user_id")
-    private int user_id;
+    private Long user_id;
 
 
 
@@ -42,55 +42,55 @@ public class FamilyInfo {
 
     
 
-    public int getBi_id() {
+    public Long getBi_id() {
         return this.bi_id;
     }
 
-    public void setBi_id(int bi_id) {
+    public void setBi_id(Long bi_id) {
         this.bi_id = bi_id;
     }
 
 
-    public int getName() {
+    public String getName() {
         return this.name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getRelashionship() {
+    public String getRelashionship() {
         return this.relashionship;
     }
 
-    public void setRelashionship(int relashionship) {
+    public void setRelashionship(String relashionship) {
         this.relashionship = relashionship;
     }
 
 
-    public int getBirthday() {
+    public String getBirthday() {
         return this.birthday;
     }
 
-    public void setBirthday(int birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
 
-    public int getPhone() {
+    public String getPhone() {
         return this.phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
 
-    public int getUser_id() {
+    public Long getUser_id() {
         return this.user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

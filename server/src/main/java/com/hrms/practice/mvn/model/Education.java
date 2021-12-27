@@ -17,75 +17,75 @@ public class Education{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fi_id")
-    private int ed_id;
+    private long ed_id;
 
     @Column(name = "ssc")
-    private int ssc;
+    private String ssc;
 
     @Column(name = "hsc")
-    private int hsc;
+    private String hsc;
 
     @Column(name = "bsc")
-    private int bsc;
+    private String bsc;
 
     @Column(name = "msc")
-    private int msc;
+    private String msc;
 
     @Column(name = "user_id")
-    private int user_id;
+    private long user_id;
 
 
-    public int getEd_id() {
+    public long getEd_id() {
         return this.ed_id;
     }
 
-    public void setEd_id(int ed_id) {
+    public void setEd_id(long ed_id) {
         this.ed_id = ed_id;
     }
 
 
-    public int getSsc() {
+    public String getSsc() {
         return this.ssc;
     }
 
-    public void setSsc(int ssc) {
+    public void setSsc(String ssc) {
         this.ssc = ssc;
     }
 
 
 
-    public int getHsc() {
+    public String getHsc() {
         return this.hsc;
     }
 
-    public void setHsc(int hsc) {
+    public void setHsc(String hsc) {
         this.hsc = hsc;
     }
 
 
 
-    public int getBsc() {
+    public String getBsc() {
         return this.bsc;
     }
 
-    public void setBsc(int bsc) {
+    public void setBsc(String bsc) {
         this.bsc = bsc;
     }
 
-    public int getMsc() {
+    public String getMsc() {
         return this.msc;
     }
 
-    public void setMsc(int msc) {
+    public void setMsc(String msc) {
         this.msc = msc;
     }
 
 
-    public int getUser_id() {
+    public long getUser_id() {
         return this.user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
 

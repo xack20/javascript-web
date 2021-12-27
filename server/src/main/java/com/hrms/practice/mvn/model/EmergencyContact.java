@@ -18,29 +18,29 @@ public class EmergencyContact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ec_id")
-    private int ec_id;
+    private long ec_id;
 
     @Column(name = "name")
-    private int name;
+    private String name;
 
     @Column(name = "relashionship")
-    private int relashionship;
+    private String relashionship;
 
     @Column(name = "phone")
-    private int phone;
+    private String phone;
 
     @Column(name = "user_id")
-    private int user_id;
+    private long user_id;
 
 
 
 
     
-    public int getUser_id() {
+    public long getUser_id() {
         return this.user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
 
@@ -50,36 +50,36 @@ public class EmergencyContact {
 
     
 
-    public int getName() {
+    public String getName() {
         return this.name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getRelashionship() {
+    public String getRelashionship() {
         return this.relashionship;
     }
 
-    public void setRelashionship(int relashionship) {
+    public void setRelashionship(String relashionship) {
         this.relashionship = relashionship;
     }
 
 
-    public int getPhone() {
+    public String getPhone() {
         return this.phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
     
-	public int getId() {
+	public Long getEc_Id() {
 		return ec_id;
 	}
 
-	public void setId(int id) {
+	public void setEc_Id(Long id) {
 		this.ec_id = id;
 	}
 
