@@ -10,8 +10,10 @@ const DividerVertical = () => {
   return (
     <div style={{marginTop:"10px"}}>
       <Card style={{ backgroundColor: "#fff7e6", color: "black", borderRadius: "25px", borderColor:"#096dd9" }}>
-        <Row style={{height:"120px"}}>
-          <Col span={6} style={{textAlign:"center"}}>
+        <Row style={{height:"140px"}}>
+          
+         
+         <Col span={12} style={{textAlign:"center"}}>
             <p>14</p>
             <p>Assigned Token</p>
           </Col>
@@ -20,8 +22,11 @@ const DividerVertical = () => {
             <p>14</p>
             <p>Pending Token</p>
           </Col>
-          <Divider type="vertical" style={{ 'background-color': 'black', height: "80px", marginRight:"20px" }} />
-          <Col span={6} style={{textAlign:"center"}}>
+                  
+        </Row>
+
+        <Row>
+        <Col span={24} style={{textAlign:"center"}}>
             <p>14</p>
             <p>Total Token</p>
           </Col>
