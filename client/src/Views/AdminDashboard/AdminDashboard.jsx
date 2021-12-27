@@ -70,11 +70,13 @@ export default function AdminDashboard() {
       <div className="site-card-wrapper">
         <Row gutter={16}>
           <Col span={12}>
+            <h5 style={{textAlign:"center"}}>Revenue Overview</h5>
             <Card style={{ borderRadius: "20px", borderColor: "#7cb305" }}>
               <BiBarChart></BiBarChart>
             </Card>
           </Col>
           <Col span={12}>
+          <h5 style={{textAlign:"center"}}>Sales Overview</h5>
             <Card style={{ borderRadius: "20px", borderColor: "#531dab" }}>
               <BiLineChart></BiLineChart>
             </Card>

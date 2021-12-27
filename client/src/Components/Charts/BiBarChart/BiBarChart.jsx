@@ -4,27 +4,27 @@ import { Bar, BarChart,CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxi
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
+    name: "2005",
+    Total_Income: 1000,
+    Total_Outcome: 2000,
     amt: 2400
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
+    name: "2010",
+    Total_Income: 1500,
+    Total_Outcome: 2398,
     amt: 2210
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290
+    name: "2015",
+    Total_Income: 2000,
+    Total_Outcome: 7000,
+    amt: 3290
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
+    name: "2020",
+    Total_Income: 2580,
+    Total_Outcome: 3908,
     amt: 2000
   }
 ];
@@ -51,8 +51,8 @@ export default function BiBarChart() {
       <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
       <Tooltip />
       <Legend />
-      <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
-      <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+      <Bar yAxisId="left" dataKey="Total_Outcome" fill="#8884d8" />
+      <Bar yAxisId="right" dataKey="Total_Income" fill="#82ca9d" />
     </BarChart>
     </ResponsiveContainer>
     </div>

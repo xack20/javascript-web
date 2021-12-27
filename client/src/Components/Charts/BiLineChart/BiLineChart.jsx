@@ -7,46 +7,46 @@ import {
 
 const data = [
     {
-        name: "Page A",
-        uv: 4000,
-        pv: 2400,
+        name: "2010",
+        Total_Sales: 800,
+        Total_Revenue: 2400,
         amt: 2400
     },
     {
-        name: "Page B",
-        uv: 3000,
-        pv: 1398,
+        name: "2012",
+        Total_Sales: 4000,
+        Total_Revenue: 1398,
         amt: 2210
     },
     {
-        name: "Page C",
-        uv: 2000,
-        pv: 9800,
+        name: "2014",
+        Total_Sales: 1900,
+        Total_Revenue: 9800,
         amt: 2290
     },
     {
-        name: "Page D",
-        uv: 2780,
-        pv: 3908,
+        name: "2016",
+        Total_Sales: 2780,
+        Total_Revenue: 3908,
         amt: 2000
     },
     {
-        name: "Page E",
-        uv: 1890,
-        pv: 4800,
+        name: "2018",
+        Total_Sales: 1890,
+        Total_Revenue: 4500,
         amt: 2181
     },
     {
-        name: "Page F",
-        uv: 2390,
-        pv: 3800,
+        name: "2020",
+        Total_Sales: 3000,
+        Total_Revenue: 4500,
         amt: 2500
     },
     {
-        name: "Page G",
-        uv: 3490,
-        pv: 4300,
-        amt: 2100
+        name: "2021",
+        Total_Sales: 4000,
+        Total_Revenue: 7000,
+        amt: 2000
     }
 ];
 
@@ -73,8 +73,8 @@ export default function BiLineChart() {
                     <YAxis />
                     <CartesianGrid strokeDasharray="1 1" />
                     <Tooltip />
-                    <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                    <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                    <Area type="monotone" dataKey="Total_Sales" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                    <Area type="monotone" dataKey="Total_Revenue" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
                 </AreaChart>
             </ResponsiveContainer>
 

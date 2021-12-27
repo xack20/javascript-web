@@ -1,8 +1,8 @@
+import { Card, Col, Row } from 'antd';
 import React, { useState } from 'react';
-import { Row, Col, Card, Button } from 'antd';
-import ApplyJobForm from './ApplyJobForm';
 import AddButton from "../../AddButton/AddButton";
 import MyModal from "../../MyModal/MyModal";
+import ApplyJobForm from './ApplyJobForm';
 
 const ApplyJobDetail = () => {
 
