@@ -4,7 +4,7 @@ public class Response {
 
 	private boolean status;
 	private String message;
-	private Object addtionalPayload;
+	private Object additionalPayload;
 	public boolean getStatus() {
 		return status;
 	}
@@ -17,17 +17,17 @@ public class Response {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Object getAddtionalPayload() {
-		return addtionalPayload;
+	public Object getAdditionalPayload() {
+		return additionalPayload;
 	}
-	public void setAddtionalPayload(Object addtionalPayload) {
-		this.addtionalPayload = addtionalPayload;
+	public void setAdditionalPayload(Object addtionalPayload) {
+		this.additionalPayload = addtionalPayload;
 	}
 	public Response(Boolean status, String message, Object addtionalPayload) {
 		super();
 		this.status = status;
 		this.message = message;
-		this.addtionalPayload = addtionalPayload;
+		this.additionalPayload = addtionalPayload;
 	}
 
 }

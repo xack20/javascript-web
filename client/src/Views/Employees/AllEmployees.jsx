@@ -4,14 +4,30 @@ import './AllEmployees.css';
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
 import MyModal from '../../Components/MyModal/MyModal.jsx';
 
-import person from '../../Data/persons.js';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import SearchBarClient from '../../Components/SearchBarClient/SearchBarClient';
 import AddButton from '../../Components/AddButton/AddButton';
 import EmployeeForm from '../../Components/EmployeeForm/EmployeeForm';
+import { useEffect } from 'react';
+import { allEmployees } from '../../Services/Employee';
 
 const AllEmployees = ()=> {
   const [modalVisibility, setModalVisibility] = useState(false);
+  const [allEmployee,setAllEmployee] = useState([]);
+
+  useEffect(()=>{
+      const callAllEmployee = async ()=>{
+        try {
+            const response = await allEmployees();
+            setAllEmployee(response.data.additionalPayload);
+        } catch (error) {
+
+        }
+        
+      }
+      callAllEmployee();
+  },[])
+
   return (
     
     <div>
@@ -29,13 +45,13 @@ const AllEmployees = ()=> {
           { xs: 8, sm: 16, md: 24 },
         ]}
       >
-        {person.map((element, idx) => {
+        {allEmployee.map((element, idx) => {
           return (
             <Col xs={24} sm={12} md={12} lg={12} xl={8} xxl={6} key={idx}>
               <Card style={{borderColor:( idx&1 ? "#531dab" : "#7cb305") , borderRadius:" 10px"}}
                 actions={[
-                  <EditOutlined key="ellipsis" />,
-                  <DeleteOutlined key="delete" />,
+                  <EditOutlined key="ellipsis" onClick={()=>{console.log("Edit")}} />,
+                  <DeleteOutlined key="delete" onClick={()=>{console.log("Delete")}}/>,
                 ]}
                 hoverable={true}
                 loading={false}

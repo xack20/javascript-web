@@ -4,7 +4,7 @@ import React from 'react';
 import LowerPart from '../LowerPart/LowerPart';
 import ProfileTableEmpTop from "../ProfileTable/ProfileTableEmpTop";
 
-const EmpProfilePage = () => {
+const EmpProfilePage = ({user_id}) => {
     return (
         <div style={{marginTop:"30px"}}>
              <Button primary style={{float:"right", margin:"10px"}}>
