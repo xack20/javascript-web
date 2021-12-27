@@ -6,13 +6,12 @@ import ProfileTableEmpTop from "../ProfileTable/ProfileTableEmpTop";
 import {employeeProfile}  from "../../../Services/Employee";
 
 const EmpProfilePage = ({user_id}) => {
-    const [employeeProfileState,setEmployeeProfileState] = useState([]);
+    const [employeeProfileState,setEmployeeProfileState] = useState({});
 
     useEffect(()=>{
         const callEmployeeProfile = async ()=>{
           try {
               const response = await employeeProfile(user_id);
-              console.log(response);
               setEmployeeProfileState(response.data.additionalPayload);
           } catch (error) {
                 console.log(error.response);
@@ -20,10 +19,7 @@ const EmpProfilePage = ({user_id}) => {
           
         }
         callEmployeeProfile();
-        return()=>{
-            setEmployeeProfileState([]);
-        }
-    },[])
+    },[user_id]);
     return (
         <div style={{marginTop:"30px"}}>
              <Button primary style={{float:"right", margin:"10px"}}>

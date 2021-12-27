@@ -1,8 +1,44 @@
 import { Avatar, Col, Divider, Menu, Row, Table } from "antd";
 import React, { useState,useEffect } from "react";
 
-const ProfileTableEmpTop = ({ employeeProfileState }) => {
-  const { Column } = Table;
+const { Column } = Table;
+
+const data2 = [
+  {
+    key: "1",
+    param: "Phone:",
+    value: "9876543210",
+  },
+  {
+    key: "2",
+    param: "Email:",
+    value: "johndoe@example.com",
+  },
+  {
+    key: "3",
+    param: "Birthday:",
+    value: "24th July",
+  },
+  {
+    key: "4",
+    param: "Address:",
+    value: "1861 Bayonne Ave, Manchester Township, NJ, 08759",
+  },
+  {
+    key: "5",
+    param: "Gender:",
+    value: "Male",
+  },
+  {
+    key: "6",
+    param: "Reports to:",
+    value: "Jeffery Lalor",
+  },
+];
+
+const ProfileTableEmpTop = ({employeeProfileState}) => {
+
+  // const propsData = employeeProfileState;
 
   const [data, setData] = useState([
     {
@@ -23,58 +59,31 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
     },
   ]);
 
-  const data2 = [
-    {
-      key: "1",
-      param: "Phone:",
-      value: "9876543210",
-    },
-    {
-      key: "2",
-      param: "Email:",
-      value: "johndoe@example.com",
-    },
-    {
-      key: "3",
-      param: "Birthday:",
-      value: "24th July",
-    },
-    {
-      key: "4",
-      param: "Address:",
-      value: "1861 Bayonne Ave, Manchester Township, NJ, 08759",
-    },
-    {
-      key: "5",
-      param: "Gender:",
-      value: "Male",
-    },
-    {
-      key: "6",
-      param: "Reports to:",
-      value: "Jeffery Lalor",
-    },
-  ];
+  
 
   const [current, setCurrent] = useState();
+  
+
+  useEffect(() => {
+      const DATA=[...data];
+      console.log(employeeProfileState);
+      try {
+        DATA[0].param=employeeProfileState.employee.firstname;
+      } catch (error) {
+        
+      }
+      // DATA[1].param=employeeProfileState["employee"].department;
+      // DATA[2].param=employeeProfileState["employee"].designation;
+      // DATA[3].param=employeeProfileState["employee"].employee_id;
+      setData(DATA);
+
+      
+  }, [employeeProfileState]);
+
   const handleClick = (e) => {
     console.log("click ", e);
     setCurrent({ current: e.key });
   };
-
-  useEffect(() => {
-      const DATA=[...data];
-    //   console.log(employeeProfileState);
-      DATA[0].param=employeeProfileState["employee"]["firstname"]+" "+employeeProfileState["employee"]["lastname"];
-      DATA[1].param=employeeProfileState["employee"].department;
-      DATA[2].param=employeeProfileState["employee"].designation;
-      DATA[3].param=employeeProfileState["employee"].employee_id;
-      setData(DATA);
-      return()=>{
-          setData(data);
-      }
-      
-  }, [])
 
   return (
     <div style={{ marginTop: "20px" }}>

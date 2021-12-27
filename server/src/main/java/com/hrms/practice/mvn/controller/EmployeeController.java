@@ -58,7 +58,7 @@ public class EmployeeController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> employeeInfo(@PathVariable long id) {
-		System.out.println(id);
+		// System.out.println(id);
 		User user = userRepository.findByUserId(id);
 		Employee employee = employeeRepository.findByUserId(id);
 
