@@ -40,7 +40,7 @@ const HeaderRightPart = () => {
     <SearchBar />
 
     <Dropdown overlay={menu} placement="topRight" arrow>
-      <Button style={{height:'48px'}}>
+      <Button style={{height:'48px', borderRadius:"10px"}}>
         <p>
         <Avatar  style={{marginRight:"15px"}} src="https://www.pinclipart.com/picdir/middle/559-5594866_necktie-drawing-vector-round-avatar-user-icon-png.png" size={40} />
         {base64.decode(window.localStorage.getItem("_usnm_"))}
