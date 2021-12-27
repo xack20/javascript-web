@@ -84,6 +84,10 @@ public class AuthController {
 			
 			return ResponseEntity.ok(new RefreshTokenResponse("Bearer", jwt, refreshToken.get("refToken")));
 		}
+
+		if(refToken != null){
+			refreshTokenService.deleteByRefreshToken(refreshToken.get("refToken"));  
+		}
 		
 		return ResponseEntity.badRequest().body("Refresh token has expired/Not found!");
 	}
