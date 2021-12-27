@@ -1,6 +1,8 @@
 package com.hrms.practice.mvn.repository;
 
 
+import java.util.List;
+
 import com.hrms.practice.mvn.model.Employee;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +20,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Modifying
     @Query(value="DELETE FROM testdb.employees WHERE user_id = ?1",nativeQuery = true)
     int deleteByUserId(long id);
+
+    @Query(value="SELECT * FROM testdb.employees WHERE deleted = false",nativeQuery = true)
+    List<Employee> findAllActive();
 
 }
 

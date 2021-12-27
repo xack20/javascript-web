@@ -73,10 +73,34 @@ public class Employee {
     @Column(name = "spouse")
     private String spouse;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 
 
     public String getAddress() {

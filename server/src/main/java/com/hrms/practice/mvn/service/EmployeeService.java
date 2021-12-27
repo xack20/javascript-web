@@ -74,13 +74,14 @@ public class EmployeeService {
 
 		if(employee==null)return null;
 
-		employee.setDepartment((String)payload.get("department"));
-		employee.setDesignation((String)payload.get("designation"));
+		if(payload.get("department")!=null) employee.setDepartment((String)payload.get("department"));
+		if(payload.get("designation")!=null)employee.setDesignation((String)payload.get("designation"));
 		employee.setEmail((String)payload.get("email"));
 		employee.setEmployee_id((String)payload.get("employee_id"));
 		employee.setFirstname((String)payload.get("firstname"));
 		employee.setLastname((String)payload.get("lastname"));
 		employee.setPhoneNumber((String)payload.get("phone_no"));
+		employee.setDeleted((Boolean)payload.get("deleted"));
 	
 		employeeRepository.save(employee);
 

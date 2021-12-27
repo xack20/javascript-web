@@ -48,9 +48,8 @@ public class EmployeeController {
 
 	@GetMapping("/")
 	public ResponseEntity<?> allEmployee() {
-		// System.out.println("id: " + id);
 		
-		List<Employee> AllEmployees = employeeRepository.findAll();
+		List<Employee> AllEmployees = employeeRepository.findAllActive();
 		
 		return ResponseEntity.ok().body(new Response(true, "All Employee List!", AllEmployees));
 	}
