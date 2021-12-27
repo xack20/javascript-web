@@ -13,12 +13,12 @@ const DividerVertical = () => {
         <Row style={{height:"140px"}}>
           
          
-         <Col span={12} style={{textAlign:"center"}}>
+         <Col span={11} style={{textAlign:"center"}}>
             <p>14</p>
             <p>Assigned Token</p>
           </Col>
-          <Divider type="vertical" style={{ 'background-color': 'black', height: "80px", marginRight:"30px" }} />
-          <Col span={6} style={{textAlign:"center"}}>
+          <Divider type="vertical" style={{ 'background-color': 'black', height: "100px", marginRight:"30px" }} />
+          <Col span={10} style={{textAlign:"center"}}>
             <p>14</p>
             <p>Pending Token</p>
           </Col>
