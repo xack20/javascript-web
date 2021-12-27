@@ -60,7 +60,7 @@ public class EmployeeService {
 		return userRepository.findUserByUsernameIgnoreCase(username);
 	}
 
-	public User saveEmployee(Map<String,Object>payload) {
+	public Map<String,Object> saveEmployee(Map<String,Object>payload) {
 
 		User user = new User();
 		
@@ -89,9 +89,36 @@ public class EmployeeService {
 	
 		employeeRepository.save(employee);
 
-		
+		BankInfo bankInfo = new BankInfo();
+		Education education = new Education();
+		EmergencyContact emergencyContact = new EmergencyContact();
+		Experience experience = new Experience();
+		FamilyInfo familyInfo = new FamilyInfo();
 
-		return user;
+		
+		bankInfo.setUser_id(user.getId());
+		education.setUser_id(user.getId());
+		emergencyContact.setUser_id(user.getId());
+		experience.setUser_id(user.getId());
+		familyInfo.setUser_id(user.getId());
+		
+		
+		
+		bankInfoRepository.save(bankInfo);
+		educationRepository.save(education);
+		emergencyContactRepository.save(emergencyContact);
+		experienceRepository.save(experience);
+		familyInfoRepository.save(familyInfo);
+
+		Map<String,Object> response = new HashMap<>();
+		response.put("employee", employee);
+		response.put("bankInfo", bankInfo);
+		response.put("education", education);
+		response.put("emergencyContact", emergencyContact);
+		response.put("experience", experience);
+		response.put("familyInfo", familyInfo);
+
+		return response;
 	}
 
 

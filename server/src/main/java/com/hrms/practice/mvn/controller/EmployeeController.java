@@ -84,8 +84,8 @@ public class EmployeeController {
 		if(USER != null)
 			return ResponseEntity.badRequest().body(new Response(false, "Employee already exists!", null));
 		
-		employeeService.saveEmployee(payload);
-		return ResponseEntity.ok().body(new Response(false, "Employeed Added Successfully!", null));
+		Map<String,Object> response = employeeService.saveEmployee(payload);
+		return ResponseEntity.ok().body(new Response(false, "Employeed Added Successfully!", response));
 
 	}
 
