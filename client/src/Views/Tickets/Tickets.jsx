@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import CardProgress from "../../Components/CardCustom/CardProgress/CardProgress";
+import EmployeeForm from "../../Components/EmployeeForm/EmployeeForm";
 import MyModal from '../../Components/MyModal/MyModal.jsx';
+import EmpEditForm from "../../Components/ProfileEmployee/EmpEditForm/EmpEditForm";
 import TicketForm from "../../Components/TicketForm/TicketForm";
 import TicketSet from "../../Components/TicketSet/TicketSet";
 
@@ -18,7 +20,7 @@ const Tickets = () => {
       <TicketSet></TicketSet>
 
 
-      
+      {/* <EmpEditForm></EmpEditForm> */}
 
       
         

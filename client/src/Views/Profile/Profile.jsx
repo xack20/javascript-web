@@ -15,7 +15,7 @@ const Profile = (props) => {
     return (
         
         <MyModal Title={`ID ${user_id}'s profile`} Width={1000} modalVisibility={modalVisibility} setModalVisibility={changeModalVisibility}>
-            <EmpProfilePage e_id={user_id}/>
+            <EmpProfilePage user_id={user_id}/>
         </MyModal>
     );
 };
