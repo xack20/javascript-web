@@ -1,6 +1,6 @@
-import { Col, Row, Steps,Menu, Table } from "antd";
+import { Col, Row, Steps, Table } from "antd";
+import React, { useEffect, useState } from "react";
 
-import React, { useState, useEffect } from "react";
 
 const { Step } = Steps;
 
@@ -190,15 +190,15 @@ const LowerPart = ({ employeeProfileState }) => {
   }, [employeeProfileState]);
 
 
-  const [current, setCurrent] = useState();
-  const handleClick = (e) => {
+//   const [current, setCurrent] = useState();
+//   const handleClick = (e) => {
         
-    setCurrent({ current: e.key });
-};
+//     setCurrent({ current: e.key });
+// };
 
   return (
     <div style={{ marginTop: "50px" }}>
-      <Row gutter={16} style={{ marginTop: "50px" }}>
+      {/* <Row gutter={16} style={{ marginTop: "50px" }}>
         <Col span={4}>
           <Menu
             style={{ marginTop: "20px" }}
@@ -231,7 +231,7 @@ const LowerPart = ({ employeeProfileState }) => {
             <Menu.Item key="profile">Bank $ Statutory</Menu.Item>
           </Menu>
         </Col>
-      </Row>
+      </Row> */}
 
       <Row style={{ marginTop: "20px" }} gutter={16}>
         <Col span={12}>
