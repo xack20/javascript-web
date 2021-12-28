@@ -27,6 +27,7 @@ import com.hrms.practice.mvn.repository.ExperienceRepository;
 import com.hrms.practice.mvn.repository.FamilyInfoRepository;
 import com.hrms.practice.mvn.repository.RoleRepository;
 
+@SuppressWarnings("unchecked")
 @Service
 public class EmployeeService {
 	@Autowired
@@ -123,78 +124,125 @@ public class EmployeeService {
 
 
 	public Map<String,Object> updateEmployee(Map<String,Object> payload, long id){
+
+
+
 		Employee employee = employeeRepository.findByUserId(id);
 
 
 		if(employee==null)return null;
 
-		if(payload.get("department")!=null) employee.setDepartment((String)payload.get("department"));
-		if(payload.get("designation")!=null)employee.setDesignation((String)payload.get("designation"));
-		if(payload.get("email")!=null)employee.setEmail((String)payload.get("email"));
-		if(payload.get("employee_id")!=null)employee.setEmployee_id((String)payload.get("employee_id"));
-		if(payload.get("firstname")!=null)employee.setFirstname((String)payload.get("firstname"));
-		if(payload.get("lastname")!=null)employee.setLastname((String)payload.get("lastname"));
-		if(payload.get("phone_no")!=null)employee.setPhoneNumber((String)payload.get("phone_no"));
-		if(payload.get("deleted")!=null)employee.setDeleted((Boolean)payload.get("deleted"));
-		if(payload.get("address")!=null)employee.setAddress((String)payload.get("address"));
-		if(payload.get("birthday")!=null)employee.setBirthday((String)payload.get("birthday"));
-		if(payload.get("gender")!=null)employee.setGender((String)payload.get("gender"));
-		if(payload.get("maritial_status")!=null)employee.setMaritial_status((String)payload.get("maritial_status"));
-		if(payload.get("passport_no")!=null)employee.setPassport_no((String)payload.get("passport_no"));
-		if(payload.get("religion")!=null)employee.setReligion((String)payload.get("religion"));
-		if(payload.get("nationality")!=null)employee.setNationality((String)payload.get("nationality"));
-		if(payload.get("spouse")!=null)employee.setSpouse((String)payload.get("spouse"));
-		if(payload.get("telephone")!=null)employee.setTelephone((String)payload.get("telephone"));
-		if(payload.get("report_to")!=null)employee.setReport_to((String)payload.get("report_to"));
+		Map<String,Object> employeePayload = (Map<String, Object>) payload.get("employee");
+
+		if(employeePayload.get("department")!=null) employee.setDepartment((String)employeePayload.get("department"));
+		if(employeePayload.get("designation")!=null)employee.setDesignation((String)employeePayload.get("designation"));
+		if(employeePayload.get("email")!=null)employee.setEmail((String)employeePayload.get("email"));
+		if(employeePayload.get("employee_id")!=null)employee.setEmployee_id((String)employeePayload.get("employee_id"));
+		if(employeePayload.get("firstname")!=null)employee.setFirstname((String)employeePayload.get("firstname"));
+		if(employeePayload.get("lastname")!=null)employee.setLastname((String)employeePayload.get("lastname"));
+		if(employeePayload.get("phone_no")!=null)employee.setPhoneNumber((String)employeePayload.get("phone_no"));
+		if(employeePayload.get("deleted")!=null)employee.setDeleted((Boolean)employeePayload.get("deleted"));
+		if(employeePayload.get("address")!=null)employee.setAddress((String)employeePayload.get("address"));
+		if(employeePayload.get("birthday")!=null)employee.setBirthday((String)employeePayload.get("birthday"));
+		if(employeePayload.get("gender")!=null)employee.setGender((String)employeePayload.get("gender"));
+		if(employeePayload.get("maritial_status")!=null)employee.setMaritial_status((String)employeePayload.get("maritial_status"));
+		if(employeePayload.get("passport_no")!=null)employee.setPassport_no((String)employeePayload.get("passport_no"));
+		if(employeePayload.get("religion")!=null)employee.setReligion((String)employeePayload.get("religion"));
+		if(employeePayload.get("nationality")!=null)employee.setNationality((String)employeePayload.get("nationality"));
+		if(employeePayload.get("spouse")!=null)employee.setSpouse((String)employeePayload.get("spouse"));
+		if(employeePayload.get("telephone")!=null)employee.setTelephone((String)employeePayload.get("telephone"));
+		if(employeePayload.get("report_to")!=null)employee.setReport_to((String)employeePayload.get("report_to"));
 		
 		employeeRepository.save(employee);
 
 
 
 
-		BankInfo bankInfo = new BankInfo();
 
-		if(payload.get("account_no")!=null)bankInfo.setAccount_no((String)payload.get("account_no"));
-		if(payload.get("bank_name")!=null)bankInfo.setBank_name((String)payload.get("bank_name"));
-		if(payload.get("ifsc_code")!=null)bankInfo.setIfsc_code((String)payload.get("ifsc_code"));
+
+
+
+
+		Map<String,Object> bankInfoPayload = (Map<String, Object>) payload.get("bankInfo");
+
+		BankInfo bankInfo = bankInfoRepository.findByUserId(id);
+
+		if(bankInfoPayload.get("account_no")!=null)bankInfo.setAccount_no((String)bankInfoPayload.get("account_no"));
+		if(bankInfoPayload.get("bank_name")!=null)bankInfo.setBank_name((String)bankInfoPayload.get("bank_name"));
+		if(bankInfoPayload.get("ifsc_code")!=null)bankInfo.setIfsc_code((String)bankInfoPayload.get("ifsc_code"));
 
 		bankInfoRepository.save(bankInfo);
 
 
-		Education education = new Education();
 
-		if(payload.get("ssc")!=null)education.setSsc((String)payload.get("ssc"));
-		if(payload.get("hsc")!=null)education.setHsc((String)payload.get("hsc"));
-		if(payload.get("bsc")!=null)education.setBsc((String)payload.get("bsc"));
-		if(payload.get("msc")!=null)education.setMsc((String)payload.get("msc"));
+
+
+
+
+		Map<String,Object> educationPayload = (Map<String, Object>) payload.get("education");
+
+		Education education = educationRepository.findByUserId(id);
+
+		if(educationPayload.get("ssc")!=null)education.setSsc((String)educationPayload.get("ssc"));
+		if(educationPayload.get("hsc")!=null)education.setHsc((String)educationPayload.get("hsc"));
+		if(educationPayload.get("bsc")!=null)education.setBsc((String)educationPayload.get("bsc"));
+		if(educationPayload.get("msc")!=null)education.setMsc((String)educationPayload.get("msc"));
 
 		educationRepository.save(education);
 
-		EmergencyContact emergencyContact = new EmergencyContact();
 
-		if(payload.get("emergency_name")!=null)emergencyContact.setName((String)payload.get("emergency_name"));
-		if(payload.get("emergency_phone")!=null)emergencyContact.setPhone((String)payload.get("emergency_phone"));
-		if(payload.get("emergency_relashionship")!=null)emergencyContact.setRelashionship((String)payload.get("emergency_relashionship"));
+
+
+
+
+		Map<String,Object> emergencyContactPayload = (Map<String, Object>) payload.get("emergencyContact");
+
+		EmergencyContact emergencyContact = emergencyContactRepository.findByUserId(id);
+
+		if(emergencyContactPayload.get("emergency_name")!=null)emergencyContact.setName((String)emergencyContactPayload.get("emergency_name"));
+		if(emergencyContactPayload.get("emergency_phone")!=null)emergencyContact.setPhone((String)emergencyContactPayload.get("emergency_phone"));
+		if(emergencyContactPayload.get("emergency_relashionship")!=null)emergencyContact.setRelashionship((String)emergencyContactPayload.get("emergency_relashionship"));
 
 		emergencyContactRepository.save(emergencyContact);
 
-		Experience experience = new Experience();
 
-		if(payload.get("company_name")!=null)experience.setCompany_name((String)payload.get("company_name"));
-		if(payload.get("designation")!=null)experience.setDesignation((String)payload.get("designation"));
-		if(payload.get("from_date")!=null)experience.setFrom_date((String)payload.get("from_date"));
-		if(payload.get("to_date")!=null)experience.setTo_date((String)payload.get("to_date"));
+
+
+
+
+		Map<String,Object> experiencePayload = (Map<String, Object>) payload.get("experience");
+
+		Experience experience = experienceRepository.findByUserId(id);
+
+		if(experiencePayload.get("company_name")!=null)experience.setCompany_name((String)experiencePayload.get("company_name"));
+		if(experiencePayload.get("designation")!=null)experience.setDesignation((String)experiencePayload.get("designation"));
+		if(experiencePayload.get("from_date")!=null)experience.setFrom_date((String)experiencePayload.get("from_date"));
+		if(experiencePayload.get("to_date")!=null)experience.setTo_date((String)experiencePayload.get("to_date"));
 
 		experienceRepository.save(experience);
 
-		FamilyInfo familyInfo = new FamilyInfo();
 
-		if(payload.get("birthday")!=null)familyInfo.setBirthday((String)payload.get("birthday"));
-		if(payload.get("name")!=null)familyInfo.setName((String)payload.get("name"));
-		if(payload.get("phone")!=null)familyInfo.setPhone((String)payload.get("phone"));
-		if(payload.get("relashionship")!=null)familyInfo.setRelashionship((String)payload.get("relashionship"));
+
+
+
+
+
+
+
+		Map<String,Object> familyInfoPayload = (Map<String, Object>) payload.get("familyInfo");
+
+		FamilyInfo familyInfo = familyInfoRepository.findByUserId(id);
+
+		if(familyInfoPayload.get("birthday")!=null)familyInfo.setBirthday((String)familyInfoPayload.get("birthday"));
+		if(familyInfoPayload.get("name")!=null)familyInfo.setName((String)familyInfoPayload.get("name"));
+		if(familyInfoPayload.get("phone")!=null)familyInfo.setPhone((String)familyInfoPayload.get("phone"));
+		if(familyInfoPayload.get("relashionship")!=null)familyInfo.setRelashionship((String)familyInfoPayload.get("relashionship"));
 
 		familyInfoRepository.save(familyInfo);
+
+
+
+
 
 
 		Map<String,Object> employeeFullDetails = new HashMap<String,Object>();
