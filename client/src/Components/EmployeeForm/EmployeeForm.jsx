@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button,notification } from 'antd';
-
+import { addEmployee } from '../../Services/Employee';
 
 
 const layout = {
@@ -27,30 +27,39 @@ const validateMessages = {
       range: '${label} must be between ${min} and ${max}',
     },
   };
-  /* eslint-enable no-template-curly-in-string */
+/* eslint-enable no-template-curly-in-string */
 
 
 
 const EmployeeForm = ({setModalVisibility}) => {
 
 
-    const onFinish = (values) => {
+    const onFinish = async(values) => {
 
-        setModalVisibility(false);
+        
+        try {
+            const response = await addEmployee(values);
+            notification["success"]({
+                message: 'Employee Added Successfully',
+                description:'',
+                placement:"bottomRight"
+              });
 
-        notification["success"]({
-            message: 'Employee Added Successfully',
-            description:'',
-            placement:"bottomRight"
-          });
-
-        //console.log(values);
+            setModalVisibility(false);
+        } catch (error) {
+            notification["error"]({
+                message: error.message,
+                description:'',
+                placement:"bottomRight"
+            });            
+        }
+        
     };
 
     return (
         <div>
 
-            <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+            <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} autoComplete='off'>
                 <Form.Item
                     name='firstname'
                     label="First Name"
@@ -82,6 +91,7 @@ const EmployeeForm = ({setModalVisibility}) => {
                         required: true,
                     },
                 ]}
+                autoComplete='off'
             >
                 <Input  autoComplete='off' allowClear='true'/>
             </Form.Item>
@@ -123,6 +133,7 @@ const EmployeeForm = ({setModalVisibility}) => {
                     },
                 ]}
                 hasFeedback
+                autoComplete='off'
             >
                 <Input.Password autoComplete='off' allowClear='true'/>
             </Form.Item>
@@ -147,19 +158,21 @@ const EmployeeForm = ({setModalVisibility}) => {
                         },
                     }),
                 ]}
+                autoComplete='off'
             >
                 <Input.Password autoComplete='off' allowClear='true'/>
             </Form.Item>
 
 
             <Form.Item
-                name='id'
+                name='employee_id'
                 label="Employee ID"
                 rules={[
                     {
                         required: true,
                     },
                 ]}
+                
             >
                 <Input autoComplete='off' allowClear='true'/>
             </Form.Item>
@@ -168,7 +181,7 @@ const EmployeeForm = ({setModalVisibility}) => {
 
 
             <Form.Item
-                name="phone"
+                name="phone_no"
                 label="Phone Number"
             >
                 <Input

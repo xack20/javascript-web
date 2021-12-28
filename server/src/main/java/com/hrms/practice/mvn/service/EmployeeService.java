@@ -123,6 +123,21 @@ public class EmployeeService {
 	}
 
 
+	public boolean deleteEmployee(Map<String,Object> payload, long id){
+		Employee employee = employeeRepository.findByUserIdForDelete(id);
+
+		if(employee==null)return false;
+
+		Map<String,Object> employeePayload = (Map<String, Object>) payload.get("employee");
+
+		if(employeePayload.get("deleted")!=null)employee.setDeleted((Boolean)employeePayload.get("deleted"));
+	
+		employeeRepository.save(employee);
+
+		return true;
+	}
+
+
 	public Map<String,Object> updateEmployee(Map<String,Object> payload, long id){
 
 
@@ -165,13 +180,17 @@ public class EmployeeService {
 
 		Map<String,Object> bankInfoPayload = (Map<String, Object>) payload.get("bankInfo");
 
+		
 		BankInfo bankInfo = bankInfoRepository.findByUserId(id);
 
-		if(bankInfoPayload.get("account_no")!=null)bankInfo.setAccount_no((String)bankInfoPayload.get("account_no"));
-		if(bankInfoPayload.get("bank_name")!=null)bankInfo.setBank_name((String)bankInfoPayload.get("bank_name"));
-		if(bankInfoPayload.get("ifsc_code")!=null)bankInfo.setIfsc_code((String)bankInfoPayload.get("ifsc_code"));
+		if(bankInfoPayload != null){
+			if(bankInfoPayload.get("account_no")!=null)bankInfo.setAccount_no((String)bankInfoPayload.get("account_no"));
+			if(bankInfoPayload.get("bank_name")!=null)bankInfo.setBank_name((String)bankInfoPayload.get("bank_name"));
+			if(bankInfoPayload.get("ifsc_code")!=null)bankInfo.setIfsc_code((String)bankInfoPayload.get("ifsc_code"));
 
-		bankInfoRepository.save(bankInfo);
+			bankInfoRepository.save(bankInfo);
+		}
+		
 
 
 
@@ -183,12 +202,16 @@ public class EmployeeService {
 
 		Education education = educationRepository.findByUserId(id);
 
-		if(educationPayload.get("ssc")!=null)education.setSsc((String)educationPayload.get("ssc"));
-		if(educationPayload.get("hsc")!=null)education.setHsc((String)educationPayload.get("hsc"));
-		if(educationPayload.get("bsc")!=null)education.setBsc((String)educationPayload.get("bsc"));
-		if(educationPayload.get("msc")!=null)education.setMsc((String)educationPayload.get("msc"));
+		if(educationPayload!=null){
+			if(educationPayload.get("ssc")!=null)education.setSsc((String)educationPayload.get("ssc"));
+			if(educationPayload.get("hsc")!=null)education.setHsc((String)educationPayload.get("hsc"));
+			if(educationPayload.get("bsc")!=null)education.setBsc((String)educationPayload.get("bsc"));
+			if(educationPayload.get("msc")!=null)education.setMsc((String)educationPayload.get("msc"));
 
-		educationRepository.save(education);
+			educationRepository.save(education);
+		}
+
+		
 
 
 
@@ -199,12 +222,15 @@ public class EmployeeService {
 
 		EmergencyContact emergencyContact = emergencyContactRepository.findByUserId(id);
 
-		if(emergencyContactPayload.get("emergency_name")!=null)emergencyContact.setName((String)emergencyContactPayload.get("emergency_name"));
-		if(emergencyContactPayload.get("emergency_phone")!=null)emergencyContact.setPhone((String)emergencyContactPayload.get("emergency_phone"));
-		if(emergencyContactPayload.get("emergency_relashionship")!=null)emergencyContact.setRelashionship((String)emergencyContactPayload.get("emergency_relashionship"));
+		if(emergencyContactPayload!=null){
+			if(emergencyContactPayload.get("emergency_name")!=null)emergencyContact.setName((String)emergencyContactPayload.get("emergency_name"));
+			if(emergencyContactPayload.get("emergency_phone")!=null)emergencyContact.setPhone((String)emergencyContactPayload.get("emergency_phone"));
+			if(emergencyContactPayload.get("emergency_relashionship")!=null)emergencyContact.setRelashionship((String)emergencyContactPayload.get("emergency_relashionship"));
 
-		emergencyContactRepository.save(emergencyContact);
+			emergencyContactRepository.save(emergencyContact);
+		}
 
+		
 
 
 
@@ -214,12 +240,16 @@ public class EmployeeService {
 
 		Experience experience = experienceRepository.findByUserId(id);
 
-		if(experiencePayload.get("company_name")!=null)experience.setCompany_name((String)experiencePayload.get("company_name"));
-		if(experiencePayload.get("designation")!=null)experience.setDesignation((String)experiencePayload.get("designation"));
-		if(experiencePayload.get("from_date")!=null)experience.setFrom_date((String)experiencePayload.get("from_date"));
-		if(experiencePayload.get("to_date")!=null)experience.setTo_date((String)experiencePayload.get("to_date"));
+		if(experiencePayload!=null){
+			if(experiencePayload.get("company_name")!=null)experience.setCompany_name((String)experiencePayload.get("company_name"));
+			if(experiencePayload.get("designation")!=null)experience.setDesignation((String)experiencePayload.get("designation"));
+			if(experiencePayload.get("from_date")!=null)experience.setFrom_date((String)experiencePayload.get("from_date"));
+			if(experiencePayload.get("to_date")!=null)experience.setTo_date((String)experiencePayload.get("to_date"));
+	
+			experienceRepository.save(experience);
+		}
 
-		experienceRepository.save(experience);
+
 
 
 
@@ -233,12 +263,16 @@ public class EmployeeService {
 
 		FamilyInfo familyInfo = familyInfoRepository.findByUserId(id);
 
-		if(familyInfoPayload.get("birthday")!=null)familyInfo.setBirthday((String)familyInfoPayload.get("birthday"));
-		if(familyInfoPayload.get("name")!=null)familyInfo.setName((String)familyInfoPayload.get("name"));
-		if(familyInfoPayload.get("phone")!=null)familyInfo.setPhone((String)familyInfoPayload.get("phone"));
-		if(familyInfoPayload.get("relashionship")!=null)familyInfo.setRelashionship((String)familyInfoPayload.get("relashionship"));
+		if(familyInfoPayload!=null){
+			if(familyInfoPayload.get("birthday")!=null)familyInfo.setBirthday((String)familyInfoPayload.get("birthday"));
+			if(familyInfoPayload.get("name")!=null)familyInfo.setName((String)familyInfoPayload.get("name"));
+			if(familyInfoPayload.get("phone")!=null)familyInfo.setPhone((String)familyInfoPayload.get("phone"));
+			if(familyInfoPayload.get("relashionship")!=null)familyInfo.setRelashionship((String)familyInfoPayload.get("relashionship"));
+	
+			familyInfoRepository.save(familyInfo);
+		}
 
-		familyInfoRepository.save(familyInfo);
+
 
 
 
@@ -258,9 +292,13 @@ public class EmployeeService {
 		return employeeFullDetails;
 	}
 
+
+
 	public User getUserByUserId(long id) {
 		return userRepository.findByUserId(id);
 	}
+
+	
 
     public Map<String, Object> getOneEmployee(long id) {
 

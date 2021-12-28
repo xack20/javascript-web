@@ -104,19 +104,19 @@ public class EmployeeController {
 	}
 
 	@Transactional
-	@DeleteMapping("/remove/{id}")
-	public ResponseEntity<?> removeEmployee(@PathVariable long id) {
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> deleteEmployee(@PathVariable long id,@RequestBody Map<String,Object> payload) {
 		
-		User user = employeeService.getUserByUserId(id);
-		
-		if(user == null)
-			return ResponseEntity.badRequest().body(new Response(false, "Employee doesn't exists!", null));
-		
-		employeeRepository.deleteByUserId(id);
-		userRepository.deleteUserById(id);
-		
-		return ResponseEntity.ok().body(new Response(true, "Employee successfully deleted!", null));
+		boolean res = employeeService.deleteEmployee(payload,id);
+
+		if(res == false){
+			return ResponseEntity.badRequest().body(new Response(true, "User Not Found!", null));	
+		}
+
+		return ResponseEntity.ok().body(new Response(true, "User deleted Successfully!", null));
 	}
+
+
 
 
 	@PutMapping("/update/{id}")
@@ -129,6 +129,29 @@ public class EmployeeController {
 		}
 
 		return ResponseEntity.ok().body(new Response(true, "User Updated Successfully!", employeeFullDetails));
+	}
+
+
+
+
+
+
+
+
+	@Deprecated
+	@Transactional
+	@DeleteMapping("/remove/{id}")
+	public ResponseEntity<?> removeEmployee(@PathVariable long id) {
+		
+		User user = employeeService.getUserByUserId(id);
+		
+		if(user == null)
+			return ResponseEntity.badRequest().body(new Response(false, "Employee doesn't exists!", null));
+		
+		employeeRepository.deleteByUserId(id);
+		userRepository.deleteUserById(id);
+		
+		return ResponseEntity.ok().body(new Response(true, "Employee successfully deleted!", null));
 	}
 
 }

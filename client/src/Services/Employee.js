@@ -1,27 +1,67 @@
-import axios from "axios";
+import axios from 'axios'
+
+
+
 
 export const allEmployees = async () => {
   var config = {
-    method: "get",
-    url: "/api/v1/employee/",
+    method: 'get',
+    url: '/api/v1/employee/',
     headers: {
-      Authorization: "Bearer " + localStorage.getItem("_tkn_"),
+      Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
     },
-  };
+  }
 
-  return await axios(config);
-};
+  return await axios(config)
+}
+
+
 
 export const employeeProfile = async (user_id) => {
   var config = {
-    method: "get",
-    url: "/api/v1/employee/"+parseInt(user_id),
+    method: 'get',
+    url: '/api/v1/employee/' + parseInt(user_id),
     headers: {
-      Authorization: "Bearer " + localStorage.getItem("_tkn_"),
+      Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
     },
-  };
+  }
 
-  return await axios(config);
-};
+  return await axios(config)
+}
 
-export const addEmployee = () => {};
+
+
+export const addEmployee = async (Data) => {
+  var data = Data
+
+  var config = {
+    method: 'post',
+    url: '/api/v1/employee/add',
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
+    },
+    data: data,
+  }
+
+  return await axios(config)
+}
+
+
+
+export const deleteEmployee = async (user_id) => {
+   var config = {
+    method: 'delete',
+    url: '/api/v1/employee/delete/' + parseInt(user_id),
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
+    },
+    data: {
+      "employee" : {
+        "deleted" : true
+      }
+    },
+  }
+
+
+  return await axios(config)
+}
