@@ -27,7 +27,7 @@ const HeaderRightPart = () => {
       <Menu.Item>
       <Button type="text">Profile</Button>
       </Menu.Item>
-      {base64.decode(window.localStorage.getItem("_usrl_"))==="admin" && <Menu.Item><Button type="text">Settings</Button></Menu.Item>}
+      {base64.decode(window.localStorage.getItem("_usrl_"))==="ADMIN" && <Menu.Item><Button type="text">Settings</Button></Menu.Item>}
       <Menu.Item>
       <Button type="text" onClick={LogOut}>Logout</Button>
       </Menu.Item>
