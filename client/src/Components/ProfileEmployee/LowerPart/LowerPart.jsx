@@ -151,7 +151,6 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
 
       Experience.company_name = employeeProfileState.experience.company_name;
       Experience.designation = employeeProfileState.experience.designation;
-      Experience.to_date = employeeProfileState.experience.to_date;
 
       setData(DATA);
       setData2(DATA2);
@@ -175,6 +174,8 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
       emergencyContact: {},
       bankInfo: {},
       familyInfo: {},
+      education: {},
+      experience: {},
     };
     try {
       Load.employee.passport_no = employeeProfileState.employee.passport_no;
@@ -200,12 +201,20 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
       Load.familyInfo.birthday = employeeProfileState.familyInfo.birthday;
       Load.familyInfo.phone = employeeProfileState.familyInfo.phone;
 
+      Load.education.ssc = employeeProfileState.education.ssc;
+      Load.education.hsc = employeeProfileState.education.hsc;
+      Load.education.bsc = employeeProfileState.education.bsc;
+
+      Load.experience.company_name =
+        employeeProfileState.experience.company_name;
+      Load.experience.designation = employeeProfileState.experience.designation;
+
       setLoad(Load);
     } catch (error) {}
   }, [edit]);
 
   return (
-    <div style={{ marginTop: "50px" }}>
+    <div style={{ marginTop: "50px", marginLeft: "20px" }}>
       <Row style={{ marginTop: "20px" }} gutter={16}>
         <Col span={12}>
           <h5>Personal Info</h5>
@@ -307,32 +316,37 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
           <h5>Education Informations</h5>
 
           {edit ? (
-            <div>
+            <div style={{ marginBottom: "50px" }}>
               <Input
                 allowClear
                 onChange={(e) => {
-                  setChange(e.target.value, "bankInfo");
+                  setChange(e.target.value, "ssc", "education");
                 }}
-                width={200}
+                style={{ marginBottom: "10px", width: "70%" }}
+                placeholder="SSC"
               />
               <Input
                 allowClear
                 onChange={(e) => {
-                  setChange(e.target.value, "bankInfo");
+                  setChange(e.target.value, "hsc", "education");
                 }}
+                style={{ marginBottom: "10px", width: "70%", float: "left" }}
+                placeholder="HSC"
               />
               <Input
                 allowClear
                 onChange={(e) => {
-                  setChange(e.target.value, "bankInfo");
+                  setChange(e.target.value, "bsc", "education");
                 }}
+                style={{ width: "70%" }}
+                placeholder="BSC"
               />
             </div>
           ) : (
             <Steps progressDot current={3} direction="vertical">
-              <Step title={education.bsc} description="BSC" />
-              <Step title={education.hsc} description="HSC" />
-              <Step title={education.ssc} description="SSC" />
+              <Step title={education.ssc} description="SSc" />
+              <Step title={education.hsc} description="HSc" />
+              <Step title={education.bsc} description="BSc" />
             </Steps>
           )}
         </Col>
@@ -340,12 +354,33 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
         <Col span={12}>
           <h5>Experience</h5>
 
-          <Steps progressDot current={3} direction="vertical">
-            <Step
-              title={experience.company_name}
-              description={experience.designation}
-            />
-          </Steps>
+          {edit ? (
+            <div style={{ marginBottom: "50px" }}>
+              <Input
+                allowClear
+                onChange={(e) => {
+                  setChange(e.target.value,  "company_name","experience");
+                }}
+                style={{ marginBottom: "10px", width: "70%" }}
+                placeholder="Company Name"
+              />
+              <Input
+                allowClear
+                onChange={(e) => {
+                  setChange(e.target.value, "designation", "experience");
+                }}
+                style={{ width: "70%", float: "left" }}
+                placeholder="Designation"
+              />
+            </div>
+          ) : (
+            <Steps progressDot current={3} direction="vertical">
+              <Step
+                title={experience.company_name}
+                description={experience.designation}
+              />
+            </Steps>
+          )}
         </Col>
       </Row>
     </div>

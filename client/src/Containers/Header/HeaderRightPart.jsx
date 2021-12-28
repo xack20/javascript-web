@@ -4,10 +4,13 @@ import SearchBar from '../../Components/Search/SearchBar.jsx';
 import './HeaderRightPart.css';
 import base64 from 'react-native-base64';
 import {logout} from '../../Services/Auth';
+import {useHistory} from 'react-router-dom';
 
 
 
 const HeaderRightPart = () => {
+
+  const history = useHistory();
 
   const LogOut = async() => {
     
@@ -25,7 +28,7 @@ const HeaderRightPart = () => {
   const menu = (
     <Menu>
       <Menu.Item>
-      <Button type="text">Profile</Button>
+      <Button type="text" onClick={()=>{history.push("/employee/profile/"+parseInt(window.localStorage.getItem("_uid_")))}}>Profile</Button>
       </Menu.Item>
       {base64.decode(window.localStorage.getItem("_usrl_"))==="ADMIN" && <Menu.Item><Button type="text">Settings</Button></Menu.Item>}
       <Menu.Item>
