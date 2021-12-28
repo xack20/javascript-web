@@ -11,10 +11,13 @@ const EmpProfilePage = ({ user_id }) => {
 
     const [load,setLoad] = useState({})
 
+    const oldResponse = {};
+
     useEffect(() => {
         const callEmployeeProfile = async () => {
             try {
                 const response = await employeeProfile(user_id);
+                oldResponse = {...response.data.additionalPayload}
                 setEmployeeProfileState(response.data.additionalPayload);
             } catch (error) {
                 console.log(error.response);
@@ -27,12 +30,20 @@ const EmpProfilePage = ({ user_id }) => {
         setEdit(!edit);
     };
 
+
+    const isSameObject = (obj1, obj2) => {
+        return JSON.stringify(obj1) === JSON.stringify(obj2);
+    }
+
     const onSave = () => {
 
         const Load = {...load}
-        console.log(Load);
-        // Load.employee.firstname = load.employee.fullname.split(" ")[0]
-        // Load.employee.lastname = load.employee.fullname.split(" ")[1]
+        
+
+        if(isSameObject(oldResponse,Load)){
+            setEdit(!edit);
+            return;
+        }
 
         try {
             const response = updateEmployee(Load, user_id);
@@ -48,7 +59,6 @@ const EmpProfilePage = ({ user_id }) => {
                 placement:"bottomRight"
             });
         }
-
        setEdit(!edit);
     }
 
