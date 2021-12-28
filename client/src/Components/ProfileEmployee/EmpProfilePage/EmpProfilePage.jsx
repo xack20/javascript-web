@@ -11,13 +11,10 @@ const EmpProfilePage = ({ user_id }) => {
 
     const [load,setLoad] = useState({})
 
-    const oldResponse = {};
-
     useEffect(() => {
         const callEmployeeProfile = async () => {
             try {
                 const response = await employeeProfile(user_id);
-                oldResponse = {...response.data.additionalPayload}
                 setEmployeeProfileState(response.data.additionalPayload);
             } catch (error) {
                 console.log(error.response);
@@ -31,19 +28,9 @@ const EmpProfilePage = ({ user_id }) => {
     };
 
 
-    const isSameObject = (obj1, obj2) => {
-        return JSON.stringify(obj1) === JSON.stringify(obj2);
-    }
-
     const onSave = () => {
 
         const Load = {...load}
-        
-
-        if(isSameObject(oldResponse,Load)){
-            setEdit(!edit);
-            return;
-        }
 
         try {
             const response = updateEmployee(Load, user_id);
