@@ -13,6 +13,7 @@ import PassThrough from './PassThrough.jsx'
 import NotFound from '../../Views/Default/404.jsx'
 import Tab from '../../Components/Tab/Tab.jsx'
 import BreadCrumb from '../../Components/BreadCrumb/BreadCrumb.jsx'
+import ClientProfile from '../../Views/Profile/ClientProfile.jsx'
 
 // CSS Imports
 import './MainContent.css'
@@ -77,11 +78,15 @@ function MainContent () {
             />
           </Route>
 
-          <Route exact path='/employee/profile'>
+          {/* <Route exact path='/employee/profile'>
             <Profile/>
-          </Route>
+          </Route> */}
+
+         
 
           <Route exact path='/employee/profile/:id' component={Profile}/>
+
+          <Route exact path='/client/profile/:id' component={ClientProfile}/>
           
           <Route path='*'>
             <NotFound name={'This'} />

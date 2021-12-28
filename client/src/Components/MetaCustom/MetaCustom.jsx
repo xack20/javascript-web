@@ -10,7 +10,12 @@ function MetaCustom({ data }) {
   const history = useHistory();
 
   const viewProfile = (id) => {
-    history.push(`/employee/profile/${id}`);    
+      if(window.location.pathname === "/clients"){
+        history.push(`/client/profile/${data.client_id}`);
+      }
+      else {
+        history.push(`/employee/profile/${id}`);
+      }
   }
 
   return (

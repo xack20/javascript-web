@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import { Row, Col, Card, notification } from "antd";
-import "./AllEmployees.css";
-import MetaCustom from "../../Components/MetaCustom/MetaCustom.jsx";
-import MyModal from "../../Components/MyModal/MyModal.jsx";
-
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import SearchBarClient from "../../Components/SearchBarClient/SearchBarClient";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Card, Col, notification, Row } from "antd";
+import React, { useEffect, useState } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import EmployeeForm from "../../Components/EmployeeForm/EmployeeForm";
-import { useEffect } from "react";
+import MetaCustom from "../../Components/MetaCustom/MetaCustom.jsx";
+import MyModal from "../../Components/MyModal/MyModal.jsx";
+import SearchBarClient from "../../Components/SearchBarClient/SearchBarClient";
 import { allEmployees, deleteEmployee } from "../../Services/Employee";
+import "./AllEmployees.css";
+
 
 const AllEmployees = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
