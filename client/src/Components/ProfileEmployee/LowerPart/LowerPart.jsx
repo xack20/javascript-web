@@ -1,12 +1,11 @@
 import { Col, Row, Steps, Table, Input } from "antd";
 import React, { useEffect, useState } from "react";
 
-
 const { Step } = Steps;
 
 const { Column } = Table;
 
-const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
+const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
   const [data, setData] = useState([
     {
       key: "passport_no",
@@ -113,7 +112,6 @@ const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
   });
 
   useEffect(() => {
-
     const DATA = [...data];
 
     const DATA2 = [...data2];
@@ -127,7 +125,6 @@ const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
     const Experience = { ...experience };
 
     try {
-
       DATA[0].value = employeeProfileState.employee.passport_no;
       DATA[1].value = employeeProfileState["employee"].telephone;
       DATA[2].value = employeeProfileState["employee"].nationality;
@@ -135,12 +132,9 @@ const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
       DATA[4].value = employeeProfileState["employee"].maritial_status;
       DATA[5].value = employeeProfileState["employee"].spouse;
 
-
-
       DATA2[0].value = employeeProfileState.emergencyContact.name;
       DATA2[1].value = employeeProfileState.emergencyContact.relashionship;
       DATA2[2].value = employeeProfileState.emergencyContact.phone;
-
 
       DATA3[0].value = employeeProfileState.bankInfo.bank_name;
       DATA3[1].value = employeeProfileState.bankInfo.account_no;
@@ -150,7 +144,6 @@ const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
       DATA4[1].value = employeeProfileState.familyInfo.relashionship;
       DATA4[2].value = employeeProfileState.familyInfo.birthday;
       DATA4[3].value = employeeProfileState.familyInfo.phone;
-
 
       Education.ssc = employeeProfileState.education.ssc;
       Education.hsc = employeeProfileState.education.hsc;
@@ -169,76 +162,70 @@ const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
     } catch (error) {}
   }, [employeeProfileState]);
 
+  const setChange = (value, key, sup) => {
+    const Load = { ...load };
 
+    Load[[sup]][[key]] = value;
+    setLoad(Load);
+  };
 
-
-  const setChange = (value,key,sup) => {
-    const Load = {...load}
-    
-    Load[[sup]][[key]] = value
-    setLoad(Load)
-    
-}
-
-
-useEffect(() => {
-  const Load = {
-    "employee" : {},
-    "emergencyContact" : {},
-    "bankInfo" : {},
-    "familyInfo" : {},
-
-  }
-  try {
-
+  useEffect(() => {
+    const Load = {
+      employee: {},
+      emergencyContact: {},
+      bankInfo: {},
+      familyInfo: {},
+    };
+    try {
       Load.employee.passport_no = employeeProfileState.employee.passport_no;
       Load.employee.telephone = employeeProfileState["employee"].telephone;
       Load.employee.nationality = employeeProfileState["employee"].nationality;
       Load.employee.religion = employeeProfileState["employee"].religion;
-      Load.employee.maritial_status= employeeProfileState["employee"].maritial_status;
-      Load.employee.spouse= employeeProfileState["employee"].spouse;
-
-
-
+      Load.employee.maritial_status =
+        employeeProfileState["employee"].maritial_status;
+      Load.employee.spouse = employeeProfileState["employee"].spouse;
 
       Load.emergencyContact.name = employeeProfileState.emergencyContact.name;
-      Load.emergencyContact.relashionship = employeeProfileState.emergencyContact.relashionship;
+      Load.emergencyContact.relashionship =
+        employeeProfileState.emergencyContact.relashionship;
       Load.emergencyContact.phone = employeeProfileState.emergencyContact.phone;
-
 
       Load.bankInfo.bank_name = employeeProfileState.bankInfo.bank_name;
       Load.bankInfo.account_no = employeeProfileState.bankInfo.account_no;
       Load.bankInfo.ifsc_code = employeeProfileState.bankInfo.ifsc_code;
 
       Load.familyInfo.name = employeeProfileState.familyInfo.name;
-      Load.familyInfo.relashionship = employeeProfileState.familyInfo.relashionship;
+      Load.familyInfo.relashionship =
+        employeeProfileState.familyInfo.relashionship;
       Load.familyInfo.birthday = employeeProfileState.familyInfo.birthday;
       Load.familyInfo.phone = employeeProfileState.familyInfo.phone;
 
-
-      setLoad(Load)
-  } catch (error) {
-      
-  }
-
-  
-
-},[edit])
-  
-
+      setLoad(Load);
+    } catch (error) {}
+  }, [edit]);
 
   return (
     <div style={{ marginTop: "50px" }}>
-
       <Row style={{ marginTop: "20px" }} gutter={16}>
         <Col span={12}>
           <h5>Personal Info</h5>
           <Table showHeader={false} pagination={false} dataSource={data}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" 
-            render={(text, index) => {
-              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"employee")}}/> : text
-          }}
+            <Column
+              dataIndex="value"
+              render={(text, index) => {
+                return edit ? (
+                  <Input
+                    placeholder={index.key}
+                    allowClear
+                    onChange={(e) => {
+                      setChange(e.target.value, index.key, "employee");
+                    }}
+                  />
+                ) : (
+                  text
+                );
+              }}
             />
           </Table>
         </Col>
@@ -247,10 +234,21 @@ useEffect(() => {
           <h5>Emergency Contact</h5>
           <Table showHeader={false} pagination={false} dataSource={data2}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" 
-            render={(text, index) => {
-              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"emergencyContact")}}/> : text
-          }}
+            <Column
+              dataIndex="value"
+              render={(text, index) => {
+                return edit ? (
+                  <Input
+                    placeholder={index.key}
+                    allowClear
+                    onChange={(e) => {
+                      setChange(e.target.value, index.key, "emergencyContact");
+                    }}
+                  />
+                ) : (
+                  text
+                );
+              }}
             />
           </Table>
         </Col>
@@ -261,10 +259,21 @@ useEffect(() => {
           <h5>Bank Information</h5>
           <Table showHeader={false} pagination={false} dataSource={data3}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" 
-            render={(text, index) => {
-              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"bankInfo")}}/> : text
-          }}
+            <Column
+              dataIndex="value"
+              render={(text, index) => {
+                return edit ? (
+                  <Input
+                    placeholder={index.key}
+                    allowClear
+                    onChange={(e) => {
+                      setChange(e.target.value, index.key, "bankInfo");
+                    }}
+                  />
+                ) : (
+                  text
+                );
+              }}
             />
           </Table>
         </Col>
@@ -273,10 +282,21 @@ useEffect(() => {
           <h5>Family Information</h5>
           <Table showHeader={false} pagination={false} dataSource={data4}>
             <Column dataIndex="param" />
-            <Column dataIndex="value"
-            render={(text, index) => {
-              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"familyInfo")}}/> : text
-          }}
+            <Column
+              dataIndex="value"
+              render={(text, index) => {
+                return edit ? (
+                  <Input
+                    placeholder={index.key}
+                    allowClear
+                    onChange={(e) => {
+                      setChange(e.target.value, index.key, "familyInfo");
+                    }}
+                  />
+                ) : (
+                  text
+                );
+              }}
             />
           </Table>
         </Col>
@@ -286,11 +306,35 @@ useEffect(() => {
         <Col span={12}>
           <h5>Education Informations</h5>
 
-          <Steps progressDot current={3} direction="vertical">
-            <Step title={education.bsc} description="BSC" />
-            <Step title={education.hsc} description="HSC" />
-            <Step title={education.ssc} description="SSC" />
-          </Steps>
+          {edit ? (
+            <div>
+              <Input
+                allowClear
+                onChange={(e) => {
+                  setChange(e.target.value, "bankInfo");
+                }}
+                width={200}
+              />
+              <Input
+                allowClear
+                onChange={(e) => {
+                  setChange(e.target.value, "bankInfo");
+                }}
+              />
+              <Input
+                allowClear
+                onChange={(e) => {
+                  setChange(e.target.value, "bankInfo");
+                }}
+              />
+            </div>
+          ) : (
+            <Steps progressDot current={3} direction="vertical">
+              <Step title={education.bsc} description="BSC" />
+              <Step title={education.hsc} description="HSC" />
+              <Step title={education.ssc} description="SSC" />
+            </Steps>
+          )}
         </Col>
 
         <Col span={12}>

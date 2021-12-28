@@ -89,12 +89,12 @@ const AllEmployees = () => {
                   borderRadius: " 10px",
                 }}
                 actions={[
-                  <EditOutlined
-                    key="ellipsis"
-                    onClick={() => {
-                      console.log("Edit");
-                    }}
-                  />,
+                  // <EditOutlined
+                  //   key="ellipsis"
+                  //   onClick={() => {
+                  //     console.log("Edit");
+                  //   }}
+                  // />,
                   <DeleteOutlined
                     key="delete"
                     onClick={() => {
