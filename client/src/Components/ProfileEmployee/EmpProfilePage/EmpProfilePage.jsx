@@ -37,7 +37,7 @@ const EmpProfilePage = ({ user_id }) => {
         try {
             const response = updateEmployee(Load, user_id);
             notification["success"]({
-                message: "Employee Deleted Successfully",
+                message: "Employee Updated Successfully",
                 description:'',
                 placement:"bottomRight"
             });

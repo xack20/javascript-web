@@ -76,7 +76,7 @@ const ProfileTableEmpTop = ({ employeeProfileState,load,setLoad,edit }) => {
             DATA2[2].value = employeeProfileState.employee.birthday
             DATA2[3].value = employeeProfileState.employee.address
             DATA2[4].value = employeeProfileState.employee.gender
-            DATA2[25].value = employeeProfileState.employee.report_to
+            DATA2[5].value = employeeProfileState.employee.report_to
 
 
             

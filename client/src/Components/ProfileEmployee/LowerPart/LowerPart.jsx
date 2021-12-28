@@ -1,4 +1,4 @@
-import { Col, Row, Steps, Table } from "antd";
+import { Col, Row, Steps, Table, Input } from "antd";
 import React, { useEffect, useState } from "react";
 
 
@@ -6,35 +6,35 @@ const { Step } = Steps;
 
 const { Column } = Table;
 
-const LowerPart = ({ employeeProfileState }) => {
+const LowerPart = ({ employeeProfileState,load,setLoad,edit}) => {
   const [data, setData] = useState([
     {
-      key: "1",
+      key: "passport_no",
       param: "Passport No:",
       value: "9876543210",
     },
     {
-      key: "2",
+      key: "telephone",
       param: "Telphone No:",
       value: "9876543210",
     },
     {
-      key: "3",
+      key: "nationality",
       param: "Nationality:",
       value: "Bangladeshi",
     },
     {
-      key: "4",
+      key: "religion",
       param: "Religion:",
       value: "Islam",
     },
     {
-      key: "5",
+      key: "maritial_status",
       param: "Marital status:",
       value: "Single",
     },
     {
-      key: "6",
+      key: "spouse",
       param: "Employment of spouse:",
       value: "No",
     },
@@ -42,17 +42,17 @@ const LowerPart = ({ employeeProfileState }) => {
 
   const [data2, setData2] = useState([
     {
-      key: "1",
+      key: "name",
       param: "Name:",
       value: "John Doe",
     },
     {
-      key: "2",
+      key: "relashionship",
       param: "Relationship:",
       value: "Father",
     },
     {
-      key: "3",
+      key: "phone",
       param: "Phone:",
       value: "9876543210",
     },
@@ -60,17 +60,17 @@ const LowerPart = ({ employeeProfileState }) => {
 
   const [data3, setData3] = useState([
     {
-      key: "1",
+      key: "bank_name",
       param: "Bank Name:",
       value: "ICICI Bank",
     },
     {
-      key: "2",
+      key: "account_no",
       param: "Bank account No:",
       value: "159843014641",
     },
     {
-      key: "3",
+      key: "ifsc_code",
       param: "IFSC Code:",
       value: "ICI24504",
     },
@@ -78,22 +78,22 @@ const LowerPart = ({ employeeProfileState }) => {
 
   const [data4, setData4] = useState([
     {
-      key: "1",
+      key: "name",
       param: "Name:",
       value: "Leo",
     },
     {
-      key: "2",
+      key: "relashionship",
       param: "Relationship:",
       value: "Brother",
     },
     {
-      key: "3",
+      key: "birthday",
       param: "Date of Birth:",
       value: "Feb 16th, 2019",
     },
     {
-      key: "4",
+      key: "phone",
       param: "Phone:",
       value: "9876543210",
     },
@@ -113,132 +113,133 @@ const LowerPart = ({ employeeProfileState }) => {
   });
 
   useEffect(() => {
-    const Education = { ...education };
-    try {
-      Education.ssc = employeeProfileState.education.ssc;
-      Education.hsc = employeeProfileState.education.hsc;
-      Education.bsc = employeeProfileState.education.bsc;
 
-      setEducation(Education);
-    } catch (error) {}
-  }, [employeeProfileState]);
-
-  useEffect(() => {
-    const Experience = { ...experience };
-    try {
-      Experience.company_name = employeeProfileState.experience.company_name;
-      Experience.designation = employeeProfileState.experience.designation;
-      Experience.from_date =
-        employeeProfileState.experience.from_date +
-        " " +
-        employeeProfileState.experience.to_date;
-
-      setExperience(Experience);
-    } catch (error) {}
-  }, [employeeProfileState]);
-
-  useEffect(() => {
     const DATA = [...data];
-   
+
+    const DATA2 = [...data2];
+
+    const DATA3 = [...data3];
+
+    const DATA4 = [...data4];
+
+    const Education = { ...education };
+
+    const Experience = { ...experience };
+
     try {
+
       DATA[0].value = employeeProfileState.employee.passport_no;
       DATA[1].value = employeeProfileState["employee"].telephone;
       DATA[2].value = employeeProfileState["employee"].nationality;
       DATA[3].value = employeeProfileState["employee"].religion;
       DATA[4].value = employeeProfileState["employee"].maritial_status;
       DATA[5].value = employeeProfileState["employee"].spouse;
-    } catch (error) {}
 
-    setData(DATA);
+
+
+      DATA2[0].value = employeeProfileState.emergencyContact.name;
+      DATA2[1].value = employeeProfileState.emergencyContact.relashionship;
+      DATA2[2].value = employeeProfileState.emergencyContact.phone;
+
+
+      DATA3[0].value = employeeProfileState.bankInfo.bank_name;
+      DATA3[1].value = employeeProfileState.bankInfo.account_no;
+      DATA3[2].value = employeeProfileState.bankInfo.ifsc_code;
+
+      DATA4[0].value = employeeProfileState.familyInfo.name;
+      DATA4[1].value = employeeProfileState.familyInfo.relashionship;
+      DATA4[2].value = employeeProfileState.familyInfo.birthday;
+      DATA4[3].value = employeeProfileState.familyInfo.phone;
+
+
+      Education.ssc = employeeProfileState.education.ssc;
+      Education.hsc = employeeProfileState.education.hsc;
+      Education.bsc = employeeProfileState.education.bsc;
+
+      Experience.company_name = employeeProfileState.experience.company_name;
+      Experience.designation = employeeProfileState.experience.designation;
+      Experience.to_date = employeeProfileState.experience.to_date;
+
+      setData(DATA);
+      setData2(DATA2);
+      setData3(DATA3);
+      setData4(DATA4);
+      setEducation(Education);
+      setExperience(Experience);
+    } catch (error) {}
   }, [employeeProfileState]);
 
-  useEffect(() => {
-    const DATA = [...data2];
+
+
+
+  const setChange = (value,key,sup) => {
+    const Load = {...load}
     
-    try {
-      DATA[0].value = employeeProfileState.emergencyContact.name;
-      DATA[1].value = employeeProfileState.emergencyContact.relashionship;
-      DATA[2].value = employeeProfileState.emergencyContact.phone;
-    } catch (error) {}
-
-    setData2(DATA);
-  }, [employeeProfileState]);
-
-  useEffect(() => {
-    const DATA = [...data3];
+    Load[[sup]][[key]] = value
+    setLoad(Load)
     
-    try {
-      DATA[0].value = employeeProfileState.bankInfo.bank_name;
-      DATA[1].value = employeeProfileState.bankInfo.account_no;
-      DATA[2].value = employeeProfileState.bankInfo.ifsc_code;
-    } catch (error) {}
-
-    setData3(DATA);
-  }, [employeeProfileState]);
-
-  useEffect(() => {
-    const DATA = [...data4];
-    
-    try {
-      DATA[0].value = employeeProfileState.familyInfo.name;
-      DATA[1].value = employeeProfileState.familyInfo.relashionship;
-      DATA[2].value = employeeProfileState.familyInfo.birthday;
-      DATA[3].value = employeeProfileState.familyInfo.phone;
-    } catch (error) {}
-
-    setData4(DATA);
-  }, [employeeProfileState]);
+}
 
 
-//   const [current, setCurrent] = useState();
-//   const handleClick = (e) => {
-        
-//     setCurrent({ current: e.key });
-// };
+useEffect(() => {
+  const Load = {
+    "employee" : {},
+    "emergencyContact" : {},
+    "bankInfo" : {},
+    "familyInfo" : {},
+
+  }
+  try {
+
+      Load.employee.passport_no = employeeProfileState.employee.passport_no;
+      Load.employee.telephone = employeeProfileState["employee"].telephone;
+      Load.employee.nationality = employeeProfileState["employee"].nationality;
+      Load.employee.religion = employeeProfileState["employee"].religion;
+      Load.employee.maritial_status= employeeProfileState["employee"].maritial_status;
+      Load.employee.spouse= employeeProfileState["employee"].spouse;
+
+
+
+
+      Load.emergencyContact.name = employeeProfileState.emergencyContact.name;
+      Load.emergencyContact.relashionship = employeeProfileState.emergencyContact.relashionship;
+      Load.emergencyContact.phone = employeeProfileState.emergencyContact.phone;
+
+
+      Load.bankInfo.bank_name = employeeProfileState.bankInfo.bank_name;
+      Load.bankInfo.account_no = employeeProfileState.bankInfo.account_no;
+      Load.bankInfo.ifsc_code = employeeProfileState.bankInfo.ifsc_code;
+
+      Load.familyInfo.name = employeeProfileState.familyInfo.name;
+      Load.familyInfo.relashionship = employeeProfileState.familyInfo.relashionship;
+      Load.familyInfo.birthday = employeeProfileState.familyInfo.birthday;
+      Load.familyInfo.phone = employeeProfileState.familyInfo.phone;
+
+
+      setLoad(Load)
+  } catch (error) {
+      
+  }
+
+  
+
+},[edit])
+  
+
 
   return (
     <div style={{ marginTop: "50px" }}>
-      {/* <Row gutter={16} style={{ marginTop: "50px" }}>
-        <Col span={4}>
-          <Menu
-            style={{ marginTop: "20px" }}
-            onClick={handleClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-          >
-            <Menu.Item key="profile">Profile</Menu.Item>
-          </Menu>
-        </Col>
-
-        <Col span={4}>
-          <Menu
-            style={{ marginTop: "20px" }}
-            onClick={handleClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-          >
-            <Menu.Item key="profile">Project</Menu.Item>
-          </Menu>
-        </Col>
-
-        <Col span={4}>
-          <Menu
-            style={{ marginTop: "20px" }}
-            onClick={handleClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-          >
-            <Menu.Item key="profile">Bank $ Statutory</Menu.Item>
-          </Menu>
-        </Col>
-      </Row> */}
 
       <Row style={{ marginTop: "20px" }} gutter={16}>
         <Col span={12}>
           <h5>Personal Info</h5>
           <Table showHeader={false} pagination={false} dataSource={data}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" />
+            <Column dataIndex="value" 
+            render={(text, index) => {
+              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"employee")}}/> : text
+          }}
+            />
           </Table>
         </Col>
 
@@ -246,7 +247,11 @@ const LowerPart = ({ employeeProfileState }) => {
           <h5>Emergency Contact</h5>
           <Table showHeader={false} pagination={false} dataSource={data2}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" />
+            <Column dataIndex="value" 
+            render={(text, index) => {
+              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"emergencyContact")}}/> : text
+          }}
+            />
           </Table>
         </Col>
       </Row>
@@ -256,7 +261,11 @@ const LowerPart = ({ employeeProfileState }) => {
           <h5>Bank Information</h5>
           <Table showHeader={false} pagination={false} dataSource={data3}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" />
+            <Column dataIndex="value" 
+            render={(text, index) => {
+              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"bankInfo")}}/> : text
+          }}
+            />
           </Table>
         </Col>
 
@@ -264,7 +273,11 @@ const LowerPart = ({ employeeProfileState }) => {
           <h5>Family Information</h5>
           <Table showHeader={false} pagination={false} dataSource={data4}>
             <Column dataIndex="param" />
-            <Column dataIndex="value" />
+            <Column dataIndex="value"
+            render={(text, index) => {
+              return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key,"familyInfo")}}/> : text
+          }}
+            />
           </Table>
         </Col>
       </Row>

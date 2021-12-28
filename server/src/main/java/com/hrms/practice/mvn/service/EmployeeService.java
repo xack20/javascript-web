@@ -186,9 +186,9 @@ public class EmployeeService {
 		BankInfo bankInfo = bankInfoRepository.findByUserId(id);
 
 		if(bankInfoPayload != null){
-			if(bankInfoPayload.get("account_no")!=null && !employeePayload.get("account_no").equals(""))bankInfo.setAccount_no((String)bankInfoPayload.get("account_no"));
-			if(bankInfoPayload.get("bank_name")!=null && !employeePayload.get("bank_name").equals(""))bankInfo.setBank_name((String)bankInfoPayload.get("bank_name"));
-			if(bankInfoPayload.get("ifsc_code")!=null && !employeePayload.get("ifsc_code").equals(""))bankInfo.setIfsc_code((String)bankInfoPayload.get("ifsc_code"));
+			if(bankInfoPayload.get("account_no")!=null && !bankInfoPayload.get("account_no").equals(""))bankInfo.setAccount_no((String)bankInfoPayload.get("account_no"));
+			if(bankInfoPayload.get("bank_name")!=null && !bankInfoPayload.get("bank_name").equals(""))bankInfo.setBank_name((String)bankInfoPayload.get("bank_name"));
+			if(bankInfoPayload.get("ifsc_code")!=null && !bankInfoPayload.get("ifsc_code").equals(""))bankInfo.setIfsc_code((String)bankInfoPayload.get("ifsc_code"));
 
 			bankInfoRepository.save(bankInfo);
 		}
@@ -205,10 +205,10 @@ public class EmployeeService {
 		Education education = educationRepository.findByUserId(id);
 
 		if(educationPayload!=null){
-			if(educationPayload.get("ssc")!=null && !employeePayload.get("ssc").equals(""))education.setSsc((String)educationPayload.get("ssc"));
-			if(educationPayload.get("hsc")!=null && !employeePayload.get("hsc").equals(""))education.setHsc((String)educationPayload.get("hsc"));
-			if(educationPayload.get("bsc")!=null && !employeePayload.get("bsc").equals(""))education.setBsc((String)educationPayload.get("bsc"));
-			if(educationPayload.get("msc")!=null && !employeePayload.get("msc").equals(""))education.setMsc((String)educationPayload.get("msc"));
+			if(educationPayload.get("ssc")!=null && !educationPayload.get("ssc").equals(""))education.setSsc((String)educationPayload.get("ssc"));
+			if(educationPayload.get("hsc")!=null && !educationPayload.get("hsc").equals(""))education.setHsc((String)educationPayload.get("hsc"));
+			if(educationPayload.get("bsc")!=null && !educationPayload.get("bsc").equals(""))education.setBsc((String)educationPayload.get("bsc"));
+			if(educationPayload.get("msc")!=null && !educationPayload.get("msc").equals(""))education.setMsc((String)educationPayload.get("msc"));
 
 			educationRepository.save(education);
 		}
@@ -225,9 +225,9 @@ public class EmployeeService {
 		EmergencyContact emergencyContact = emergencyContactRepository.findByUserId(id);
 
 		if(emergencyContactPayload!=null){
-			if(emergencyContactPayload.get("emergency_name")!=null && !employeePayload.get("emergency_name").equals(""))emergencyContact.setName((String)emergencyContactPayload.get("emergency_name"));
-			if(emergencyContactPayload.get("emergency_phone")!=null && !employeePayload.get("emergency_phone").equals(""))emergencyContact.setPhone((String)emergencyContactPayload.get("emergency_phone"));
-			if(emergencyContactPayload.get("emergency_relashionship")!=null && !employeePayload.get("emergency_relashionship").equals(""))emergencyContact.setRelashionship((String)emergencyContactPayload.get("emergency_relashionship"));
+			if(emergencyContactPayload.get("name")!=null && !emergencyContactPayload.get("name").equals(""))emergencyContact.setName((String)emergencyContactPayload.get("name"));
+			if(emergencyContactPayload.get("phone")!=null && !emergencyContactPayload.get("phone").equals(""))emergencyContact.setPhone((String)emergencyContactPayload.get("phone"));
+			if(emergencyContactPayload.get("relashionship")!=null && !emergencyContactPayload.get("relashionship").equals(""))emergencyContact.setRelashionship((String)emergencyContactPayload.get("relashionship"));
 
 			emergencyContactRepository.save(emergencyContact);
 		}
@@ -243,10 +243,10 @@ public class EmployeeService {
 		Experience experience = experienceRepository.findByUserId(id);
 
 		if(experiencePayload!=null){
-			if(experiencePayload.get("company_name")!=null && !employeePayload.get("company_name").equals(""))experience.setCompany_name((String)experiencePayload.get("company_name"));
-			if(experiencePayload.get("designation")!=null && !employeePayload.get("designation").equals(""))experience.setDesignation((String)experiencePayload.get("designation"));
-			if(experiencePayload.get("from_date")!=null && !employeePayload.get("from_date").equals(""))experience.setFrom_date((String)experiencePayload.get("from_date"));
-			if(experiencePayload.get("to_date")!=null && !employeePayload.get("to_date").equals(""))experience.setTo_date((String)experiencePayload.get("to_date"));
+			if(experiencePayload.get("company_name")!=null && !experiencePayload.get("company_name").equals(""))experience.setCompany_name((String)experiencePayload.get("company_name"));
+			if(experiencePayload.get("designation")!=null && !experiencePayload.get("designation").equals(""))experience.setDesignation((String)experiencePayload.get("designation"));
+			if(experiencePayload.get("from_date")!=null && !experiencePayload.get("from_date").equals(""))experience.setFrom_date((String)experiencePayload.get("from_date"));
+			if(experiencePayload.get("to_date")!=null && !experiencePayload.get("to_date").equals(""))experience.setTo_date((String)experiencePayload.get("to_date"));
 	
 			experienceRepository.save(experience);
 		}
@@ -266,10 +266,10 @@ public class EmployeeService {
 		FamilyInfo familyInfo = familyInfoRepository.findByUserId(id);
 
 		if(familyInfoPayload!=null){
-			if(familyInfoPayload.get("birthday")!=null && !employeePayload.get("birthday").equals(""))familyInfo.setBirthday((String)familyInfoPayload.get("birthday"));
-			if(familyInfoPayload.get("name")!=null && !employeePayload.get("name").equals(""))familyInfo.setName((String)familyInfoPayload.get("name"));
-			if(familyInfoPayload.get("phone")!=null && !employeePayload.get("phone").equals(""))familyInfo.setPhone((String)familyInfoPayload.get("phone"));
-			if(familyInfoPayload.get("relashionship")!=null && !employeePayload.get("relashionship").equals(""))familyInfo.setRelashionship((String)familyInfoPayload.get("relashionship"));
+			if(familyInfoPayload.get("birthday")!=null && !familyInfoPayload.get("birthday").equals(""))familyInfo.setBirthday((String)familyInfoPayload.get("birthday"));
+			if(familyInfoPayload.get("name")!=null && !familyInfoPayload.get("name").equals(""))familyInfo.setName((String)familyInfoPayload.get("name"));
+			if(familyInfoPayload.get("phone")!=null && !familyInfoPayload.get("phone").equals(""))familyInfo.setPhone((String)familyInfoPayload.get("phone"));
+			if(familyInfoPayload.get("relashionship")!=null && !familyInfoPayload.get("relashionship").equals(""))familyInfo.setRelashionship((String)familyInfoPayload.get("relashionship"));
 	
 			familyInfoRepository.save(familyInfo);
 		}
