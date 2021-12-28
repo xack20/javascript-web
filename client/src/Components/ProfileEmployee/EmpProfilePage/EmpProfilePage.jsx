@@ -12,6 +12,7 @@ const EmpProfilePage = ({user_id}) => {
         const callEmployeeProfile = async ()=>{
           try {
               const response = await employeeProfile(user_id);
+              response.data.additionalPayload.edit = false;
               setEmployeeProfileState(response.data.additionalPayload);
           } catch (error) {
                 console.log(error.response);
@@ -20,14 +21,21 @@ const EmpProfilePage = ({user_id}) => {
         }
         callEmployeeProfile();
     },[user_id]);
+
+    const onEdit = () => {
+        setEmployeeProfileState({...employeeProfileState,edit:!employeeProfileState.edit});
+    }
+
     return (
         <div style={{marginTop:"30px"}}>
-             <Button primary style={{float:"right", margin:"10px"}}>
-             <EditOutlined key="ellipsis" />
-                 </Button>
+             
+             <Button onClick={onEdit} primary style={{float:"right", margin:"10px"}}>
+                <EditOutlined key="ellipsis" />
+             </Button>
 
             <ProfileTableEmpTop employeeProfileState={employeeProfileState}></ProfileTableEmpTop>
             <LowerPart employeeProfileState={employeeProfileState}></LowerPart>
+            
         </div>
     );
 };
