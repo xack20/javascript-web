@@ -64,7 +64,7 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
 
 
 
-    const [current, setCurrent] = useState();
+    
 
 
     useEffect(() => {
@@ -106,10 +106,7 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
 
     }, [employeeProfileState]);
 
-    const handleClick = (e) => {
-        
-        setCurrent({ current: e.key });
-    };
+    
 
     return (
         <div style={{ marginTop: "20px" }}>
@@ -132,40 +129,7 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
             </Row>
             <Divider></Divider>
 
-            <Row gutter={16}>
-                <Col span={4}>
-                    <Menu
-                        style={{ marginTop: "20px" }}
-                        onClick={handleClick}
-                        selectedKeys={[current]}
-                        mode="horizontal"
-                    >
-                        <Menu.Item key="profile">Profile</Menu.Item>
-                    </Menu>
-                </Col>
-
-                <Col span={4}>
-                    <Menu
-                        style={{ marginTop: "20px" }}
-                        onClick={handleClick}
-                        selectedKeys={[current]}
-                        mode="horizontal"
-                    >
-                        <Menu.Item key="profile">Project</Menu.Item>
-                    </Menu>
-                </Col>
-
-                <Col span={4}>
-                    <Menu
-                        style={{ marginTop: "20px" }}
-                        onClick={handleClick}
-                        selectedKeys={[current]}
-                        mode="horizontal"
-                    >
-                        <Menu.Item key="profile">Bank $ Statutory</Menu.Item>
-                    </Menu>
-                </Col>
-            </Row>
+          
         </div>
     );
 };
