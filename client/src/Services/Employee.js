@@ -65,3 +65,20 @@ export const deleteEmployee = async (user_id) => {
 
   return await axios(config)
 }
+
+
+
+export const updateEmployee = async (Data,user_id) => {
+  var data = Data
+
+  var config = {
+    method: 'put',
+    url: '/api/v1/employee/update/'+ parseInt(user_id),
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
+    },
+    data: data,
+  }
+
+  return await axios(config)
+}

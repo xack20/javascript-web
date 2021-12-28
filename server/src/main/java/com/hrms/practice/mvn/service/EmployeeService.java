@@ -149,24 +149,26 @@ public class EmployeeService {
 
 		Map<String,Object> employeePayload = (Map<String, Object>) payload.get("employee");
 
-		if(employeePayload.get("department")!=null && !employeePayload.get("department").equals("")) employee.setDepartment((String)employeePayload.get("department"));
-		if(employeePayload.get("designation")!=null && !employeePayload.get("designation").equals(""))employee.setDesignation((String)employeePayload.get("designation"));
-		if(employeePayload.get("email")!=null && !employeePayload.get("email").equals(""))employee.setEmail((String)employeePayload.get("email"));
-		if(employeePayload.get("employee_id")!=null && !employeePayload.get("employee_id").equals(""))employee.setEmployee_id((String)employeePayload.get("employee_id"));
-		if(employeePayload.get("firstname")!=null && !employeePayload.get("firstname").equals(""))employee.setFirstname((String)employeePayload.get("firstname"));
-		if(employeePayload.get("lastname")!=null && !employeePayload.get("lastname").equals(""))employee.setLastname((String)employeePayload.get("lastname"));
-		if(employeePayload.get("phone_no")!=null && !employeePayload.get("phone_no").equals(""))employee.setPhoneNumber((String)employeePayload.get("phone_no"));
-		if(employeePayload.get("deleted")!=null && !employeePayload.get("deleted").equals(""))employee.setDeleted((Boolean)employeePayload.get("deleted"));
-		if(employeePayload.get("address")!=null && !employeePayload.get("address").equals(""))employee.setAddress((String)employeePayload.get("address"));
-		if(employeePayload.get("birthday")!=null && !employeePayload.get("birthday").equals(""))employee.setBirthday((String)employeePayload.get("birthday"));
-		if(employeePayload.get("gender")!=null && !employeePayload.get("gender").equals(""))employee.setGender((String)employeePayload.get("gender"));
-		if(employeePayload.get("maritial_status")!=null && !employeePayload.get("maritial_status").equals(""))employee.setMaritial_status((String)employeePayload.get("maritial_status"));
-		if(employeePayload.get("passport_no")!=null && !employeePayload.get("passport_no").equals(""))employee.setPassport_no((String)employeePayload.get("passport_no"));
-		if(employeePayload.get("religion")!=null && !employeePayload.get("religion").equals(""))employee.setReligion((String)employeePayload.get("religion"));
-		if(employeePayload.get("nationality")!=null && !employeePayload.get("nationality").equals(""))employee.setNationality((String)employeePayload.get("nationality"));
-		if(employeePayload.get("spouse")!=null && !employeePayload.get("spouse").equals(""))employee.setSpouse((String)employeePayload.get("spouse"));
-		if(employeePayload.get("telephone")!=null && !employeePayload.get("telephone").equals(""))employee.setTelephone((String)employeePayload.get("telephone"));
-		if(employeePayload.get("report_to")!=null && !employeePayload.get("report_to").equals(""))employee.setReport_to((String)employeePayload.get("report_to"));
+		if(employeePayload != null){
+			if(employeePayload.get("department")!=null && !employeePayload.get("department").equals("")) employee.setDepartment((String)employeePayload.get("department"));
+			if(employeePayload.get("designation")!=null && !employeePayload.get("designation").equals(""))employee.setDesignation((String)employeePayload.get("designation"));
+			if(employeePayload.get("email")!=null && !employeePayload.get("email").equals(""))employee.setEmail((String)employeePayload.get("email"));
+			if(employeePayload.get("employee_id")!=null && !employeePayload.get("employee_id").equals(""))employee.setEmployee_id((String)employeePayload.get("employee_id"));
+			if(employeePayload.get("firstname")!=null && !employeePayload.get("firstname").equals(""))employee.setFirstname((String)employeePayload.get("firstname"));
+			if(employeePayload.get("lastname")!=null && !employeePayload.get("lastname").equals(""))employee.setLastname((String)employeePayload.get("lastname"));
+			if(employeePayload.get("phone_no")!=null && !employeePayload.get("phone_no").equals(""))employee.setPhoneNumber((String)employeePayload.get("phone_no"));
+			if(employeePayload.get("deleted")!=null && !employeePayload.get("deleted").equals(""))employee.setDeleted((Boolean)employeePayload.get("deleted"));
+			if(employeePayload.get("address")!=null && !employeePayload.get("address").equals(""))employee.setAddress((String)employeePayload.get("address"));
+			if(employeePayload.get("birthday")!=null && !employeePayload.get("birthday").equals(""))employee.setBirthday((String)employeePayload.get("birthday"));
+			if(employeePayload.get("gender")!=null && !employeePayload.get("gender").equals(""))employee.setGender((String)employeePayload.get("gender"));
+			if(employeePayload.get("maritial_status")!=null && !employeePayload.get("maritial_status").equals(""))employee.setMaritial_status((String)employeePayload.get("maritial_status"));
+			if(employeePayload.get("passport_no")!=null && !employeePayload.get("passport_no").equals(""))employee.setPassport_no((String)employeePayload.get("passport_no"));
+			if(employeePayload.get("religion")!=null && !employeePayload.get("religion").equals(""))employee.setReligion((String)employeePayload.get("religion"));
+			if(employeePayload.get("nationality")!=null && !employeePayload.get("nationality").equals(""))employee.setNationality((String)employeePayload.get("nationality"));
+			if(employeePayload.get("spouse")!=null && !employeePayload.get("spouse").equals(""))employee.setSpouse((String)employeePayload.get("spouse"));
+			if(employeePayload.get("telephone")!=null && !employeePayload.get("telephone").equals(""))employee.setTelephone((String)employeePayload.get("telephone"));
+			if(employeePayload.get("report_to")!=null && !employeePayload.get("report_to").equals(""))employee.setReport_to((String)employeePayload.get("report_to"));
+		}
 		
 		employeeRepository.save(employee);
 
@@ -206,7 +208,7 @@ public class EmployeeService {
 			if(educationPayload.get("ssc")!=null && !employeePayload.get("ssc").equals(""))education.setSsc((String)educationPayload.get("ssc"));
 			if(educationPayload.get("hsc")!=null && !employeePayload.get("hsc").equals(""))education.setHsc((String)educationPayload.get("hsc"));
 			if(educationPayload.get("bsc")!=null && !employeePayload.get("bsc").equals(""))education.setBsc((String)educationPayload.get("bsc"));
-			if(educationPayload.get("msc")!=null && !employeePayload.get("msc").equals("")education.setMsc((String)educationPayload.get("msc"));
+			if(educationPayload.get("msc")!=null && !employeePayload.get("msc").equals(""))education.setMsc((String)educationPayload.get("msc"));
 
 			educationRepository.save(education);
 		}
