@@ -1,4 +1,4 @@
-import { Avatar, Col, Divider, Row, Table } from 'antd';
+import { Avatar, Col, Divider, Row, Table, Input } from 'antd';
 import React,{useState,useEffect} from 'react';
 
 const { Column } = Table;
@@ -7,9 +7,9 @@ const { Column } = Table;
 
 
 
-const ProfileTableCilentTop = ({clientProfileState}) => {
+const ProfileTableCilentTop = ({clientProfileState,load,setLoad,edit}) => {
 
-    const [data,setData] = useEffect([
+    const [data,setData] = useState([
         {
             key: 'company_name',
             value: 'Global Technologies',
@@ -37,37 +37,37 @@ const ProfileTableCilentTop = ({clientProfileState}) => {
         
     ]);
     
-    const [data2,setData2] = useEffect([
+    const [data2,setData2] = useState([
         {
-            key: 'Phone',
+            key: 'phone_number',
             param: 'Phone:',
             value: '9876543210',
            
     
         },
         {
-            key: 'Email',
+            key: 'email',
             param: 'Email:',
             value: 'johndoe@example.com',
             
     
         },
         {
-            key: 'Birthday',
+            key: 'birthday',
             param: 'Birthday:',
             value: '24th July',
             
     
         },
         {
-            key: 'Address',
+            key: 'address',
             param: 'Address:',
             value: '1861 Bayonne Ave, Manchester Township, NJ, 08759',
             
     
         },
         {
-            key: 'Gender',
+            key: 'gender',
             param: 'Gender:',
             value: 'Male',
             
@@ -79,41 +79,64 @@ const ProfileTableCilentTop = ({clientProfileState}) => {
 
     useEffect(() => {
         const DATA = [...data];
+        const DATA2 = [...data2];
         
         try {
-            DATA[0].value = clientProfileState.client.company_name;
-            DATA[1].value = clientProfileState.client.client_name;
-            DATA[2].value = clientProfileState.client.designation;
-            DATA[3].value = clientProfileState.client.client_id;
+            DATA[0].value = clientProfileState.company_name;
+            DATA[1].value = clientProfileState.client_name;
+            DATA[2].value = clientProfileState.designation;
+            DATA[3].value = clientProfileState.client_id;
+
+            DATA2[0].value = clientProfileState.phoneNumber;
+            DATA2[1].value = clientProfileState.email;
+            DATA2[2].value = clientProfileState.birthday;
+            DATA2[3].value = clientProfileState.address;
+            DATA2[4].value = clientProfileState.gender;
             
         } catch (error) {
 
         }
 
         setData(DATA);
+        setData2(DATA2);
 
 
     }, [clientProfileState]);
 
 
     useEffect(() => {
-        const DATA = [...data2];
-        
+        const Load = {}
         try {
-            DATA[0].value = clientProfileState.client.phone;
-            DATA[1].value = clientProfileState.client.email;
-            DATA[2].value = clientProfileState.client.birthday;
-            DATA[3].value = clientProfileState.client.address;
-            DATA[4].value = clientProfileState.client.gender;
+            Load.client_name = clientProfileState.firstname + ' ' + clientProfileState.lastname
+            Load.company_name = clientProfileState.company_name
+            Load.designation = clientProfileState.designation
+            Load.client_id = clientProfileState.client_id
+            Load.phone_number = clientProfileState.phone_number
+            Load.email = clientProfileState.email
+            Load.birthday = clientProfileState.birthday
+            Load.address = clientProfileState.address
+            Load.gender = clientProfileState.gender
             
-        } catch (error) {
 
+
+            setLoad(Load)
+        } catch (error) {
+            
         }
 
-        setData2(DATA);
+        
 
+    },[edit])
 
-    }, [clientProfileState]);
+    const setChange = (value,key) => {
+        const Load = {...load}
+        if(key==='client_name'){
+            Load.firstname = value.split(" ")[0]
+            Load.lastname = value.split(" ")[1]
+        }
+        else Load[[key]] = value
+        setLoad(Load)
+    }
 
 
 
@@ -125,7 +148,10 @@ const ProfileTableCilentTop = ({clientProfileState}) => {
                 <Avatar src="https://www.pinclipart.com/picdir/middle/559-5594866_necktie-drawing-vector-round-avatar-user-icon-png.png" size={100} />
                     <Table showHeader={false} pagination={false} dataSource={data}>
 
-                        <Column dataIndex="value" />
+                        <Column dataIndex="value" 
+                        render={(text, index) => {
+                                return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
+                            }} />
                     </Table>
 
                 </Col>
@@ -133,7 +159,11 @@ const ProfileTableCilentTop = ({clientProfileState}) => {
                     <Table showHeader={false} pagination={false} dataSource={data2}>
 
                         <Column dataIndex="param" />
-                        <Column dataIndex="value" />
+                        <Column dataIndex="value" 
+                        render={(text, index) => {
+                            return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
+                        }}
+                        />
                     </Table>
 
                 </Col>

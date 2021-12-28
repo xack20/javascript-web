@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button,notification } from 'antd';
+import { addClient } from '../../Services/Client';
 
 
 
@@ -31,11 +32,28 @@ const validateMessages = {
 
 
 
-const ClientForm = () => {
+const ClientForm = ({setModalVisibility}) => {
 
 
-    const onFinish = (values) => {
-        console.log(values);
+    const onFinish = async(values) => {
+        
+        try {
+            const response = await addClient(values);
+            notification["success"]({
+                message: 'Client Added Successfully',
+                description:'',
+                placement:"bottomRight"
+              });
+
+            setModalVisibility(false);
+        } catch (error) {
+            notification["error"]({
+                message: error.message,
+                description:'',
+                placement:"bottomRight"
+            });            
+        }
+        
     };
 
     return (
@@ -56,7 +74,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name='last name'
+                    name='lastname'
                     label="Last Name"
                 >
                     <Input />
@@ -99,7 +117,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name='id'
+                    name='client_id'
                     label="Client ID"
                     rules={[
                         {
@@ -114,7 +132,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name="phone"
+                    name="phone_number"
                     label="Phone Number"
                     rules={[
                         {
@@ -133,7 +151,7 @@ const ClientForm = () => {
 
 
                 <Form.Item
-                    name='comname'
+                    name='company_name'
                     label="Company Name"
                     rules={[
                         {
