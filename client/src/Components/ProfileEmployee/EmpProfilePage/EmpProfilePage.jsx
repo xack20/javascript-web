@@ -27,15 +27,27 @@ const EmpProfilePage = ({user_id}) => {
     }
 
     return (
-        <div style={{marginTop:"30px"}}>
-             
+        <div>
+             <div  style={{marginBottom:"30px"}}>
              <Button onClick={onEdit} primary style={{float:"right", margin:"10px"}}>
                 <EditOutlined key="ellipsis" />
              </Button>
+             <Button onClick={onEdit} primary style={{float:"right", margin:"10px"}}>
+               Save
+             </Button>
 
-            <ProfileTableEmpTop employeeProfileState={employeeProfileState}></ProfileTableEmpTop>
+             <br/>
+
+             </div>
+             <div style={{marginTop:"30px"}}>
+             <ProfileTableEmpTop employeeProfileState={employeeProfileState}></ProfileTableEmpTop>
             <LowerPart employeeProfileState={employeeProfileState}></LowerPart>
-            
+
+             </div>
+             
+
+           
+           
         </div>
     );
 };

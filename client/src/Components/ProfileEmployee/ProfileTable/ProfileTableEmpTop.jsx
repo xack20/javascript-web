@@ -111,7 +111,7 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
     }
 
     return (
-        <div style={{ marginTop: '20px' }}>
+        <div style={{ marginTop: '40px' }}>
             <Row gutter={16}>
                 <Col span={12}>
                     <Avatar
