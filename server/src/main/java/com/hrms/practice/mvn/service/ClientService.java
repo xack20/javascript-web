@@ -9,27 +9,11 @@ import com.hrms.practice.mvn.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@SuppressWarnings("unchecked")
 @Service
 public class ClientService {
 
     @Autowired
 	private ClientRepository clientRepository;
-
-    // public Client getOneEmployee(long id) {
-
-	// 	// Map<String,Object> clientFullDetails = new HashMap<String,Object>();
-
-	// 	Client client = clientRepository.findByClientId(id);
-	
-
-	// 	// clientFullDetails.put("client",client);
-		
-		
-
-	// 	return client;
-		
-    // }
     
 
     public Client saveClient(Map<String,Object>payload) {
