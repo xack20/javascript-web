@@ -139,7 +139,7 @@ const LowerPart = ({ employeeProfileState }) => {
 
   useEffect(() => {
     const DATA = [...data];
-    console.log(employeeProfileState);
+   
     try {
       DATA[0].value = employeeProfileState.employee.passport_no;
       DATA[1].value = employeeProfileState["employee"].telephone;
@@ -154,7 +154,7 @@ const LowerPart = ({ employeeProfileState }) => {
 
   useEffect(() => {
     const DATA = [...data2];
-    console.log(employeeProfileState);
+    
     try {
       DATA[0].value = employeeProfileState.emergencyContact.name;
       DATA[1].value = employeeProfileState.emergencyContact.relashionship;
@@ -166,7 +166,7 @@ const LowerPart = ({ employeeProfileState }) => {
 
   useEffect(() => {
     const DATA = [...data3];
-    console.log(employeeProfileState);
+    
     try {
       DATA[0].value = employeeProfileState.bankInfo.bank_name;
       DATA[1].value = employeeProfileState.bankInfo.account_no;
@@ -178,7 +178,7 @@ const LowerPart = ({ employeeProfileState }) => {
 
   useEffect(() => {
     const DATA = [...data4];
-    console.log(employeeProfileState);
+    
     try {
       DATA[0].value = employeeProfileState.familyInfo.name;
       DATA[1].value = employeeProfileState.familyInfo.relashionship;
