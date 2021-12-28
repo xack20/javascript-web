@@ -1,78 +1,123 @@
 import { Avatar, Col, Divider, Row, Table } from 'antd';
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
 const { Column } = Table;
 
 
 
-const data = [
-    {
-        key: '1',
-        value: 'Global Technologies',
-       
 
-    },
-    {
-        key: '2',
-        value: 'Barry Cuda',
-        
 
-    },
-    {
-        key: '3',
-        value: 'CEO',
-        
+const ProfileTableCilentTop = ({clientProfileState}) => {
 
-    },
-    {
-        key: '4',
-        value: 'ID : CLT-0001',
-        
-
-    },
+    const [data,setData] = useEffect([
+        {
+            key: 'company_name',
+            value: 'Global Technologies',
+           
     
-];
-
-const data2 = [
-    {
-        key: '1',
-        param: 'Phone:',
-        value: '9876543210',
+        },
+        {
+            key: 'client_name',
+            value: 'Barry Cuda',
+            
+    
+        },
+        {
+            key: 'designation',
+            value: 'CEO',
+            
+    
+        },
+        {
+            key: 'client_id',
+            value: 'CLT-0001',
+            
+    
+        },
+        
+    ]);
+    
+    const [data2,setData2] = useEffect([
+        {
+            key: 'Phone',
+            param: 'Phone:',
+            value: '9876543210',
+           
+    
+        },
+        {
+            key: 'Email',
+            param: 'Email:',
+            value: 'johndoe@example.com',
+            
+    
+        },
+        {
+            key: 'Birthday',
+            param: 'Birthday:',
+            value: '24th July',
+            
+    
+        },
+        {
+            key: 'Address',
+            param: 'Address:',
+            value: '1861 Bayonne Ave, Manchester Township, NJ, 08759',
+            
+    
+        },
+        {
+            key: 'Gender',
+            param: 'Gender:',
+            value: 'Male',
+            
+    
+        },
        
+    ]);
 
-    },
-    {
-        key: '2',
-        param: 'Email:',
-        value: 'johndoe@example.com',
+
+    useEffect(() => {
+        const DATA = [...data];
         
+        try {
+            DATA[0].value = clientProfileState.client.company_name;
+            DATA[1].value = clientProfileState.client.client_name;
+            DATA[2].value = clientProfileState.client.designation;
+            DATA[3].value = clientProfileState.client.client_id;
+            
+        } catch (error) {
 
-    },
-    {
-        key: '3',
-        param: 'Birthday:',
-        value: '24th July',
+        }
+
+        setData(DATA);
+
+
+    }, [clientProfileState]);
+
+
+    useEffect(() => {
+        const DATA = [...data2];
         
+        try {
+            DATA[0].value = clientProfileState.client.phone;
+            DATA[1].value = clientProfileState.client.email;
+            DATA[2].value = clientProfileState.client.birthday;
+            DATA[3].value = clientProfileState.client.address;
+            DATA[4].value = clientProfileState.client.gender;
+            
+        } catch (error) {
 
-    },
-    {
-        key: '4',
-        param: 'Address:',
-        value: '1861 Bayonne Ave, Manchester Township, NJ, 08759',
-        
+        }
 
-    },
-    {
-        key: '5',
-        param: 'Gender:',
-        value: 'Male',
-        
+        setData2(DATA);
 
-    },
-   
-];
 
-const ProfileTableCilentTop = () => {
+    }, [clientProfileState]);
+
+
+
+
     return (
         <div>
             <Row gutter={16}>

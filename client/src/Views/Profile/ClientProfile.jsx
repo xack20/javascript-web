@@ -1,7 +1,9 @@
 import React from 'react';
+
+import MyModal from '../../Components/MyModal/MyModal.jsx';
 import ProfileClient from "../../Components/ProfileClient/ProfileClient"
 
-const ClientProfile = () => {
+const ClientProfile = (props) => {
     const [modalVisibility, setModalVisibility] = React.useState(true)
     const history = props.history;
     const user_id = props.match.params.id;
