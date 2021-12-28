@@ -12,19 +12,19 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
     const [data, setData] = useState([
         {
             key: "1",
-            param: "John Doe",
+            value: "John Doe",
         },
         {
             key: "2",
-            param: "UI/UX Design Team",
+            value: "UI/UX Design Team",
         },
         {
             key: "3",
-            param: "Web Designer",
+            value: "Web Designer",
         },
         {
             key: "4",
-            param: "ID : FT-0001",
+            value: "ID : FT-0001",
         },
     ]);
 
@@ -71,10 +71,10 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
         const DATA = [...data];
         
         try {
-            DATA[0].param = employeeProfileState.employee.firstname+" "+employeeProfileState.employee.lastname;
-            DATA[1].param = employeeProfileState["employee"].department;
-            DATA[2].param = employeeProfileState["employee"].designation;
-            DATA[3].param = employeeProfileState["employee"].employee_id;
+            DATA[0].value = employeeProfileState.employee.firstname+" "+employeeProfileState.employee.lastname;
+            DATA[1].value = employeeProfileState["employee"].department;
+            DATA[2].value = employeeProfileState["employee"].designation;
+            DATA[3].value = employeeProfileState["employee"].employee_id;
             
         } catch (error) {
 
@@ -120,7 +120,7 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
                         size={100}
                     />
                     <Table showHeader={false} pagination={false} dataSource={data}>
-                        <Column dataIndex="param" />
+                        <Column dataIndex="value" />
                     </Table>
                 </Col>
                 <Col span={12}>

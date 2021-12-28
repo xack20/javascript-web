@@ -8,25 +8,25 @@ const { Column } = Table;
 const data = [
     {
         key: '1',
-        param: 'Global Technologies',
+        value: 'Global Technologies',
        
 
     },
     {
         key: '2',
-        param: 'Barry Cuda',
+        value: 'Barry Cuda',
         
 
     },
     {
         key: '3',
-        param: 'CEO',
+        value: 'CEO',
         
 
     },
     {
         key: '4',
-        param: 'ID : CLT-0001',
+        value: 'ID : CLT-0001',
         
 
     },
@@ -80,7 +80,7 @@ const ProfileTableCilentTop = () => {
                 <Avatar src="https://www.pinclipart.com/picdir/middle/559-5594866_necktie-drawing-vector-round-avatar-user-icon-png.png" size={100} />
                     <Table showHeader={false} pagination={false} dataSource={data}>
 
-                        <Column dataIndex="param" />
+                        <Column dataIndex="value" />
                     </Table>
 
                 </Col>
