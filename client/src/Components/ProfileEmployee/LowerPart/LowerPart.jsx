@@ -1,5 +1,5 @@
 import { Col, Row, Steps, Table } from 'antd';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 const { Step } = Steps;
@@ -7,168 +7,265 @@ const { Step } = Steps;
 const { Column } = Table;
 
 
-const data = [
-    {
-        key: '1',
-        param: 'Passport No:',
-        value: '9876543210',
 
 
-    },
-    {
-        key: '2',
-        param: 'Telphone No:',
-        value: '9876543210',
+const LowerPart = ({ employeeProfileState }) => {
+    const [data,setData] = useState([
+        {
+            key: '1',
+            param: 'Passport No:',
+            value: '9876543210',
+    
+    
+        },
+        {
+            key: '2',
+            param: 'Telphone No:',
+            value: '9876543210',
+    
+    
+        },
+        {
+            key: '3',
+            param: 'Nationality:',
+            value: 'Bangladeshi',
+    
+    
+        },
+        {
+            key: '4',
+            param: 'Religion:',
+            value: 'Islam',
+    
+    
+        },
+        {
+            key: '5',
+            param: 'Marital status:',
+            value: 'Single',
+    
+    
+        },
+        {
+            key: '6',
+            param: 'Employment of spouse:',
+            value: 'No',
+    
+    
+        },
+    ]);
+
+    const [data2,setData2] = useState([
+        {
+            key: '1',
+            param: 'Name:',
+            value: 'John Doe',
+    
+    
+        },
+        {
+            key: '2',
+            param: 'Relationship:',
+            value: 'Father',
+    
+    
+        },
+        {
+            key: '3',
+            param: 'Phone:',
+            value: '9876543210',
+    
+    
+        },
+        
+    ]) ;
+
+    const [data3,setData3] = useState([
+        {
+            key: '1',
+            param: 'Bank Name:',
+            value: 'ICICI Bank',
+    
+    
+        },
+        {
+            key: '2',
+            param: 'Bank account No:',
+            value: '159843014641',
+    
+    
+        },
+        {
+            key: '3',
+            param: 'IFSC Code:',
+            value: 'ICI24504',
+    
+    
+        },
+        
+    ]);
+
+    const [data4,setData4] = useState([
+        {
+            key: '1',
+            param: 'Name:',
+            value: 'Leo',
+    
+    
+        },
+        {
+            key: '2',
+            param: 'Relationship:',
+            value: 'Brother',
+    
+    
+        },
+        {
+            key: '3',
+            param: 'Date of Birth:',
+            value: 'Feb 16th, 2019',
+    
+    
+        },
+        {
+            key: '4',
+            param: 'Phone:',
+            value: '9876543210',
+    
+    
+        },
+    
+    ]);
+
+    const [education,setEducation]= useState(
+        {
+            ssc:"",
+            hsc:"",
+            bsc:"",
+        }
+    );
+
+    const [experience,setExperience]= useState(
+        {
+            company_name:"",
+            designation:"",
+            from_date:"",
+            to_date:"",
+        }
+    );
+
+    useEffect(()=>{
+        const Education = {...education};
+        try{
+            Education.ssc= employeeProfileState.education.ssc;
+            Education.hsc= employeeProfileState.education.hsc;
+            Education.bsc= employeeProfileState.education.bsc;
+
+            setEducation(Education);
+
+        }catch (error) {
+
+        }
+    },[employeeProfileState])
 
 
-    },
-    {
-        key: '3',
-        param: 'Nationality:',
-        value: 'Bangladeshi',
+    useEffect(()=>{
+        const Experience = {...experience};
+        try{
+            Experience.company_name= employeeProfileState.experience.company_name;
+            Experience.designation= employeeProfileState.experience.designation;
+            Experience.from_date= employeeProfileState.experience.from_date+" "+employeeProfileState.experience.to_date;
+
+            setExperience(Experience);
+
+        }catch (error) {
+
+        }
+    },[employeeProfileState])
+    
+    
+    useEffect(() => {
+        const DATA = [...data];
+        console.log(employeeProfileState);
+        try {
+            DATA[0].value = employeeProfileState.employee.passport_no;
+            DATA[1].value = employeeProfileState["employee"].telephone;
+            DATA[2].value = employeeProfileState["employee"].nationality;
+            DATA[3].value = employeeProfileState["employee"].religion;
+            DATA[4].value = employeeProfileState["employee"].maritial_status;
+            DATA[5].value = employeeProfileState["employee"].spouse;
+            
+        } catch (error) {
+
+        }
+
+        setData(DATA);
 
 
-    },
-    {
-        key: '4',
-        param: 'Religion:',
-        value: 'Islam',
+    }, [employeeProfileState]);
 
 
-    },
-    {
-        key: '5',
-        param: 'Marital status:',
-        value: 'Single',
+    useEffect(() => {
+        const DATA = [...data2];
+        console.log(employeeProfileState);
+        try {
+            DATA[0].value = employeeProfileState.emergencyContact.name;
+            DATA[1].value = employeeProfileState.emergencyContact.relashionship;
+            DATA[2].value = employeeProfileState.emergencyContact.phone;
+            
+            
+        } catch (error) {
+
+        }
+
+        setData2(DATA);
 
 
-    },
-    {
-        key: '6',
-        param: 'Employment of spouse:',
-        value: 'No',
+    }, [employeeProfileState]);
 
 
-    },
-];
+    useEffect(() => {
+        const DATA = [...data3];
+        console.log(employeeProfileState);
+        try {
+            DATA[0].value = employeeProfileState.bankInfo.bank_name;
+            DATA[1].value = employeeProfileState.bankInfo.account_no;
+            DATA[2].value = employeeProfileState.bankInfo.ifsc_code; 
+            
+            
+            
+        } catch (error) {
+
+        }
+
+        setData3(DATA);
 
 
-const data2 = [
-    {
-        key: '1',
-        param: 'Name:',
-        value: 'John Doe',
+    }, [employeeProfileState]);
 
 
-    },
-    {
-        key: '2',
-        param: 'Relationship:',
-        value: 'Father',
+    useEffect(() => {
+        const DATA = [...data4];
+        console.log(employeeProfileState);
+        try {
+            DATA[0].value = employeeProfileState.familyInfo.name;
+            DATA[1].value = employeeProfileState.familyInfo.relashionship;
+            DATA[2].value = employeeProfileState.familyInfo.birthday; 
+            DATA[3].value = employeeProfileState.familyInfo.phone;
+            
+            
+            
+        } catch (error) {
+
+        }
+
+        setData4(DATA);
 
 
-    },
-    {
-        key: '3',
-        param: 'Phone:',
-        value: '9876543210',
-
-
-    },
-    {
-        key: '4',
-        param: 'Name:',
-        value: 'Karen Wills',
-
-
-    },
-    {
-        key: '5',
-        param: 'Relationship:',
-        value: 'Brother',
-
-
-    },
-    {
-        key: '6',
-        param: 'Phone:',
-        value: '9876543210',
-
-
-    },
-];
-
-const data3 = [
-    {
-        key: '1',
-        param: 'Bank Name:',
-        value: 'ICICI Bank',
-
-
-    },
-    {
-        key: '2',
-        param: 'Bank account No:',
-        value: '159843014641',
-
-
-    },
-    {
-        key: '3',
-        param: 'IFSC Code:',
-        value: 'ICI24504',
-
-
-    },
-    {
-        key: '4',
-        param: 'ID No:',
-        value: '948583200',
-
-
-    },
-];
+    }, [employeeProfileState]);
 
 
 
-const data4 = [
-    {
-        key: '1',
-        param: 'Name:',
-        value: 'Leo',
-
-
-    },
-    {
-        key: '2',
-        param: 'Relationship:',
-        value: 'Brother',
-
-
-    },
-    {
-        key: '3',
-        param: 'Date of Birth:',
-        value: 'Feb 16th, 2019',
-
-
-    },
-    {
-        key: '4',
-        param: 'Phone:',
-        value: '9876543210',
-
-
-    },
-
-];
-
-
-
-
-
-
-const LowerPart = () => {
     return (
         <div style={{marginTop:"50px"}}>
             <Row style={{marginTop:"20px"}} gutter={16}>
@@ -231,9 +328,9 @@ const LowerPart = () => {
                     <h5>Education Informations</h5>
 
                     <Steps progressDot current={3} direction="vertical">
-                        <Step title="P University" description="BSC in CSE" />
-                        <Step title="C College" description="HSC" />
-                        <Step title="D School" description="SSC" />
+                        <Step title={education.bsc} description="BSC" />
+                        <Step title={education.hsc} description="HSC" />
+                        <Step title={education.ssc} description="SSC" />
                     </Steps>
 
                 </Col>
@@ -241,10 +338,9 @@ const LowerPart = () => {
                 <Col span={12}>
                 <h5>Experience</h5>
 
-                <Steps progressDot current={0} direction="vertical">
-                        <Step title="BJIT" description="Software Engineer" />
-                        <Step title="Web Designer at Ron-tech" description="Software Engineer" />
-                        <Step title="Web Designer at Zen Corporation" description="Trainee" />
+                <Steps progressDot current={3} direction="vertical">
+                        <Step title={experience.company_name} description={experience.designation} />
+                       
                     </Steps>
 
                 </Col>

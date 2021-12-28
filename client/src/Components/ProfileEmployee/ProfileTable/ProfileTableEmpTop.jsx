@@ -3,38 +3,7 @@ import React, { useState, useEffect } from "react";
 
 const { Column } = Table;
 
-const data2 = [
-    {
-        key: "1",
-        param: "Phone:",
-        value: "9876543210",
-    },
-    {
-        key: "2",
-        param: "Email:",
-        value: "johndoe@example.com",
-    },
-    {
-        key: "3",
-        param: "Birthday:",
-        value: "24th July",
-    },
-    {
-        key: "4",
-        param: "Address:",
-        value: "1861 Bayonne Ave, Manchester Township, NJ, 08759",
-    },
-    {
-        key: "5",
-        param: "Gender:",
-        value: "Male",
-    },
-    {
-        key: "6",
-        param: "Reports to:",
-        value: "Jeffery Lalor",
-    },
-];
+
 
 const ProfileTableEmpTop = ({ employeeProfileState }) => {
 
@@ -60,13 +29,47 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
     ]);
 
 
+    const [data2,setData2] = useState([
+        {
+            key: "1",
+            param: "Phone:",
+            value: "9876543210",
+        },
+        {
+            key: "2",
+            param: "Email:",
+            value: "johndoe@example.com",
+        },
+        {
+            key: "3",
+            param: "Birthday:",
+            value: "24th July",
+        },
+        {
+            key: "4",
+            param: "Address:",
+            value: "1861 Bayonne Ave, Manchester Township, NJ, 08759",
+        },
+        {
+            key: "5",
+            param: "Gender:",
+            value: "Male",
+        },
+        {
+            key: "6",
+            param: "Reports to:",
+            value: "Jeffery Lalor",
+        },
+    ]);
+
+
 
     const [current, setCurrent] = useState();
 
 
     useEffect(() => {
         const DATA = [...data];
-        console.log(employeeProfileState);
+        
         try {
             DATA[0].param = employeeProfileState.employee.firstname+" "+employeeProfileState.employee.lastname;
             DATA[1].param = employeeProfileState["employee"].department;
@@ -82,8 +85,29 @@ const ProfileTableEmpTop = ({ employeeProfileState }) => {
 
     }, [employeeProfileState]);
 
+    useEffect(() => {
+        const DATA = [...data2];
+        
+        try {
+            DATA[0].value = employeeProfileState.employee.phoneNumber;
+            DATA[1].value = employeeProfileState.employee.email;
+            DATA[2].value = employeeProfileState.employee.birthday;
+            DATA[3].value = employeeProfileState.employee.address;
+            DATA[4].value = employeeProfileState.employee.gender;
+            DATA[5].value = employeeProfileState.employee.report_to;
+            
+            
+        } catch (error) {
+
+        }
+
+        setData2(DATA);
+
+
+    }, [employeeProfileState]);
+
     const handleClick = (e) => {
-        console.log("click ", e);
+        
         setCurrent({ current: e.key });
     };
 
