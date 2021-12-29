@@ -35,7 +35,17 @@ public class InvoiceService {
 
 
     public ResponseEntity<?> All_Invoices()  {
-        return ResponseEntity.ok().body(new Response(true, "", invoiceRepository.findAll()));
+
+        List<Invoices> All_Invoices = invoiceRepository.findAll();
+
+        for(Invoices invoice : All_Invoices) {
+
+            Client client = clientRepository.findById(invoice.getClient_id()).get();
+            
+            invoice.setClient(client);
+        }
+
+        return ResponseEntity.ok().body(new Response(true, "", All_Invoices));
     }
 
 
@@ -81,8 +91,13 @@ public class InvoiceService {
                     }
                 }
 
-                invoiceRepository.save(invoice);
                 invoice.setInvoiceItems(invoiceItems);
+
+                Client client = clientRepository.findByClientId(invoice.getClient_id());
+                invoice.setClient(client);
+
+                invoiceRepository.save(invoice);
+                
             } catch (Exception e) {
                 System.out.println(e.getMessage()+"-> 2");
                 return ResponseEntity.badRequest().body(e.getMessage());
