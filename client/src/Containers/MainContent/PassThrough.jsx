@@ -65,6 +65,11 @@ const AppliedCandidates = React.lazy(() =>
   import('../../Views/Applied Candidates/AppliedCandidates')
 );
 
+const Projects = React.lazy(() =>
+  import('../../Views/Projects/Projects')
+);
+
+
 
 
 
@@ -101,6 +106,13 @@ export default function PassThrough(props) {
     comp = (
       <React.Suspense fallback={<LoadSpin />}>
         <Tickets />
+      </React.Suspense>
+    );
+
+    else if (props.page === 'Project')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <Projects />
       </React.Suspense>
     );
 

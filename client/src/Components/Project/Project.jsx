@@ -11,7 +11,7 @@ const Project = () => {
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it...
                         <div style={{ marginTop: "20px" }}>
                             <h6>Deadline:</h6>
-                            <p>17 Apr 2019</p>
+                            <p>21 Apr 2022</p>
 
                         </div>
 
@@ -62,11 +62,11 @@ const Project = () => {
                     </Card>
                 </Col>
                 <Col span={6}>
-                    <Card title="Employee Management" bordered style={{ borderColor: "#7cb305", borderRadius: " 10px", height: "50vh" }}>
+                    <Card title="Hospital Management" bordered style={{ borderColor: "#7cb305", borderRadius: " 10px", height: "50vh" }}>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it...
                         <div style={{ marginTop: "20px" }}>
                             <h6>Deadline:</h6>
-                            <p>17 Apr 2019</p>
+                            <p>19 Apr 2023</p>
 
                         </div>
 
@@ -113,15 +113,15 @@ const Project = () => {
                         </div>
 
 
-                        <Progress style={{ marginTop: "20px" }} percent={50} status="active" />
+                        <Progress style={{ marginTop: "20px" }} percent={30} status="active" />
                     </Card>
                 </Col>
                 <Col span={6}>
-                    <Card title="Employee Management" bordered style={{ borderColor: "#7cb305", borderRadius: " 10px", height: "50vh" }}>
+                    <Card title="ERP System" bordered style={{ borderColor: "#7cb305", borderRadius: " 10px", height: "50vh" }}>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it...
                         <div style={{ marginTop: "20px" }}>
                             <h6>Deadline:</h6>
-                            <p>17 Apr 2019</p>
+                            <p>17 January 2019</p>
 
                         </div>
 
@@ -168,15 +168,15 @@ const Project = () => {
                         </div>
 
 
-                        <Progress style={{ marginTop: "20px" }} percent={50} status="active" />
+                        <Progress style={{ marginTop: "20px" }} percent={80} status="active" />
                     </Card>
                 </Col>
                 <Col span={6}>
-                    <Card title="Employee Management" bordered style={{ borderColor: "#7cb305", borderRadius: " 10px", height: "50vh" }}>
+                    <Card title="University Management" bordered style={{ borderColor: "#7cb305", borderRadius: " 10px", height: "50vh" }}>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it...
                         <div style={{ marginTop: "20px" }}>
                             <h6>Deadline:</h6>
-                            <p>17 Apr 2019</p>
+                            <p>17 Apr 2022</p>
 
                         </div>
 
@@ -223,7 +223,7 @@ const Project = () => {
                         </div>
 
 
-                        <Progress style={{ marginTop: "20px" }} percent={50} status="active" />
+                        <Progress style={{ marginTop: "20px" }} percent={45} status="active" />
                     </Card>
                 </Col>
             </Row>
