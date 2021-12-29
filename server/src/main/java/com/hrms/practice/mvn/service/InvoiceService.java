@@ -51,7 +51,7 @@ public class InvoiceService {
         if(body != null){
             try {
 
-                if(body.get("cleint_id")!=null)invoice.setClient_id((long) body.get("client_id"));
+                if(body.get("client_id")!=null)invoice.setClient_id((long) body.get("client_id"));
                 if(body.get("project_id")!=null) invoice.setProject_id((long) body.get("project_id"));
                 
                 if(body.get("amount") != null)invoice.setAmount((double) body.get("amount"));
