@@ -36,7 +36,7 @@ public class InvoiceService {
 
     public ResponseEntity<?> All_Invoices()  {
 
-        List<Invoices> All_Invoices = invoiceRepository.findAll();
+        List<Invoices> All_Invoices = invoiceRepository.findAllActive();
 
         for(Invoices invoice : All_Invoices) {
 
@@ -69,6 +69,9 @@ public class InvoiceService {
                 if(body.get("invoice_date")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
 
+                invoice = invoiceRepository.save(invoice);
+                // System.out.println("Add : " +invoice.getInvoice_id());
+
                 List<InvoiceItems> invoiceItems = new ArrayList<>();
                 if(body.get("items")!=null){
                     List<Map<String,Object>> items = (List<Map<String,Object>>) body.get("items");
@@ -76,7 +79,8 @@ public class InvoiceService {
                     for(Map<String,Object> item : items){
                         InvoiceItems invoiceItem = new InvoiceItems();
                         try {
-                            if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
+                            // System.out.println("Add : " +invoice.getInvoice_id());
+                            invoiceItem.setInvoice_id(invoice.getInvoice_id());
                             if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                             if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
                             if(item.get("quantity")!=null)invoiceItem.setQuantity(Long.valueOf((String) item.get("quantity")));
@@ -96,7 +100,7 @@ public class InvoiceService {
                 Client client = clientRepository.findByClientId(invoice.getClient_id());
                 invoice.setClient(client);
 
-                invoiceRepository.save(invoice);
+                
                 
             } catch (Exception e) {
                 System.out.println(e.getMessage()+"-> 2");
@@ -117,6 +121,8 @@ public class InvoiceService {
 
         try {
             Invoices invoice = invoiceRepository.findByInvoiceId(id);
+
+            List<InvoiceItems> invoiceItems = new ArrayList<InvoiceItems>();
         
             if(invoice != null && body!= null){
                 if(body.get("cleint_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
@@ -125,36 +131,44 @@ public class InvoiceService {
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_data")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
+
+                invoice = invoiceRepository.save(invoice);
+
+                // System.out.println("Update : " +invoice.getInvoice_id());
     
                 if(body.get("items")!=null){
                     List<Map<String,Object>> items = (List<Map<String,Object>>) body.get("items");
                     for(Map<String,Object> item : items){
-                        InvoiceItems invoiceItem = null;
+                        InvoiceItems invoiceItem = new InvoiceItems();
     
-                        if(item.get("item_id")!=null){
+                        if(item.get("item_id")!=null)
                             invoiceItem = invoiceItemRepository.findByItemId(Long.valueOf((String) item.get("item_id")));
-                            if(invoiceItem == null)invoiceItem = new InvoiceItems();
-    
+
+                        if(invoiceItem != null){
                             try {
-                                if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
+                                // System.out.println("Update : " +invoice.getInvoice_id());
+                                invoiceItem.setInvoice_id(invoice.getInvoice_id());
                                 if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                                 if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
                                 if(item.get("quantity")!=null)invoiceItem.setQuantity(Long.valueOf((String) item.get("quantity")));
                                 if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost(Double.valueOf((String) item.get("unit_cost")));
-        
+                                
+                                invoiceItems.add(invoiceItem);
                                 invoiceItemRepository.save(invoiceItem);
                             } catch (Exception e) {
                                 System.out.println(e.getMessage());
                                 return ResponseEntity.badRequest().body(e.getMessage());
                             }
                         }
+
+                        
                     }
                 }
                 
                 Client client = clientRepository.findByClientId(invoice.getClient_id());
                 invoice.setClient(client);
-                
-                invoiceRepository.save(invoice);
+
+                invoice.setInvoiceItems(invoiceItems);
     
                 return ResponseEntity.ok().body(new Response(true,"Invoice updated successfully!",invoice));
             }
@@ -201,14 +215,14 @@ public class InvoiceService {
 
             if(invoice == null)return ResponseEntity.badRequest().body("Invoice not found!");
 
-            invoice.setDeleted((boolean)body.get("Invoice Deleted Successfully!"));
+            invoice.setDeleted((boolean)body.get("deleted"));
 
             invoiceRepository.save(invoice);
+
+            return ResponseEntity.ok().body(new Response(true,"Invoice deleted successfully!",null));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-
-        return ResponseEntity.badRequest().body("Invalid Request!");
     }
 
     

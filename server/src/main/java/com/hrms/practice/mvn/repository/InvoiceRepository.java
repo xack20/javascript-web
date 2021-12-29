@@ -18,6 +18,6 @@ public interface InvoiceRepository extends JpaRepository<Invoices, Long> {
     Invoices findByInvoiceIdForDelete(Long id);
 
 
-    @Query(value="SELECT * FROM testdb.clients WHERE deleted = false",nativeQuery = true)
+    @Query(value="SELECT * FROM testdb.invoices WHERE deleted = false",nativeQuery = true)
     List<Invoices> findAllActive();
 }
