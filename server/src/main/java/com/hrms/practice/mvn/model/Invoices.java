@@ -38,6 +38,21 @@ public class Invoices {
     @Column(name = "due_date")
     private String due_date;
 
+    @Column(name = "deleted")
+    private boolean deleted;
+
+
+
+    
+
+    public boolean isDeleted() {
+        return this.deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
 
     public long getInvoice_id() {
         return this.invoice_id;
