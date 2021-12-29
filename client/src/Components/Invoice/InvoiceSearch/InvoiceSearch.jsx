@@ -38,7 +38,7 @@ const InvoiceSearch = () => {
         <div>
 
             <AddButton setModalVisibility={setModalVisibility} buttonName={"Create Invoice"}></AddButton>
-            <MyModal Width={900} Title={"Create Invoice"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
+            <MyModal Width={1600} Title={"Create Invoice"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
                 <InvoiceCreate></InvoiceCreate>
             </MyModal>
 

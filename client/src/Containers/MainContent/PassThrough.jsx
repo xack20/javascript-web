@@ -43,6 +43,12 @@ const EmployeeDashboard = React.lazy(() =>
 );
 
 
+const Invoice = React.lazy(() =>
+  import('../../Views/Invoice/Invoice')
+);
+
+
+
 
 export default function PassThrough(props) {
   let comp;
@@ -91,6 +97,13 @@ export default function PassThrough(props) {
     comp = (
       <React.Suspense fallback={<LoadSpin />}>
         <EmployeeDashboard />
+      </React.Suspense>
+    );
+
+    else if (props.page === 'Invoices')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <Invoice />
       </React.Suspense>
     );
 
