@@ -44,7 +44,6 @@ public class LeaveController {
     @PutMapping("/change-status/{id}")
 	public ResponseEntity<?> LeaveStatusChange(@PathVariable Long id, @RequestBody Map<String,Object>body) {
         body.put("leave_id", id);
-        // System.out.println(id);
 		return leaveService.LeaveStatusChange(body);
 	}
 

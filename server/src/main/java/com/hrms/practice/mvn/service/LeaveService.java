@@ -22,19 +22,29 @@ public class LeaveService {
     
     public ResponseEntity<?>  Applyleave(Map<String,Object>body)  {
 
-        Leave leave = new Leave();
+        try {
+            Leave leave = new Leave();
 
-        leave.setStatus("Pending");
-        leave.setDeleted(false);
+            if(body == null)
+                return ResponseEntity.badRequest().body(new Response(true,"Invalid Request Body!",null));
+            
+            if((String)body.get("type")!= null && !((String)body.get("type")).equals("") )leave.setLeaveType((String)body.get("type"));
+            if((String)body.get("reason")!= null && !((String)body.get("reason")).equals("") )leave.setReason((String)body.get("reason"));
+            if((String)body.get("from")!= null && !((String)body.get("from")).equals("") )leave.setFrom((String)body.get("from"));
+            if((String)body.get("to")!= null && !((String)body.get("to")).equals("") )leave.setTo((String)body.get("to"));
+            if((String)body.get("days")!= null && !((String)body.get("days")).equals("") )leave.setDays(Long.valueOf((String)body.get("days")));
+    
+    
+            leave.setStatus("Pending");
+            leave.setDeleted(false);
+    
+            leave.setAppliedBy(employeeService.getUserByUsername(Config.user_now).getId());
+            
+            return ResponseEntity.ok().body(new Response(true,"Leave applied successfully",leaveRepository.save(leave)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new Response(true,e.getMessage(),null));
+        }
 
-        leave.setAppliedBy(employeeService.getUserByUsername(Config.user_now).getId());
-        leave.setLeaveType((String)body.get("type"));
-        leave.setReason((String)body.get("reason"));
-        leave.setFrom((String)body.get("from"));
-        leave.setTo((String)body.get("to"));
-        leave.setDays(Long.valueOf((String)body.get("days")));
-        
-        return ResponseEntity.ok(new Response(true,"Leave applied successfully",leaveRepository.save(leave)));
     }
 
     public ResponseEntity<?>  GetAllLeave()  {
@@ -47,44 +57,64 @@ public class LeaveService {
     }
 
     public ResponseEntity<?>  LeaveStatusChange(Map<String,Object>body)  {
-        Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
+        try {
+            Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
 
-        Leave leave = leaveRepository.findLeaveById((Long)body.get("leave_id"));
-        leave.setStatus((String)body.get("status"));
-
-        leave.setApprovedBy(user_id);
-        return ResponseEntity.ok().body(new Response(true, "Leave status changed!", leaveRepository.save(leave)));
+            Leave leave = leaveRepository.findLeaveById((Long)body.get("leave_id"));
+            if((String)body.get("status")!= null && !((String)body.get("status")).equals("") )leave.setStatus((String)body.get("status"));
+    
+            leave.setApprovedBy(user_id);
+            return ResponseEntity.ok().body(new Response(true, "Leave status changed!", leaveRepository.save(leave)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new Response(true, e.getMessage(), null));
+        }
     }
 
     public ResponseEntity<?>  DeleteLeave(Map<String,Object>body)  {
-        Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
-        Leave leave = leaveRepository.findLeaveById(Long.valueOf((String)body.get("leave_id")));
-
-        if(leave.getAppliedBy() == user_id || Config.user_role.equals("ADMIN")) {
-            leave.setDeleted((boolean)body.get("deleted"));
-            leaveRepository.save(leave);
-            return ResponseEntity.ok().body(new Response(true, "Leave deleted!", null));
+        try {
+            Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
+            Leave leave = leaveRepository.findLeaveById((Long)body.get("leave_id"));
+    
+            if(leave.getAppliedBy() == user_id || Config.user_role.equals("ADMIN")) {
+                if((Boolean)body.get("deleted")!= null)leave.setDeleted((Boolean)body.get("deleted"));
+                leaveRepository.save(leave);
+                return ResponseEntity.ok().body(new Response(true, "Leave deleted!", null));
+            }
+    
+            return ResponseEntity.badRequest().body(new Response(false, "You are not authorized to delete this leave!", null));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new Response(false, e.getMessage(), null));
         }
-
-        return ResponseEntity.badRequest().body(new Response(false, "You are not authorized to delete this leave!", null));
     }
 
     public ResponseEntity<?>  UpdateLeave(Map<String,Object>body)  {
 
-        Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
-        Leave leave = leaveRepository.findLeaveById(Long.valueOf((String)body.get("leave_id")));
+        try {
+            if(body == null)
+                return ResponseEntity.badRequest().body(new Response(true,"Invalid Request Body!",null));
 
-        if(leave.getAppliedBy() == user_id || Config.user_role.equals("ADMIN")) {
-            leave.setLeaveType((String)body.get("type"));
-            leave.setReason((String)body.get("reason"));
-            leave.setFrom((String)body.get("from"));
-            leave.setTo((String)body.get("to"));
-            leave.setDays(Long.valueOf((String)body.get("days")));
+            Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
+            Leave leave = leaveRepository.findLeaveById((Long)body.get("leave_id"));
 
-            return ResponseEntity.ok().body(new Response(true, "Leave updated!", leaveRepository.save(leave)));
+            if(leave.getAppliedBy() == user_id || Config.user_role.equals("ADMIN")) {
+                
+            
+                if((String)body.get("type")!= null && !((String)body.get("type")).equals("") )leave.setLeaveType((String)body.get("type"));
+                if((String)body.get("reason")!= null && !((String)body.get("reason")).equals("") )leave.setReason((String)body.get("reason"));
+                if((String)body.get("from")!= null && !((String)body.get("from")).equals("") )leave.setFrom((String)body.get("from"));
+                if((String)body.get("to")!= null && !((String)body.get("to")).equals("") )leave.setTo((String)body.get("to"));
+                if((String)body.get("days")!= null && !((String)body.get("days")).equals("") )leave.setDays(Long.valueOf((String)body.get("days")));
+
+                return ResponseEntity.ok().body(new Response(true, "Leave updated!", leaveRepository.save(leave)));
+            }
+
+            return ResponseEntity.badRequest().body(new Response(false, "You are not authorized to update this leave!", null));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return ResponseEntity.badRequest().body(new Response(false, e.getMessage(), null));
         }
 
-        return ResponseEntity.badRequest().body(new Response(false, "You are not authorized to update this leave!", null));
+        
     }
 
 
