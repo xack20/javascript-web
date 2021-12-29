@@ -22,9 +22,6 @@ public class InvoiceController {
 	@Autowired
 	InvoiceService invoiceService;
 
-
-
-
 	
 	@GetMapping("/")
 	public ResponseEntity<?> allInvoices() {
@@ -32,9 +29,7 @@ public class InvoiceController {
 		return invoiceService.All_Invoices();
 	}
 
-
-
-
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> oneInvoices(@PathVariable Long id) {
 
