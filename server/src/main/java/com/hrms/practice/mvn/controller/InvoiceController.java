@@ -39,7 +39,7 @@ public class InvoiceController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> oneInvoices(@PathVariable long id) {
+	public ResponseEntity<?> oneInvoices(@PathVariable Long id) {
 
 		return invoiceService.One_Invoices(id);
 	}
@@ -57,14 +57,14 @@ public class InvoiceController {
 
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<?> updateInvoice(@PathVariable long id,@RequestBody Map<String,Object> body) {
+	public ResponseEntity<?> updateInvoice(@PathVariable Long id,@RequestBody Map<String,Object> body) {
 	
 		return invoiceService.Update_Invoice(id,body);
 	}
 
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteInvoice(@PathVariable long id,@RequestBody Map<String,Object> body) {
+	public ResponseEntity<?> deleteInvoice(@PathVariable Long id,@RequestBody Map<String,Object> body) {
 
 		return invoiceService.Delete_Invoice(id,body);
 	}
