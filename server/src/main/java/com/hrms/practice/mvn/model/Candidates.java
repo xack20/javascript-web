@@ -19,6 +19,11 @@ public class Candidates {
     @Column(name = "candidate_id")
     private Long candidate_id;
 
+
+	@Column(name = "job_id")
+    private Long job_id;
+
+
     @Column(name = "firstname")
     private String firstname;
 
@@ -34,12 +39,26 @@ public class Candidates {
     @Column(name = "description")
     private String description;
 
+	@Column(name = "recruitment_status")
+    private String recruitment_status;
+
+	@Column(name = "deleted")
+    private boolean deleted;
+
 	public Long getCandidate_id() {
 		return candidate_id;
 	}
 
 	public void setCandidate_id(Long candidate_id) {
 		this.candidate_id = candidate_id;
+	}
+
+	public Long getJob_id() {
+		return job_id;
+	}
+
+	public void setJob_id(Long job_id) {
+		this.job_id = job_id;
 	}
 
 	public String getFirstname() {
@@ -82,7 +101,20 @@ public class Candidates {
 		this.description = description;
 	}
 
-    
-    
-    
+	public String getRecruitment_status() {
+		return recruitment_status;
+	}
+
+	public void setRecruitment_status(String recruitment_status) {
+		this.recruitment_status = recruitment_status;
+	}
+
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	
 }

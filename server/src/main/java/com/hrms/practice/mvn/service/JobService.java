@@ -67,7 +67,7 @@ public class JobService {
             if(body == null)
                 return ResponseEntity.badRequest().body(new Response(false,"Invalid Request Body!",null));
 
-            if(body.get("deleted")!= null )job.setDeleted((Boolean)body.get("deteled"));
+            if(body.get("deleted")!= null )job.setDeleted((Boolean)body.get("deleted"));
 
             jobRepository.save(job);
 

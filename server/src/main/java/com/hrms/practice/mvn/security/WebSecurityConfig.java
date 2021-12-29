@@ -64,13 +64,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.cors().and()
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
-			.antMatchers("/auth/**","/job/", "/job/{id}").permitAll()
+			.antMatchers("/auth/**","/job/", "/job/{id}","/candidate/new").permitAll()
 			// .antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()
 			.antMatchers("/employee/add","/employee/add-role","/employee/update/{id}","/employee/delete/{id}",
 				"/client/add","/client/update/{id}", "/client/delete/{id}" , "/client/{id}",
 				"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/",
 				"/leave/all","leave/change-status/{id}",
-				"/job/new", "/job/delete/{id}","/job/update/{id}"
+				"/job/new", "/job/delete/{id}","/job/update/{id}",
+				"/candidate/","/candidate/delete/{id}","/candidate/update/{id}"
 				).hasAuthority("ADMIN")
 			.antMatchers("/employee/{id}","/employee/",
 			"/client/",
