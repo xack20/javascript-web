@@ -41,7 +41,7 @@ public class Invoices {
     private String due_date;
 
     @Column(name = "deleted")
-    private boolean deleted;
+    private boolean deleted = false;
 
     @Transient
     List<InvoiceItems> invoiceItems;
