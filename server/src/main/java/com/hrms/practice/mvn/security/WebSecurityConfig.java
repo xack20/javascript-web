@@ -67,7 +67,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/auth/**").permitAll()
 			// .antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()
 			.antMatchers("/employee/add","/employee/add-role","/employee/update/{id}","/employee/delete/{id}",
-				"/client/add","/client/update/{id}", "/client/delete/{id}").hasAuthority("ADMIN")
+				"/client/add","/client/update/{id}", "/client/delete/{id}" , "/client/{id}",
+				"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/"	
+				).hasAuthority("ADMIN")
 			.antMatchers("/employee/{id}","/employee/","/client/").hasAnyAuthority("ADMIN","EMPLOYEE")
 			.anyRequest().authenticated()
 			.and().sessionManagement()

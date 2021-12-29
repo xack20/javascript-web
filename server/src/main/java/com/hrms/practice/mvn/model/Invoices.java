@@ -1,12 +1,14 @@
 package com.hrms.practice.mvn.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -41,6 +43,31 @@ public class Invoices {
     @Column(name = "deleted")
     private boolean deleted;
 
+    @Transient
+    List<InvoiceItems> invoiceItems;
+
+    
+
+    @Transient
+    Client client;
+
+
+    public List<InvoiceItems> getInvoiceItems() {
+        return this.invoiceItems;
+    }
+
+    public void setInvoiceItems(List<InvoiceItems> invoiceItems) {
+        this.invoiceItems = invoiceItems;
+    }
+
+
+    public Client getClient() {
+        return this.client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
 
     
