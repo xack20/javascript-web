@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
-import AddButton from '../../AddButton/AddButton';
-import MyModal from '../../MyModal/MyModal';
-import LeaveForm from "../LeaveForm/LeaveForm";
-import LeavePageCardAdmin from '../LeavePageCard/LeavePageCardAdmin';
-import LeavePageTableAdmin from '../LeavePageTableEmp/LeavePageTableAdmin';
+import AddButton from '../../Components/AddButton/AddButton';
+import MyModal from '../../Components/MyModal/MyModal';
+import LeaveForm from "../../Components/Leave/LeaveForm/LeaveForm";
+import LeavePageCardAdmin from '../../Components/Leave/LeavePageCard/LeavePageCardAdmin';
+import LeavePageTableAdmin from '../../Components/Leave/LeavePageTableEmp/LeavePageTableAdmin';
 
 const LeavePageAdmin = () => {
     const [modalVisibility, setModalVisibility] = useState(false);

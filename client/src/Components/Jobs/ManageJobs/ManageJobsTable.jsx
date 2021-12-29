@@ -57,7 +57,7 @@ const ManageJobsTable = () => {
     return (
         <div>
             <AddButton setModalVisibility={setModalVisibility} buttonName={"Add Job"}></AddButton>
-      <MyModal Width={900} Title={"Add Job"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
+      <MyModal Width={1200} Title={"Add Job"} modalVisibility={modalVisibility} setModalVisibility={setModalVisibility} >
         <ManageJobsForm setModalVisibility={setModalVisibility}></ManageJobsForm>
       </MyModal>
 

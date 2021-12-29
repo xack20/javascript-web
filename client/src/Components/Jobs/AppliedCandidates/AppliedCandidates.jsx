@@ -51,7 +51,7 @@ const data = [
 
 const AppliedCandidates = () => {
     return (
-        <div>
+        <div style={{marginTop:"20px"}}>
              <Table style={{border:"10px"}} columns={columns} dataSource={data} bordered />
             
         </div>
