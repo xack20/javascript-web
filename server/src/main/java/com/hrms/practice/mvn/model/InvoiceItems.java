@@ -20,6 +20,9 @@ public class InvoiceItems {
     @Column(name = "item_id")
     private long item_id;
 
+    @Column(name = "invoice_id")
+    private long invoice_id;
+
     @Column(name = "unit_cost")
     private long unit_cost;
 
