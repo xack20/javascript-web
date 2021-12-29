@@ -122,24 +122,8 @@ const LeaveForm = ({setModalVisibility}) => {
                     },
                 ]}
             >
-                <Input readOnly = {true}/>
+                <Input />
             </Form.Item>
-
-
-
-            <Form.Item
-                name='remainingLeaves'
-                label="Remaining Leaves"
-                rules={[
-                    {
-                        required: true,
-                    },
-                ]}
-            >
-                <Input readOnly/>
-            </Form.Item>
-
-
 
 
             <Form.Item
