@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "jobs")
 @Component
-public class Jobs {
+public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,14 +26,29 @@ public class Jobs {
     @Column(name = "job_position")
     private String job_position;
 
-    @Column(name = "work_hour")
-    private Double work_hour;
+    @Column(name = "work_hours")
+    private Double work_hours;
 
     @Column(name = "salary")
     private Double salary;
 
     @Column(name = "description")
     private String description;
+
+	@Column(name = "deleted")
+	private Boolean deleted = false;
+
+
+
+
+
+	public Boolean getDeleted() {
+		return this.deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
 
 	public Long getJob_id() {
 		return job_id;
@@ -59,12 +74,12 @@ public class Jobs {
 		this.job_position = job_position;
 	}
 
-	public Double getWork_hour() {
-		return work_hour;
+	public Double getWork_hours() {
+		return work_hours;
 	}
 
-	public void setWork_hour(Double work_hour) {
-		this.work_hour = work_hour;
+	public void setWork_hours(Double work_hour) {
+		this.work_hours = work_hour;
 	}
 
 	public Double getSalary() {
