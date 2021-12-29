@@ -30,7 +30,7 @@ const columns = [
         fixed: 'right',
         width: 100,
         render: () => ( <Space size="middle">
-       <Button ghost type="primary" style={{ borderRadius: "10px" }}>Edit</Button>
+       {/* <Button ghost type="primary" style={{ borderRadius: "10px" }}>Edit</Button> */}
         <Button ghost type="primary" danger style={{borderRadius:"10px"}}>Delete</Button>
       </Space>)
     },
