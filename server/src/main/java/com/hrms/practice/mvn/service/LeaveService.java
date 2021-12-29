@@ -49,7 +49,7 @@ public class LeaveService {
     public ResponseEntity<?>  LeaveStatusChange(Map<String,Object>body)  {
         Long user_id = employeeService.getUserByUsername(Config.user_now).getId();
 
-        Leave leave = leaveRepository.findLeaveById(Long.valueOf((String)body.get("leave_id")));
+        Leave leave = leaveRepository.findLeaveById((Long)body.get("leave_id"));
         leave.setStatus((String)body.get("status"));
 
         leave.setApprovedBy(user_id);

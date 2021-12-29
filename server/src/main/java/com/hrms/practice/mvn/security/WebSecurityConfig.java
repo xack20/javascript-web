@@ -68,9 +68,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			// .antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()
 			.antMatchers("/employee/add","/employee/add-role","/employee/update/{id}","/employee/delete/{id}",
 				"/client/add","/client/update/{id}", "/client/delete/{id}" , "/client/{id}",
-				"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/"	
+				"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/",
+				"/leave/all","leave/change-status/{id}"	
 				).hasAuthority("ADMIN")
-			.antMatchers("/employee/{id}","/employee/","/client/").hasAnyAuthority("ADMIN","EMPLOYEE")
+			.antMatchers("/employee/{id}","/employee/",
+			"/client/",
+			"/leave/apply","/leave/","/leave/delete/{id}","/leave/update/{id}").hasAnyAuthority("ADMIN","EMPLOYEE")
 			.anyRequest().authenticated()
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

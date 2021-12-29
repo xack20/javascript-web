@@ -37,27 +37,28 @@ public class LeaveController {
     @GetMapping("/")
     public ResponseEntity<?> GetAllLeaveById() {
 
-        return leaveService.GetAllLeave();
+        return leaveService.GetAllLeaveById();
     }
 
 
     @PutMapping("/change-status/{id}")
 	public ResponseEntity<?> LeaveStatusChange(@PathVariable Long id, @RequestBody Map<String,Object>body) {
-        body.put("leave_id", String.valueOf(id));
-		return leaveService.Applyleave(body);
+        body.put("leave_id", id);
+        // System.out.println(id);
+		return leaveService.LeaveStatusChange(body);
 	}
 
     @DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> DeleteLeave(@PathVariable Long id,@RequestBody Map<String,Object>body) {
-        body.put("leave_id", String.valueOf(id));
-		return leaveService.Applyleave(body);
+        body.put("leave_id", id);
+		return leaveService.DeleteLeave(body);
 	}
 
 
     @PutMapping("/update/{id}")
 	public ResponseEntity<?> UpdateLeave(@PathVariable Long id,@RequestBody Map<String,Object>body) {
-        body.put("leave_id", String.valueOf(id));
-		return leaveService.Applyleave(body);
+        body.put("leave_id", id);
+		return leaveService.UpdateLeave(body);
 	}
 
 
