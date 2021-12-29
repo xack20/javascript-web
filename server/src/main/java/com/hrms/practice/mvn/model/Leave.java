@@ -17,8 +17,8 @@ public class Leave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "leave_id" , unique = true)
-    private Long leaveId;
+    @Column(name = "leave_id")
+    private Long leave_id;
 
     @Column(name = "type")
     private String leaveType;
@@ -50,12 +50,12 @@ public class Leave {
 
 
     public Long getLeaveId() {
-        return leaveId;
+        return leave_id;
     }
 
 
     public void setLeaveId(Long leaveId) {
-        this.leaveId = leaveId;
+        this.leave_id = leaveId;
     }
 
 
