@@ -34,8 +34,8 @@ public class InvoiceService {
 
 
 
-    public Response All_Invoices()  {
-        return new Response(true,"All invoice list!",invoiceRepository.findAllActive());
+    public ResponseEntity<?> All_Invoices()  {
+        return ResponseEntity.ok().body(new Response(true, "", invoiceRepository.findAll()));
     }
 
 
@@ -69,7 +69,7 @@ public class InvoiceService {
                             if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
                             if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                             if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
-                            if(item.get("quantity")!=null)invoiceItem.setQuantity(Long.valueOf((Long) item.get("quantity")));
+                            if(item.get("quantity")!=null)invoiceItem.setQuantity(Long.valueOf((String) item.get("quantity")));
                             if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost(Double.valueOf((String) item.get("unit_cost")));
     
                             invoiceItemRepository.save(invoiceItem);
@@ -135,7 +135,10 @@ public class InvoiceService {
                         }
                     }
                 }
-    
+                
+                Client client = clientRepository.findByClientId(invoice.getClient_id());
+                invoice.setClient(client);
+                
                 invoiceRepository.save(invoice);
     
                 return ResponseEntity.ok().body(new Response(true,"Invoice updated successfully!",invoice));

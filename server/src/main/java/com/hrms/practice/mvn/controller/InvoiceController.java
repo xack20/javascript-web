@@ -2,7 +2,6 @@ package com.hrms.practice.mvn.controller;
 
 import java.util.Map;
 
-import com.hrms.practice.mvn.payload.Response;
 import com.hrms.practice.mvn.service.InvoiceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +29,7 @@ public class InvoiceController {
 	@GetMapping("/")
 	public ResponseEntity<?> allInvoices() {
 
-		Response response = invoiceService.All_Invoices();
-
-		return ResponseEntity.ok().body(response);
+		return invoiceService.All_Invoices();
 	}
 
 
