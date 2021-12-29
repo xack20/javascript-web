@@ -51,10 +51,10 @@ public class InvoiceService {
         if(body != null){
             try {
 
-                if(body.get("client_id")!=null)invoice.setClient_id((Long) body.get("client_id"));
-                if(body.get("project_id")!=null) invoice.setProject_id((Long) body.get("project_id"));
+                if(body.get("client_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
+                if(body.get("project_id")!=null) invoice.setProject_id(Long.valueOf((String) body.get("project_id")));
                 
-                if(body.get("amount") != null)invoice.setAmount((double) body.get("amount"));
+                if(body.get("amount") != null)invoice.setAmount(Double.valueOf((String) body.get("amount")));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_date")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
@@ -66,16 +66,16 @@ public class InvoiceService {
                     for(Map<String,Object> item : items){
                         InvoiceItems invoiceItem = new InvoiceItems();
                         try {
-                            if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id((Long)invoice.getInvoice_id());
+                            if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
                             if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                             if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
-                            if(item.get("quantity")!=null)invoiceItem.setQuantity((Long) item.get("quantity"));
-                            if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost((double) item.get("unit_cost"));
+                            if(item.get("quantity")!=null)invoiceItem.setQuantity(Long.valueOf((Long) item.get("quantity")));
+                            if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost(Double.valueOf((String) item.get("unit_cost")));
     
                             invoiceItemRepository.save(invoiceItem);
                             invoiceItems.add(invoiceItem);
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                            System.out.println(e.getMessage()+"-> 1");
                             return ResponseEntity.badRequest().body(e.getMessage());
                         }
                     }
@@ -84,7 +84,7 @@ public class InvoiceService {
                 invoiceRepository.save(invoice);
                 invoice.setInvoiceItems(invoiceItems);
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage()+"-> 2");
                 return ResponseEntity.badRequest().body(e.getMessage());
             }
 
@@ -104,9 +104,9 @@ public class InvoiceService {
             Invoices invoice = invoiceRepository.findByInvoiceId(id);
         
             if(invoice != null && body!= null){
-                if(body.get("cleint_id")!=null)invoice.setClient_id((Long) body.get("client_id"));
-                if(body.get("project_id")!=null) invoice.setProject_id((Long) body.get("project_id"));
-                if(body.get("amount") != null)invoice.setAmount((double) body.get("amount"));
+                if(body.get("cleint_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
+                if(body.get("project_id")!=null) invoice.setProject_id(Long.valueOf((String) body.get("project_id")));
+                if(body.get("amount") != null)invoice.setAmount(Double.valueOf((String) body.get("amount")));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_data")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
@@ -117,15 +117,15 @@ public class InvoiceService {
                         InvoiceItems invoiceItem = null;
     
                         if(item.get("item_id")!=null){
-                            invoiceItem = invoiceItemRepository.findByItemId((Long) item.get("item_id"));
+                            invoiceItem = invoiceItemRepository.findByItemId(Long.valueOf((String) item.get("item_id")));
                             if(invoiceItem == null)invoiceItem = new InvoiceItems();
     
                             try {
                                 if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
                                 if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                                 if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
-                                if(item.get("quantity")!=null)invoiceItem.setQuantity((Long) item.get("quantity"));
-                                if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost((double) item.get("unit_cost"));
+                                if(item.get("quantity")!=null)invoiceItem.setQuantity(Long.valueOf((String) item.get("quantity")));
+                                if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost(Double.valueOf((String) item.get("unit_cost")));
         
                                 invoiceItemRepository.save(invoiceItem);
                             } catch (Exception e) {
