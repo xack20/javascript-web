@@ -51,8 +51,8 @@ public class InvoiceService {
         if(body != null){
             try {
 
-                if(body.get("client_id")!=null)invoice.setClient_id((long) body.get("client_id"));
-                if(body.get("project_id")!=null) invoice.setProject_id((long) body.get("project_id"));
+                if(body.get("client_id")!=null)invoice.setClient_id((Long) body.get("client_id"));
+                if(body.get("project_id")!=null) invoice.setProject_id((Long) body.get("project_id"));
                 
                 if(body.get("amount") != null)invoice.setAmount((double) body.get("amount"));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
@@ -69,7 +69,7 @@ public class InvoiceService {
                             if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
                             if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                             if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
-                            if(item.get("quantity")!=null)invoiceItem.setQuantity((long) item.get("quantity"));
+                            if(item.get("quantity")!=null)invoiceItem.setQuantity((Long) item.get("quantity"));
                             if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost((double) item.get("unit_cost"));
     
                             invoiceItemRepository.save(invoiceItem);
@@ -98,14 +98,14 @@ public class InvoiceService {
 
 
 
-    public ResponseEntity<?> Update_Invoice(long id,Map<String, Object> body) {
+    public ResponseEntity<?> Update_Invoice(Long id,Map<String, Object> body) {
 
         try {
             Invoices invoice = invoiceRepository.findByInvoiceId(id);
         
             if(invoice != null && body!= null){
-                if(body.get("cleint_id")!=null)invoice.setClient_id((long) body.get("client_id"));
-                if(body.get("project_id")!=null) invoice.setProject_id((long) body.get("project_id"));
+                if(body.get("cleint_id")!=null)invoice.setClient_id((Long) body.get("client_id"));
+                if(body.get("project_id")!=null) invoice.setProject_id((Long) body.get("project_id"));
                 if(body.get("amount") != null)invoice.setAmount((double) body.get("amount"));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_data")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
@@ -117,14 +117,14 @@ public class InvoiceService {
                         InvoiceItems invoiceItem = null;
     
                         if(item.get("item_id")!=null){
-                            invoiceItem = invoiceItemRepository.findByItemId((long) item.get("item_id"));
+                            invoiceItem = invoiceItemRepository.findByItemId((Long) item.get("item_id"));
                             if(invoiceItem == null)invoiceItem = new InvoiceItems();
     
                             try {
                                 if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
                                 if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                                 if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
-                                if(item.get("quantity")!=null)invoiceItem.setQuantity((long) item.get("quantity"));
+                                if(item.get("quantity")!=null)invoiceItem.setQuantity((Long) item.get("quantity"));
                                 if(item.get("unit_cost")!=null)invoiceItem.setUnit_cost((double) item.get("unit_cost"));
         
                                 invoiceItemRepository.save(invoiceItem);
@@ -154,7 +154,7 @@ public class InvoiceService {
 
 
 
-    public ResponseEntity<?>  One_Invoices(long id) {
+    public ResponseEntity<?>  One_Invoices(Long id) {
 
         Invoices invoice = invoiceRepository.findByInvoiceId(id);
         
@@ -176,7 +176,7 @@ public class InvoiceService {
 
 
 
-    public ResponseEntity<?> Delete_Invoice(long id, Map<String, Object> body) {
+    public ResponseEntity<?> Delete_Invoice(Long id, Map<String, Object> body) {
 
         try {
             Invoices invoice = invoiceRepository.findByInvoiceIdForDelete(id);

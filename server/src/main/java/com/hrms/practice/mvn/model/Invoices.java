@@ -20,13 +20,13 @@ public class Invoices {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "invoice_id")
-    private long invoice_id;
+    private Long invoice_id;
 
     @Column(name = "client_id")
-    private long client_id;
+    private Long client_id;
 
     @Column(name = "project_id")
-    private long project_id;
+    private Long project_id;
 
     @Column(name = "amount")
     private double amount;
@@ -81,29 +81,29 @@ public class Invoices {
     }
 
 
-    public long getInvoice_id() {
+    public Long getInvoice_id() {
         return this.invoice_id;
     }
 
-    public void setInvoice_id(long invoice_id) {
+    public void setInvoice_id(Long invoice_id) {
         this.invoice_id = invoice_id;
     }
 
 
-    public long getClient_id() {
+    public Long getClient_id() {
         return this.client_id;
     }
 
-    public void setClient_id(long client_id) {
+    public void setClient_id(Long client_id) {
         this.client_id = client_id;
     }
 
 
-    public long getProject_id() {
+    public Long getProject_id() {
         return this.project_id;
     }
 
-    public void setProject_id(long project_id) {
+    public void setProject_id(Long project_id) {
         this.project_id = project_id;
     }
 

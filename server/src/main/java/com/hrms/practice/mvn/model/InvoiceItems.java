@@ -18,16 +18,16 @@ public class InvoiceItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
-    private long item_id;
+    private Long item_id;
 
     @Column(name = "invoice_id")
-    private long invoice_id;
+    private Long invoice_id;
 
     @Column(name = "unit_cost")
     private double unit_cost;
 
     @Column(name = "quantity")
-    private long quantity;
+    private Long quantity;
 
     @Column(name = "name")
     private String name;
@@ -39,19 +39,19 @@ public class InvoiceItems {
 
 
 
-    public long getInvoice_id() {
+    public Long getInvoice_id() {
         return this.invoice_id;
     }
 
-    public void setInvoice_id(long invoice_id) {
+    public void setInvoice_id(Long invoice_id) {
         this.invoice_id = invoice_id;
     }
 
-    public long getItem_id() {
+    public Long getItem_id() {
         return this.item_id;
     }
 
-    public void setItem_id(long item_id) {
+    public void setItem_id(Long item_id) {
         this.item_id = item_id;
     }
 
@@ -65,11 +65,11 @@ public class InvoiceItems {
     }
 
 
-    public long getQuantity() {
+    public Long getQuantity() {
         return this.quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

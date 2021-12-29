@@ -9,12 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface InvoiceItemRepository extends JpaRepository<InvoiceItems, Integer> {
+public interface InvoiceItemRepository extends JpaRepository<InvoiceItems, Long> {
 
     @Query(value="SELECT * FROM testdb.invoice_items WHERE item_id = ?1",nativeQuery = true)
     InvoiceItems findByItemId(Long item_id);
 
     @Query(value="SELECT * FROM testdb.invoice_items WHERE invoice_id = ?1",nativeQuery = true)
-    List<InvoiceItems> findAllByInvoiceId(long id);
+    List<InvoiceItems> findAllByInvoiceId(Long id);
     
 }
