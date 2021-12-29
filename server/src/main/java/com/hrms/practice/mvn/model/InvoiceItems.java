@@ -34,6 +34,18 @@ public class InvoiceItems {
 
     @Column(name = "description")
     private String description;
+    
+
+
+
+
+    public long getInvoice_id() {
+        return this.invoice_id;
+    }
+
+    public void setInvoice_id(long invoice_id) {
+        this.invoice_id = invoice_id;
+    }
 
     public long getItem_id() {
         return this.item_id;
