@@ -5,6 +5,8 @@ import LoadSpin from '../../Components/Spinner/LoadSpin';
 
 import AdminDashboard from '../../Views/AdminDashboard/AdminDashboard';
 
+
+
 // import Attendance from '../../../Views/Attendance/Attendance';
 // import NotFound from '../../../Views/Default/404';
 // import AllEmployees from '../../../Views/Employees/AllEmployees';
@@ -45,6 +47,22 @@ const EmployeeDashboard = React.lazy(() =>
 
 const Invoice = React.lazy(() =>
   import('../../Views/Invoice/Invoice')
+);
+
+const LeavePageAdmin = React.lazy(() =>
+  import('../../Views/Leaves Admin/LeavePageAdmin')
+);
+
+const LeavePageEmp = React.lazy(() =>
+  import('../../Views/Leaves Employee/LeavePageEmp')
+);
+
+const ManageJobs = React.lazy(() =>
+  import('../../Views/Manage Jobs/ManageJobs')
+);
+
+const AppliedCandidates = React.lazy(() =>
+  import('../../Views/Applied Candidates/AppliedCandidates')
 );
 
 
@@ -90,6 +108,36 @@ export default function PassThrough(props) {
     comp = (
       <React.Suspense fallback={<LoadSpin />}>
         <Leads />
+      </React.Suspense>
+    );
+
+    else if (props.page === 'Leaves Admin')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <LeavePageAdmin />
+      </React.Suspense>
+    );
+
+    else if (props.page === 'Leaves Employee')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <LeavePageEmp />
+      </React.Suspense>
+    );
+
+
+    else if (props.page === 'Manage Jobs')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <ManageJobs></ManageJobs>
+      </React.Suspense>
+    );
+
+
+    else if (props.page === 'Applied Candidates')
+    comp = (
+      <React.Suspense fallback={<LoadSpin />}>
+        <AppliedCandidates></AppliedCandidates>
       </React.Suspense>
     );
 
