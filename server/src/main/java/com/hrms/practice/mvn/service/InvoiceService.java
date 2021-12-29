@@ -56,7 +56,7 @@ public class InvoiceService {
                 
                 if(body.get("amount") != null)invoice.setAmount((double) body.get("amount"));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
-                if(body.get("invoice_data")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
+                if(body.get("invoice_date")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
 
                 List<InvoiceItems> invoiceItems = new ArrayList<>();
@@ -66,7 +66,7 @@ public class InvoiceService {
                     for(Map<String,Object> item : items){
                         InvoiceItems invoiceItem = new InvoiceItems();
                         try {
-                            if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id(invoice.getInvoice_id());
+                            if(item.get("invoice_id")!=null)invoiceItem.setInvoice_id((Long)invoice.getInvoice_id());
                             if(item.get("name")!=null)invoiceItem.setName((String) item.get("name"));
                             if(item.get("description")!=null)invoiceItem.setDescription((String) item.get("description"));
                             if(item.get("quantity")!=null)invoiceItem.setQuantity((Long) item.get("quantity"));
