@@ -29,7 +29,7 @@ public class Invoices {
     private long project_id;
 
     @Column(name = "amount")
-    private long amount;
+    private double amount;
 
     @Column(name = "status")
     private String status;
@@ -107,11 +107,11 @@ public class Invoices {
         this.project_id = project_id;
     }
 
-    public long getAmount() {
+    public double getAmount() {
         return this.amount;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

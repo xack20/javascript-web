@@ -24,7 +24,7 @@ public class InvoiceItems {
     private long invoice_id;
 
     @Column(name = "unit_cost")
-    private long unit_cost;
+    private double unit_cost;
 
     @Column(name = "quantity")
     private long quantity;
@@ -56,11 +56,11 @@ public class InvoiceItems {
     }
 
 
-    public long getUnit_cost() {
+    public double getUnit_cost() {
         return this.unit_cost;
     }
 
-    public void setUnit_cost(long unit_cost) {
+    public void setUnit_cost(double unit_cost) {
         this.unit_cost = unit_cost;
     }
 
