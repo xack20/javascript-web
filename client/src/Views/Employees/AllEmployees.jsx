@@ -6,7 +6,7 @@ import AddButton from "../../Components/AddButton/AddButton";
 import EmployeeForm from "../../Components/EmployeeForm/EmployeeForm";
 import MetaCustom from "../../Components/MetaCustom/MetaCustom.jsx";
 import MyModal from "../../Components/MyModal/MyModal.jsx";
-import SearchBarClient from "../../Components/SearchBarClient/SearchBarClient";
+import SearchBarEmployee from "../../Components/SearchBarClient/SearchBarEmployee";
 import { allEmployees, deleteEmployee } from "../../Services/Employee";
 import "./AllEmployees.css";
 
@@ -75,7 +75,7 @@ const AllEmployees = () => {
         <EmployeeForm setModalVisibility={setModalVisibility}></EmployeeForm>
       </MyModal>
 
-      <SearchBarClient></SearchBarClient>
+      <SearchBarEmployee></SearchBarEmployee>
 
       <Row
         gutter={[
