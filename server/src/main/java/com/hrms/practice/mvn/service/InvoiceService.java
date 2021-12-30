@@ -68,6 +68,13 @@ public class InvoiceService {
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_date")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
+                
+                if(body.get("client_name")!=null)invoice.setClient_name((String) body.get("client_name"));
+                if(body.get("project_name")!=null)invoice.setProject_name((String) body.get("project_name"));
+                if(body.get("client_email")!=null)invoice.setClient_email((String) body.get("client_email"));
+                if(body.get("client_address")!=null)invoice.setClinet_address((String) body.get("client_address"));
+                if(body.get("billing_address")!=null)invoice.setBilling_address((String) body.get("billing_address"));
+                
 
                 invoice = invoiceRepository.save(invoice);
                 // System.out.println("Add : " +invoice.getInvoice_id());
@@ -131,6 +138,12 @@ public class InvoiceService {
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_data")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
                 if(body.get("due_date")!=null)invoice.setDue_date((String) body.get("due_date"));
+
+                if(body.get("client_name")!=null)invoice.setClient_name((String) body.get("client_name"));
+                if(body.get("project_name")!=null)invoice.setProject_name((String) body.get("project_name"));
+                if(body.get("client_email")!=null)invoice.setClient_email((String) body.get("client_email"));
+                if(body.get("client_address")!=null)invoice.setClinet_address((String) body.get("client_address"));
+                if(body.get("billing_address")!=null)invoice.setBilling_address((String) body.get("billing_address"));
 
                 invoice = invoiceRepository.save(invoice);
 

@@ -25,6 +25,29 @@ public class Invoices {
     @Column(name = "client_id")
     private Long client_id;
 
+    @Column(name = "client_name")
+    private String client_name;
+
+    @Column(name = "clinet_address")
+    private String clinet_address;
+
+    @Column(name = "client_email")
+    private String client_email;
+
+    @Column(name = "billing_address")
+    private String billing_address;
+
+    @Column(name = "project_name")
+    private String project_name;
+
+
+
+    
+
+    public void setProject_name(String project_name) {
+        this.project_name = project_name;
+    }
+
     @Column(name = "project_id")
     private Long project_id;
 
@@ -50,6 +73,50 @@ public class Invoices {
 
     @Transient
     Client client;
+
+
+    
+    public String getClient_name() {
+        return this.client_name;
+    }
+
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
+    }
+
+
+
+    public String getClinet_address() {
+        return this.clinet_address;
+    }
+
+    public void setClinet_address(String clinet_address) {
+        this.clinet_address = clinet_address;
+    }
+
+
+    public String getClient_email() {
+        return this.client_email;
+    }
+
+    public void setClient_email(String client_email) {
+        this.client_email = client_email;
+    }
+
+
+
+    public String getBilling_address() {
+        return this.billing_address;
+    }
+
+    public void setBilling_address(String billing_address) {
+        this.billing_address = billing_address;
+    }
+
+
+    public String getProject_name() {
+        return this.project_name;
+    }
 
 
     public List<InvoiceItems> getInvoiceItems() {

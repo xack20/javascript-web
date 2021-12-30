@@ -15,10 +15,10 @@ export const allInvoices = async () => {
   
   
   
-  export const clientProfile = async (user_id) => {
+  export const invoiceDetails = async (invoice_id) => {
     var config = {
       method: 'get',
-      url: '/api/v1/client/' + parseInt(user_id),
+      url: '/api/v1/invoice/' + parseInt(invoice_id),
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
       },

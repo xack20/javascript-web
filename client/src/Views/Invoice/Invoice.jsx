@@ -17,6 +17,7 @@ const Invoice = () => {
           message: "Error",
           description:
             error.message || "Sorry! Something went wrong. Please try again!",
+            placement : "bottomRight",
         });
       }
     };
@@ -41,9 +42,9 @@ const Invoice = () => {
       } catch (error) {
         notification.error({
           message: "Error",
-          description:
-            error.message || "Sorry! Something went wrong. Please try again!",
-            placement : "bottomRight",
+          description:error.message || "Sorry! Something went wrong. Please try again!",
+          placement : "bottomRight",
+            
         });
       }
   };
