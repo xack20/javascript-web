@@ -83,7 +83,7 @@ const ProfileTableCilentTop = ({clientProfileState,load,setLoad,edit}) => {
         
         try {
             DATA[0].value = clientProfileState.company_name;
-            DATA[1].value = clientProfileState.client_name;
+            DATA[1].value = clientProfileState.firstname + " " + clientProfileState.lastname;
             DATA[2].value = clientProfileState.designation;
             DATA[3].value = clientProfileState.client_id;
 
