@@ -296,7 +296,25 @@ const InvoiceCreate = ({onCreate}) => {
         </Col>
       </Row>
 
+     
+
     </Card>
+    <Row style={{marginTop:"5px"}}>
+      <Col span={12}>
+      
+      </Col>
+      <Col span={8}>
+      <Button style={{marginTop:"20px"}} type="primary" htmlType="submit">
+                        Submit
+                    </Button>
+      </Col>
+      <Col span={8}>
+     
+      </Col>
+     
+    </Row>
+
+   
 
     </div>
   );
