@@ -28,12 +28,19 @@ const EmpProfilePage = ({ user_id }) => {
     };
 
 
+    useEffect(() => {
+
+    })
+
+
     const onSave = () => {
 
-        const Load = {...load}
+        // const Load = {...load}
+        console.log(load);
 
         try {
-            const response = updateEmployee(Load, user_id);
+            // console.log();
+            const response = updateEmployee(load, user_id);
             notification["success"]({
                 message: "Employee Updated Successfully",
                 description:'',
