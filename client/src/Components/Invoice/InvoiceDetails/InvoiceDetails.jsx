@@ -21,10 +21,10 @@ const InvoiceDetails = (props) => {
   useEffect(async () => {
     try {
       const invoice = await invoiceDetails(invoice_id);
-      const client = await clientProfile(invoice.data.additionalPayload.client_id);
+      // const client = await clientProfile(invoice.data.additionalPayload.client_id);
     
-      invoice.data.additionalPayload.client = client.data.additionalPayload;
-      console.log(invoice.data.additionalPayload);
+      // invoice.data.additionalPayload.client = client.data.additionalPayload;
+      // console.log(invoice.data.additionalPayload);
 
       setData(invoice.data.additionalPayload);
     } catch (error) {}
@@ -37,7 +37,7 @@ const InvoiceDetails = (props) => {
       setModalVisibility={changeModalVisibility}
       Title={`Invoice : #000${invoice_id}`}
     >
-     <Spin spinning={data.client===""}>
+
      <div style={{ padding: 20 }}>
         {/* <Row>
                 <Col>
@@ -76,9 +76,11 @@ const InvoiceDetails = (props) => {
 
         <Row style={{ marginTop: 48 }}>
           <div>
-            Bill To: <strong>{data.client.company_name},&nbsp;</strong>
+            <strong>Bill To: </strong>{data.client_name}
+            <div>
+              {data.billing_address}
+            </div>
           </div>
-          <div>{data.client.address}</div>
         </Row>
 
         <Row style={{ marginTop: 48 }}>
@@ -122,7 +124,6 @@ const InvoiceDetails = (props) => {
           </Col>
         </Row>
       </div>   
-    </Spin>
     </MyModal>
   );
 };
