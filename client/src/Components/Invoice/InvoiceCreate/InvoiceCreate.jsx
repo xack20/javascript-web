@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Input, Row, Table, Button } from "antd";
+import { Col, Input, Row, Table, Button, Card } from "antd";
 import { DatePicker,notification} from "antd";
 import "./style.css";
 import { useEffect } from "react";
@@ -198,37 +198,28 @@ const InvoiceCreate = ({onCreate}) => {
   return (
     <div>
       <Row gutter={16}>
-        <Col span={6}>
+        <Col span={8}>
           <h6>
             Client
             <Input style={{ marginTop: "10px" }} placeholder="Client Name" />
           </h6>
         </Col>
 
-        <Col span={6}>
+        <Col span={8}>
           <h6>
             Project Name
             <Input style={{ marginTop: "10px" }} placeholder="Project Name" />
           </h6>
         </Col>
 
-        <Col span={6}>
+        <Col span={8}>
           <h6>
             Email
             <Input style={{ marginTop: "10px" }} placeholder="Email" />
           </h6>
         </Col>
 
-        <Col span={6}>
-          <h6>
-            Tax
-            <Input
-              style={{ marginTop: "10px" }}
-              addonBefore="%"
-              placeholder="Tax"
-            />
-          </h6>
-        </Col>
+       
       </Row>
 
       <Row gutter={16}>
@@ -264,16 +255,49 @@ const InvoiceCreate = ({onCreate}) => {
       <Table
         columns={columns}
         dataSource={data}
-        pagination={{
-          position: ["bottomCenter"],
-          showSizeChanger: true,
-          defaultPageSize: 10,
-          pageSizeOptions: ["10", "15", "20"],
-        }}
+        // pagination={{
+        //   position: ["bottomCenter"],
+        //   showSizeChanger: true,
+        //   defaultPageSize: 10,
+        //   pageSizeOptions: ["10", "15", "20"],
+        // }}
+        pagination={false}
         bordered={false}
         scroll={{ x: true }}
         size="middle"
       />
+
+    <Card>
+      <Row>
+        <Col span={18}>
+        </Col>
+
+        <Col span={6}>
+          <p style={{fontWeight:"bold"}}>VAT+Tax
+            <span>
+            <Input readOnly style={{ marginTop: "10px", width:"70%", marginLeft:"10px" , textAlign:"right"}} value={"15%"}></Input>
+
+            </span>
+          </p>
+        
+          <p style={{fontWeight:"bold"}}>Discount
+            <span>
+            <Input style={{ marginTop: "10px", width:"70%", marginLeft:"10px" , textAlign:"right"}} ></Input>
+
+            </span>
+          </p>
+          <p style={{fontWeight:"bold"}}>Amount
+            <span>
+            <Input readOnly style={{ marginTop: "10px", width:"70%", marginLeft:"10px" , textAlign:"right"}} ></Input>
+
+            </span>
+          </p>
+
+        </Col>
+      </Row>
+
+    </Card>
+
     </div>
   );
 };
