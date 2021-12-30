@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, Avatar } from 'antd';
+import { Card, Avatar, notification } from 'antd';
 import { useHistory } from 'react-router-dom';
+import base64 from 'react-native-base64';
 
 const { Meta } = Card;
 
@@ -10,12 +11,21 @@ function MetaCustom({ data }) {
   const history = useHistory();
 
   const viewProfile = (id) => {
+    if(base64.decode(window.localStorage.getItem("_usrl_")) !== "ADMIN" && id != window.localStorage.getItem("_uid_")){
+      notification["error"]({
+        message: "You are not authorized to view this profile",
+        description:'',
+        placement:"bottomRight"
+      });
+    }
+    else{
       if(window.location.pathname === "/clients"){
         history.push(`/client/profile/${data.client_id}`);
       }
       else {
         history.push(`/employee/profile/${id}`);
       }
+    }
   }
 
   return (

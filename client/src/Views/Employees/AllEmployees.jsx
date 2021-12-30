@@ -1,6 +1,7 @@
 import { DeleteOutlined } from "@ant-design/icons";
 import { Card, Col, notification, Row } from "antd";
 import React, { useEffect, useState } from "react";
+import base64 from "react-native-base64";
 import AddButton from "../../Components/AddButton/AddButton";
 import EmployeeForm from "../../Components/EmployeeForm/EmployeeForm";
 import MetaCustom from "../../Components/MetaCustom/MetaCustom.jsx";
@@ -13,6 +14,7 @@ import "./AllEmployees.css";
 const AllEmployees = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [allEmployee, setAllEmployee] = useState([]);
+  const [role,setRole] = useState('EMPLOYEE');
 
   useEffect(() => {
     const callAllEmployee = async () => {
@@ -57,10 +59,12 @@ const AllEmployees = () => {
 
   return (
     <div>
-      <AddButton
+      {
+        base64.decode(window.localStorage.getItem("_usrl_")) === "ADMIN" &&
+        <AddButton
         setModalVisibility={setModalVisibility}
-        buttonName={"Add Employee"}
-      ></AddButton>
+        buttonName={"Add Employee"}/>
+      }
 
       <MyModal
         Width={900}
@@ -94,13 +98,14 @@ const AllEmployees = () => {
                   //     console.log("Edit");
                   //   }}
                   // />,
+                  (base64.decode(window.localStorage.getItem("_usrl_")) === "ADMIN" &&
                   <DeleteOutlined
                     key="delete"
                     onClick={() => {
                       console.log("Delete");
                       onDelete(idx);
                     }}
-                  />,
+                  />),
                 ]}
                 hoverable={true}
                 loading={false}
