@@ -1,6 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { Card, Col, Row , notification} from 'antd';
 import React, { useEffect, useState } from 'react';
+import base64 from "react-native-base64";
 import AddButton from '../../Components/AddButton/AddButton.jsx';
 import ClientForm from '../../Components/ClientForm/ClientForm.jsx';
 import MetaCustom from '../../Components/MetaCustom/MetaCustom.jsx';
@@ -59,10 +60,12 @@ const Clients = () => {
 
   return (
     <div>
-       <AddButton
+       {
+        base64.decode(window.localStorage.getItem("_usrl_")) === "ADMIN" &&
+        <AddButton
         setModalVisibility={setModalVisibility}
-        buttonName={"Add Client"}
-      ></AddButton>
+        buttonName={"Add Client"}/>
+      }
 
       <MyModal
         Width={900}
@@ -92,16 +95,18 @@ const Clients = () => {
               //     console.log("Edit");
               //   }}
               // />,
+              (base64.decode(window.localStorage.getItem("_usrl_")) === "ADMIN" &&
               <DeleteOutlined
                 key="delete"
                 onClick={() => {
                   console.log("Delete");
                   onDelete(idx);
                 }}
-              />,
+              />),
             ]}
             hoverable={true}
-            loading={false}>
+            loading={false}
+          >
               <MetaCustom data={element} />
             </Card>
           </Col>
