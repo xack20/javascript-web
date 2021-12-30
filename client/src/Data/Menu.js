@@ -7,7 +7,7 @@ import {
   RocketOutlined,
 } from '@ant-design/icons';
 
-const data = [
+const dataA = [
   {
     title: 'Main',
     child: [
@@ -169,4 +169,4 @@ const data = [
   },
 ];
 
-export default data;
+export default dataA;

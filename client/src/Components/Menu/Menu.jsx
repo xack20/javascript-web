@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu } from 'antd'
 import slugify from 'react-slugify'
 
-import data from '../../Data/Menu.js'
+
 import './Menu.css'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -11,9 +11,15 @@ import { changeActiveTab, addPane, changeMV } from '../../Redux/CommonSlice'
 
 import { NavLink } from 'react-router-dom'
 
+import dataA from "../../Data/Menu.js"
+import dataE from "../../Data/MenuE.js"
+import base64 from 'react-native-base64'
+
+
 const { SubMenu } = Menu
 
 export default function MenuList () {
+
   const dispatch = useDispatch()
   const collapsed = useSelector(s => s.common.collapsedDV)
   const collapsedMV = useSelector(s => s.common.collapsedMV)
@@ -30,6 +36,17 @@ export default function MenuList () {
     )
     if (collapsedMV) dispatch(changeMV())
   }
+
+  const [data,setData] = React.useState(dataE)
+
+  React.useEffect(() => {
+    if(base64.decode(window.localStorage.getItem('_usrl_')) === "ADMIN") {
+      setData(dataA)
+    }
+    else {
+      setData(dataE)
+    }
+  })
 
   return (
     <Menu

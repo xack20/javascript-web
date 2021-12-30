@@ -20,8 +20,12 @@ import './MainContent.css'
 import Profile from '../../Views/Profile/Profile.jsx'
 import InvoiceDetails from '../../Components/Invoice/InvoiceDetails/InvoiceDetails.jsx'
 
+
+import base64 from 'react-native-base64'
+
 // De-Structuring Components
 const { Content } = Layout
+
 
 
 
@@ -46,7 +50,8 @@ function MainContent () {
         <Switch>
           
           <Route exact path='/'>
-            <Redirect to='/admin-dashboard' />
+            { base64.decode(window.localStorage.getItem('_usrl_')) === "ADMIN" ? <Redirect to='/admin-dashboard' /> : <Redirect to='/employee-dashboard' /> }
+            {/* <Redirect to='/admin-dashboard' /> */}
           </Route>
 
           {data.map(item => {
