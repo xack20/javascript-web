@@ -11,7 +11,7 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-const InvoiceCreate = () => {
+const InvoiceCreate = ({onCreate}) => {
 
     const [ data, setData ] = useState([{
         "hash": "",

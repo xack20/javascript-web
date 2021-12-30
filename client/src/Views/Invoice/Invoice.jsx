@@ -1,25 +1,68 @@
-import React from 'react';
-import InvoiceSearch from '../../Components/Invoice/InvoiceSearch/InvoiceSearch';
-import InvoiceTable from '../../Components/Invoice/InvoiceTable/InvoiceTable';
-
-import InvoiceDetails from '../../Components/Invoice/InvoiceDetails/InvoiceDetails';
-
+import React from "react";
+import { notification, Spin } from "antd";
+import InvoiceSearch from "../../Components/Invoice/InvoiceSearch/InvoiceSearch";
+import InvoiceTable from "../../Components/Invoice/InvoiceTable/InvoiceTable";
+import { allInvoices, deleteInvoice } from "../../Services/Invoice";
 
 const Invoice = () => {
   
-    return (
-        <div>
-            
+  const [data, setData] = React.useState([]);
+  React.useEffect(() => {
+    const callBackend = async () => {
+      try {
+        const res = await allInvoices();
+        setData(res.data.additionalPayload);
+      } catch (error) {
+        notification.error({
+          message: "Error",
+          description:
+            error.message || "Sorry! Something went wrong. Please try again!",
+        });
+      }
+    };
+    callBackend();
+  }, []);
 
 
-            <InvoiceSearch></InvoiceSearch>
 
-            <InvoiceTable></InvoiceTable>
+  const onDelete = async(invoice_id,index) => {
+    console.log(invoice_id,index);
+      try {
+        const res = await deleteInvoice(invoice_id);
+        notification.success({
+          message: "Success",
+          description: "Invoice Deleted Successfully!",
+          placement : "bottomRight",
+        });
+        const Data = [...data];
+        Data.splice(index, 1);
+        setData(Data);
 
-            <InvoiceDetails></InvoiceDetails>
+      } catch (error) {
+        notification.error({
+          message: "Error",
+          description:
+            error.message || "Sorry! Something went wrong. Please try again!",
+            placement : "bottomRight",
+        });
+      }
+  };
 
-        </div>
-    );
+  const onCreate = () => {
+    notification.success({
+      message: "Success",
+      description: "Invoice Created Successfully",
+      placement: "bottomRight",
+    });
+  };
+
+  return (
+    <div>
+      <InvoiceSearch onCreate={onCreate}/>
+
+      <InvoiceTable data={data} onDelete={onDelete}/>
+    </div>
+  );
 };
 
 export default Invoice;

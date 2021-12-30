@@ -8,13 +8,13 @@ export default function FooterCustom() {
         marginBottom: '25px',
         marginTop: '125px',
         padding: '0px',
-        justifyContent: 'center',
         textAlign: 'center',
         backgroundColor: 'white',
-        height: '5px',
+        height: '3px',
         borderTop: '.1px dotted grey',
 
-        
+        position: 'sticky',
+        width: '100%',
         bottom: 0,
       }}
     >
