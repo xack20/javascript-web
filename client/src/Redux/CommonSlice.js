@@ -1,4 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
+import base64 from 'react-native-base64';
+
+const recentTab = () => {
+  // ((window.location.pathname).substr(1)).split('-')[0].charAt(0).toUpperCase()+((window.location.pathname).substr(1)).split('-')[0].slice(1) + " " + ((window.location.pathname).substr(1)).split('-')[1].charAt(0).toUpperCase()+((window.location.pathname).substr(1)).split('-')[1].slice(1)
+  var path = window.location.pathname.split('/')[1]
+  if(path === '')path = base64.decode(window.localStorage.getItem('_usrl_')) === "ADMIN" ? "admin-dashboard" : "employee-dashboard"
+  var tab='';
+  const tabNameParts = path.split('-')
+  for(let i = 0; i < tabNameParts.length; i++){
+    if(i)tab+=" "
+    tab += tabNameParts[i].charAt(0).toUpperCase()+tabNameParts[i].slice(1)
+  }
+  return tab
+}
+
 
 export const commonSlice = createSlice({
 
@@ -12,7 +27,7 @@ export const commonSlice = createSlice({
 
     windowWidth: window.innerWidth,
 
-    activeTab: '',
+    activeTab: recentTab(),
     panes: [
       // {
       //   title: 'Admin Dashboard',
