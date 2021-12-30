@@ -29,12 +29,12 @@ export const allInvoices = async () => {
   
   
   
-  export const addClient = async (Data) => {
+  export const createInvoice = async (Data) => {
     var data = Data
   
     var config = {
       method: 'post',
-      url: '/api/v1/client/add',
+      url: '/api/v1/invoice/add',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
       },

@@ -57,7 +57,7 @@ const InvoiceTable = ({ data, onDelete }) => {
           key: index+1,
           INV_ID : item.invoice_id,
           invoice_id : `INV-000${item.invoice_id}`,
-          client : item.client.firstname + " " + item.client.lastname,
+          client : item.client_name,
           invoice_date : item.invoice_date,
           due_date : item.due_date,
           amount : item.amount,

@@ -49,7 +49,8 @@ const Invoice = () => {
       }
   };
 
-  const onCreate = () => {
+  const onCreate = (newData) => {
+    console.log(newData);
     notification.success({
       message: "Success",
       description: "Invoice Created Successfully",
