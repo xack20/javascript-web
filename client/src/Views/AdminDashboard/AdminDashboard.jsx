@@ -86,7 +86,7 @@ export default function AdminDashboard() {
           <Col span={6}>
             <Card
               style={{
-                background: "#fff1f0",
+                background: "#e6f7ff",
                 borderRadius: "20px",
                 borderColor: "#531dab",
               }}
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
           <Col span={6}>
           <Card
               style={{
-                background: "#fff1f0",
+                background: "#e6f7ff",
                 borderRadius: "20px",
                 borderColor: "#531dab",
               }}

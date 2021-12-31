@@ -275,7 +275,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={8}>
           <h6>
             Client
-            <Input onChange={(e)=>{ 
+            <Input required onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.client_name = e.target.value;
               setNewInvoiceData(unLoad) }
@@ -287,7 +287,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={8}>
           <h6>
             Project Name
-            <Input 
+            <Input
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.project_name = e.target.value;
@@ -301,7 +301,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={8}>
           <h6>
             Email
-            <Input
+            <Input required
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.client_email = e.target.value;
@@ -316,7 +316,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={6}>
           <h6>
             Client Address
-            <TextArea 
+            <TextArea  required
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.client_address = e.target.value;
@@ -329,7 +329,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={6}>
           <h6>
             Billing Address
-            <TextArea
+            <TextArea required
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.billing_address = e.target.value;
@@ -342,7 +342,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={6}>
           <h6>
             Invoice Date
-            <DatePicker dropdownClassName="popup" onChange={(e)=>{ 
+            <DatePicker required dropdownClassName="popup" onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               // console.log(e.format("YYYY-MM-DD"));
               unLoad.invoice_date = e.format("YYYY-MM-DD");

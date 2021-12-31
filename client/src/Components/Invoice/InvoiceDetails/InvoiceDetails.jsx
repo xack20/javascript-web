@@ -48,11 +48,11 @@ const InvoiceDetails = (props) => {
 
         <Row gutter={16} style={{ marginTop: 32 }}>
           <Col span={8}>
-            <h3>Eco Haya</h3>
+            <h3>BJIT</h3>
             <div>#944/945, 4th Cross, 9th Main,</div>
-            <div>Vijaya Bank Layout,</div>
-            <div>Bannerghatta Road,</div>
-            <div>Bangalore - 560076</div>
+            <div>American Center Road,</div>
+            <div>Vatara,Dhaka,</div>
+            <div>Bangladesh</div>
           </Col>
           <Col span={12}>
             <table style={{ float: "right" }}>
