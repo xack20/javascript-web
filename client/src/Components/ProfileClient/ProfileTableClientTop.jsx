@@ -150,7 +150,7 @@ const ProfileTableCilentTop = ({clientProfileState,load,setLoad,edit}) => {
 
                         <Column dataIndex="value" 
                         render={(text, index) => {
-                                return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
+                                return (edit) ?  <Input defaultValue={text} placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
                             }} />
                     </Table>
 
@@ -161,7 +161,7 @@ const ProfileTableCilentTop = ({clientProfileState,load,setLoad,edit}) => {
                         <Column dataIndex="param" />
                         <Column dataIndex="value" 
                         render={(text, index) => {
-                            return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
+                            return (edit) ?  <Input defaultValue={text} placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
                         }}
                         />
                     </Table>

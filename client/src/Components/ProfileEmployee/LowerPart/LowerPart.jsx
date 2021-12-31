@@ -225,6 +225,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
               render={(text, index) => {
                 return edit ? (
                   <Input
+                  defaultValue={text}
                     placeholder={index.key}
                     allowClear
                     onChange={(e) => {
@@ -248,6 +249,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
               render={(text, index) => {
                 return edit ? (
                   <Input
+                  defaultValue={text}
                     placeholder={index.key}
                     allowClear
                     onChange={(e) => {
@@ -273,6 +275,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
               render={(text, index) => {
                 return edit ? (
                   <Input
+                  defaultValue={text}
                     placeholder={index.key}
                     allowClear
                     onChange={(e) => {
@@ -296,6 +299,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
               render={(text, index) => {
                 return edit ? (
                   <Input
+                  defaultValue={text}
                     placeholder={index.key}
                     allowClear
                     onChange={(e) => {
@@ -318,6 +322,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
           {edit ? (
             <div style={{ marginBottom: "50px" }}>
               <Input
+              defaultValue={education.ssc}
                 allowClear
                 onChange={(e) => {
                   setChange(e.target.value, "ssc", "education");
@@ -326,6 +331,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
                 placeholder="SSC"
               />
               <Input
+              defaultValue={education.hsc}
                 allowClear
                 onChange={(e) => {
                   setChange(e.target.value, "hsc", "education");
@@ -335,6 +341,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
               />
               <Input
                 allowClear
+                defaultValue={education.bsc}
                 onChange={(e) => {
                   setChange(e.target.value, "bsc", "education");
                 }}
@@ -357,6 +364,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
           {edit ? (
             <div style={{ marginBottom: "50px" }}>
               <Input
+              defaultValue={experience.company_name}
                 allowClear
                 onChange={(e) => {
                   setChange(e.target.value,  "company_name","experience");
@@ -365,6 +373,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
                 placeholder="Company Name"
               />
               <Input
+              defaultValue={experience.designation}
                 allowClear
                 onChange={(e) => {
                   setChange(e.target.value, "designation", "experience");

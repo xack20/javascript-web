@@ -29,15 +29,16 @@ const ProfileClient = ({ client_id }) => {
     };
 
 
-    const onSave = () => {
+    const onSave = async() => {
 
         const Load = {...load}
         
 
         try {
-            const response = updateClient(Load, client_id);
+            const response = await updateClient(Load, client_id);
+            setClientProfileState(response.data.additionalPayload);
             notification["success"]({
-                message: "Employee Updated Successfully",
+                message: "Client Updated Successfully",
                 description:'',
                 placement:"bottomRight"
             });

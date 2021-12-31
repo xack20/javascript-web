@@ -15,14 +15,27 @@ const EmpProfilePage = ({ user_id }) => {
         try {
             const response = await employeeProfile(user_id);
             setEmployeeProfileState(response.data.additionalPayload);
+
+            // notification.success({
+            //     message: "Success",
+            //     description: "Employee Profile Loaded Successfully!",
+            //     placement : "bottomRight",
+            // });
+
         } catch (error) {
-            console.log(error.response);
+            notification.error({
+                message: "Error",
+                description:error.message || "Sorry! Something went wrong. Please try again!",
+                placement : "bottomRight",
+            });
+            // console.log(error.response);
         }
     };
 
     
 
     const onEdit = () => {
+        callEmployeeProfile();
         setEdit(!edit);
     };
 
@@ -31,7 +44,8 @@ const EmpProfilePage = ({ user_id }) => {
 
         try {
             // console.log();
-            await updateEmployee(load, user_id);
+            const res = await updateEmployee(load, user_id);
+            setEmployeeProfileState(res.data.additionalPayload);
             notification["success"]({
                 message: "Employee Updated Successfully",
                 description:'',
@@ -44,7 +58,7 @@ const EmpProfilePage = ({ user_id }) => {
                 placement:"bottomRight"
             });
         }
-       setEdit(!edit);
+       onEdit();
     }
 
 
@@ -65,7 +79,7 @@ const EmpProfilePage = ({ user_id }) => {
                 </Button> : 
                 
                 <Button
-                    onClick={()=>{onSave();}}
+                    onClick={onSave}
                     primary
                     style={{ float: "right", margin: "10px" }}
                 >
