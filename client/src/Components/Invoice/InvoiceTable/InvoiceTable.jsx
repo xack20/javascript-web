@@ -1,15 +1,35 @@
 import React from "react";
 
-import { Space, Table, Button,Spin } from "antd";
+import { Space, Table, Button,Spin,notification } from "antd";
 import {Link} from "react-router-dom";
 import "./style.css";
+import { deleteInvoice } from "../../../Services/Invoice";
 
 const InvoiceTable = ({ data, onDelete }) => {
   const [Data, setData] = React.useState([]);
   const [spinning, setSpinning] = React.useState(true);
-  const OnDelete = (index,render,text) => {
-    onDelete(render.INV_ID,index);
+
+  const OnDelete = async(index,render,text) => {
+    // onDelete(render.INV_ID,index);
+    try {
+        await deleteInvoice(render.INV_ID);
+        const Data = [...data];
+        Data.splice(index, 1);
+        setData(Data);
+        notification.success({
+          message: "Success",
+          description: "Invoice Deleted Successfully!",
+          placement : "bottomRight",
+        });
+    } catch (error) {
+        notification.error({
+          message: "Error",
+          description:error.message || "Sorry! Something went wrong. Please try again!",
+          placement : "bottomRight",
+        });
+    }
   };
+
   const columns = [
     {
       title: "#",
@@ -41,7 +61,7 @@ const InvoiceTable = ({ data, onDelete }) => {
       width: 100,
       render: (text,render,index) => (
         <Space size="middle">
-          <Button ghost type="primary" danger style={{ borderRadius: "10px" }} onClick={()=>{OnDelete(text,render,index)}} >
+          <Button ghost type="primary" danger style={{ borderRadius: "10px" }} onClick={()=>{ OnDelete(text,render,index)}} >
             Delete
           </Button>
         </Space>

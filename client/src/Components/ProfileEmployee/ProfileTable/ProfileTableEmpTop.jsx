@@ -23,9 +23,6 @@ const ProfileTableEmpTop = ({ employeeProfileState,load,setLoad,edit }) => {
             key: 'employee_id',
             value: 'ID : FT-0001',
         },
-    ])
-
-    const [data2, setData2] = useState([
         {
             key: 'phoneNumber',
             param: 'Phone:',
@@ -58,9 +55,10 @@ const ProfileTableEmpTop = ({ employeeProfileState,load,setLoad,edit }) => {
         },
     ])
 
+
     useEffect(() => {
         const DATA = [...data]
-        const DATA2 = [...data2]
+        // const DATA2 = [...data2]
 
         try {
             DATA[0].value =
@@ -71,25 +69,23 @@ const ProfileTableEmpTop = ({ employeeProfileState,load,setLoad,edit }) => {
             DATA[2].value = employeeProfileState['employee'].designation
             DATA[3].value = employeeProfileState['employee'].employee_id
 
-            DATA2[0].value = employeeProfileState.employee.phoneNumber
-            DATA2[1].value = employeeProfileState.employee.email
-            DATA2[2].value = employeeProfileState.employee.birthday
-            DATA2[3].value = employeeProfileState.employee.address
-            DATA2[4].value = employeeProfileState.employee.gender
-            DATA2[5].value = employeeProfileState.employee.report_to
+            DATA[4].value = employeeProfileState.employee.phoneNumber
+            DATA[5].value = employeeProfileState.employee.email
+            DATA[6].value = employeeProfileState.employee.birthday
+            DATA[7].value = employeeProfileState.employee.address
+            DATA[8].value = employeeProfileState.employee.gender
+            DATA[9].value = employeeProfileState.employee.report_to
 
 
             
 
             setData(DATA)
-            setData2(DATA2)
+            // setData2(DATA2)
         } catch (error) { }
     }, [employeeProfileState])
 
     useEffect(() => {
-        const Load = {"employee" : {
-                
-        }}
+        const Load = {"employee" : {}}
         try {
             Load.employee.fullname = employeeProfileState.employee.firstname + ' ' + employeeProfileState.employee.lastname
             Load.employee.department = employeeProfileState['employee'].department
@@ -102,15 +98,11 @@ const ProfileTableEmpTop = ({ employeeProfileState,load,setLoad,edit }) => {
             Load.employee.gender = employeeProfileState['employee'].gender
             Load.employee.report_to = employeeProfileState['employee'].report_to
 
-
             setLoad(Load)
         } catch (error) {
             
         }
-
-        
-
-    },[edit])
+    },[edit,employeeProfileState])
 
 
 
@@ -132,22 +124,22 @@ const ProfileTableEmpTop = ({ employeeProfileState,load,setLoad,edit }) => {
                         src="https://www.pinclipart.com/picdir/middle/559-5594866_necktie-drawing-vector-round-avatar-user-icon-png.png"
                         size={100}
                     />
-                    <Table showHeader={false} pagination={false} dataSource={data}>
+                    <Table showHeader={false} pagination={false} dataSource={data.slice(0,4)}>
                         <Column
                             dataIndex="value" 
                             render={(text, index) => {
-                                return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
+                                return (edit) ?  <Input value={load.employee[[index.key]]} placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
                             }}
                         />
                     </Table>
                 </Col>
                 <Col span={12}>
-                    <Table showHeader={false} pagination={false} dataSource={data2}>
+                    <Table showHeader={false} pagination={false} dataSource={data.slice(4)}>
                         <Column dataIndex="param" />
                         <Column
                             dataIndex="value"
                             render={(text, index) => {
-                                return (edit) ?  <Input  placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
+                                return (edit) ?  <Input value={load.employee[[index.key]]} placeholder={index.key} allowClear  onChange={(e)=>{setChange(e.target.value,index.key)}}/> : text
                             }}
                         />
                     </Table>

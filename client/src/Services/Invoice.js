@@ -64,12 +64,12 @@ export const allInvoices = async () => {
   
   
   
-  export const updateClient = async (Data,user_id) => {
+  export const updateInvoice = async (Data,user_id) => {
     var data = Data
   
     var config = {
       method: 'put',
-      url: '/api/v1/client/update/'+ parseInt(user_id),
+      url: '/api/v1/invoice/update/'+ parseInt(user_id),
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('_tkn_'),
       },

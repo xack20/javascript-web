@@ -11,36 +11,27 @@ const EmpProfilePage = ({ user_id }) => {
 
     const [load,setLoad] = useState({})
 
-    useEffect(() => {
-        const callEmployeeProfile = async () => {
-            try {
-                const response = await employeeProfile(user_id);
-                setEmployeeProfileState(response.data.additionalPayload);
-            } catch (error) {
-                console.log(error.response);
-            }
-        };
-        callEmployeeProfile();
-    }, [user_id,edit]);
+    const callEmployeeProfile = async () => {
+        try {
+            const response = await employeeProfile(user_id);
+            setEmployeeProfileState(response.data.additionalPayload);
+        } catch (error) {
+            console.log(error.response);
+        }
+    };
+
+    
 
     const onEdit = () => {
         setEdit(!edit);
     };
 
 
-    useEffect(() => {
-
-    })
-
-
-    const onSave = () => {
-
-        // const Load = {...load}
-        console.log(load);
+    const onSave = async() => {
 
         try {
             // console.log();
-            const response = updateEmployee(load, user_id);
+            await updateEmployee(load, user_id);
             notification["success"]({
                 message: "Employee Updated Successfully",
                 description:'',
@@ -56,6 +47,11 @@ const EmpProfilePage = ({ user_id }) => {
        setEdit(!edit);
     }
 
+
+    useEffect(() => {
+        callEmployeeProfile();
+    }, [user_id,edit]);
+
     return (
         <div>
             <div style={{ marginBottom: "30px" }}>
@@ -69,7 +65,7 @@ const EmpProfilePage = ({ user_id }) => {
                 </Button> : 
                 
                 <Button
-                    onClick={onSave}
+                    onClick={()=>{onSave();}}
                     primary
                     style={{ float: "right", margin: "10px" }}
                 >
@@ -85,12 +81,14 @@ const EmpProfilePage = ({ user_id }) => {
                     load={load}
                     setLoad={setLoad}
                     edit={edit}
+                    // callBack={callEmployeeProfile}
                 ></ProfileTableEmpTop>
                 <LowerPart 
                     employeeProfileState={employeeProfileState}
                     load={load}
                     setLoad={setLoad}
                     edit={edit}
+                    // callBack={callEmployeeProfile}
                 ></LowerPart>
             </div>
         </div>

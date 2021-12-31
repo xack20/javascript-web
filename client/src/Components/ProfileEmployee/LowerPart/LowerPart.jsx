@@ -211,7 +211,7 @@ const LowerPart = ({ employeeProfileState, load, setLoad, edit }) => {
 
       setLoad(Load);
     } catch (error) {}
-  }, [edit]);
+  }, [employeeProfileState,edit]);
 
   return (
     <div style={{ marginTop: "50px", marginLeft: "20px" }}>

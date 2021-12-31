@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.hrms.practice.mvn.model.Client;
+// import com.hrms.practice.mvn.model.Client;
 import com.hrms.practice.mvn.model.InvoiceItems;
 import com.hrms.practice.mvn.model.Invoices;
 import com.hrms.practice.mvn.payload.Response;
-import com.hrms.practice.mvn.repository.ClientRepository;
+// import com.hrms.practice.mvn.repository.ClientRepository;
 import com.hrms.practice.mvn.repository.InvoiceItemRepository;
 import com.hrms.practice.mvn.repository.InvoiceRepository;
 
@@ -26,8 +26,8 @@ public class InvoiceService {
     @Autowired 
     private InvoiceItemRepository invoiceItemRepository;
 
-    @Autowired
-    private ClientRepository  clientRepository;
+    // @Autowired
+    // private ClientRepository  clientRepository;
 
 
 
@@ -38,12 +38,12 @@ public class InvoiceService {
 
         List<Invoices> All_Invoices = invoiceRepository.findAllActive();
 
-        for(Invoices invoice : All_Invoices) {
+        // for(Invoices invoice : All_Invoices) {
 
-            Client client = clientRepository.findById(invoice.getClient_id()).get();
+        //     Client client = clientRepository.findById(invoice.getClient_id()).get();
             
-            invoice.setClient(client);
-        }
+        //     invoice.setClient(client);
+        // }
 
         return ResponseEntity.ok().body(new Response(true, "", All_Invoices));
     }
@@ -60,9 +60,10 @@ public class InvoiceService {
 
         if(body != null){
             try {
-
-                if(body.get("client_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
-                if(body.get("project_id")!=null) invoice.setProject_id(Long.valueOf((String) body.get("project_id")));
+                
+                invoice.setStatus("pending");
+                // if(body.get("client_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
+                // if(body.get("project_id")!=null) invoice.setProject_id(Long.valueOf((String) body.get("project_id")));
                 
                 if(body.get("amount") != null)invoice.setAmount(Double.valueOf((String) body.get("amount")));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
@@ -104,8 +105,8 @@ public class InvoiceService {
 
                 invoice.setInvoiceItems(invoiceItems);
 
-                Client client = clientRepository.findByClientId(invoice.getClient_id());
-                invoice.setClient(client);
+                // Client client = clientRepository.findByClientId(invoice.getClient_id());
+                // invoice.setClient(client);
 
                 
                 
@@ -132,8 +133,8 @@ public class InvoiceService {
             List<InvoiceItems> invoiceItems = new ArrayList<InvoiceItems>();
         
             if(invoice != null && body!= null){
-                if(body.get("cleint_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
-                if(body.get("project_id")!=null) invoice.setProject_id(Long.valueOf((String) body.get("project_id")));
+                // if(body.get("cleint_id")!=null)invoice.setClient_id(Long.valueOf((String) body.get("client_id")));
+                // if(body.get("project_id")!=null) invoice.setProject_id(Long.valueOf((String) body.get("project_id")));
                 if(body.get("amount") != null)invoice.setAmount(Double.valueOf((String) body.get("amount")));
                 if(body.get("status")!=null)invoice.setStatus((String) body.get("status"));
                 if(body.get("invoice_data")!=null)invoice.setInvoice_date((String) body.get("invoice_date"));
@@ -178,8 +179,8 @@ public class InvoiceService {
                     }
                 }
                 
-                Client client = clientRepository.findByClientId(invoice.getClient_id());
-                invoice.setClient(client);
+                // Client client = clientRepository.findByClientId(invoice.getClient_id());
+                // invoice.setClient(client);
 
                 invoice.setInvoiceItems(invoiceItems);
     
@@ -207,10 +208,10 @@ public class InvoiceService {
 
         List<InvoiceItems> items = invoiceItemRepository.findAllByInvoiceId(id);
 
-        Client client = clientRepository.findByClientId(invoice.getClient_id());
+        // Client client = clientRepository.findByClientId(invoice.getClient_id());
 
         invoice.setInvoiceItems(items);
-        invoice.setClient(client);
+        // invoice.setClient(client);
 
 
         return ResponseEntity.ok().body(new Response(true,"Invoice found!",invoice));

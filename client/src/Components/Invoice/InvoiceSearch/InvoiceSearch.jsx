@@ -6,9 +6,6 @@ import InvoiceCreate from "../InvoiceCreate/InvoiceCreate";
 import AddButton from "../../AddButton/AddButton";
 import MyModal from "../../MyModal/MyModal";
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
 
 const optionsPrio = [
   {
@@ -48,7 +45,6 @@ const InvoiceSearch = ({onCreate}) => {
           <DatePicker
             placeholder={"Select Date from"}
             style={{ width: "100%" }}
-            onChange={onChange}
           />
         </Col>
 
@@ -56,14 +52,14 @@ const InvoiceSearch = ({onCreate}) => {
           <DatePicker
             placeholder={"Select Date To"}
             style={{ width: "100%" }}
-            onChange={onChange}
+            // onChange={onChange}
           />
         </Col>
 
         <Col span={6}>
           <Cascader
             options={optionsPrio}
-            onChange={onChange}
+            // onChange={onChange}
             placeholder="Status"
             style={{ borderColor: "#135200", width: "100%" }}
           />

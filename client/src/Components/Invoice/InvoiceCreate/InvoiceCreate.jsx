@@ -8,20 +8,16 @@ import { createInvoice } from "../../../Services/Invoice";
 
 const { TextArea } = Input;
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
-
 const InvoiceCreate = ({ onCreate }) => {
-  const [newInvoiceData, setNewInvoiceData] = useState({totalAmount : 0.0});
+  const [newInvoiceData, setNewInvoiceData] = useState({});
   const [tempTotal,setTempTotal] = useState(0.0);
   const [data, setData] = useState([
     {
       hash: "",
-      Item: "",
-      Description: "",
-      "Unit Cost": 0,
-      Qty: 0,
+      name: "",
+      description: "",
+      unit_cost: 0,
+      quantity: 0,
       Amount: 0,
       "no-title": "",
     },
@@ -58,19 +54,20 @@ const InvoiceCreate = ({ onCreate }) => {
 
     Data.push({
       hash: Data.length,
-      Item: item,
-      Description: desc,
-      "Unit Cost": uc,
-      Qty: qty,
+      name: item,
+      description: desc,
+      unit_cost: uc.toString(),
+      quantity: qty.toString(),
       Amount: amount,
       "no-title": Data.length,
     });
     setData(Data);
 
-    const newLoad = {...newInvoiceData}
-    newLoad.totalAmount = ((newLoad.totalAmount + parseFloat(Data[Data.length-1].Amount))*0.15) + newLoad.totalAmount + parseFloat(Data[Data.length-1].Amount)
-    setTempTotal(newLoad.totalAmount)
-    setNewInvoiceData(newLoad);
+    // const newLoad = {...newInvoiceData}
+    var NtempTotal = parseFloat(tempTotal)
+    NtempTotal = NtempTotal + parseFloat(Data[Data.length-1].Amount)
+    setTempTotal(NtempTotal)
+    setNewInvoiceData({...newInvoiceData,amount:NtempTotal})
 
     const Load = {
       item: "",
@@ -120,7 +117,7 @@ const InvoiceCreate = ({ onCreate }) => {
       width: 80,
       align: "center",
       title: "Item",
-      dataIndex: "Item",
+      dataIndex: "name",
       key: "Item",
       render: (text) =>
         text !== "" ? (
@@ -139,7 +136,7 @@ const InvoiceCreate = ({ onCreate }) => {
       width: 500,
       align: "center",
       title: "Description",
-      dataIndex: "Description",
+      dataIndex: "description",
       key: "Description",
       render: (text) =>
         text !== "" ? (
@@ -158,10 +155,10 @@ const InvoiceCreate = ({ onCreate }) => {
       width: 15,
       align: "center",
       title: "Unit Cost",
-      dataIndex: "Unit Cost",
+      dataIndex: "unit_cost",
       key: "Unit Costs",
       render: (text) =>
-        text > 0 ? (
+      !Number.isInteger(text) > 0 ? (
           <p>{text}</p>
         ) : (
           <Input
@@ -177,10 +174,10 @@ const InvoiceCreate = ({ onCreate }) => {
       width: 15,
       align: "center",
       title: "Qty",
-      dataIndex: "Qty",
+      dataIndex: "quantity",
       key: "Qty",
       render: (text) =>
-        text > 0 ? (
+      !Number.isInteger(text) ? (
           <p>{text}</p>
         ) : (
           <Input
@@ -256,8 +253,20 @@ const InvoiceCreate = ({ onCreate }) => {
   }, []);
 
   const onSubmit = () => {
-      newInvoiceData.invoice_items = data;
-      onCreate(newInvoiceData);
+      const niData = {...newInvoiceData}
+      niData.items = data.slice(1);
+      niData.amount = (niData.amount*0.15+niData.amount).toString()
+      // console.log(niData);
+      if(niData.items.length > 0){
+        onCreate(niData);
+      }
+      else{
+        notification["error"]({
+          message: "Please add atleast one item!",
+          placement: "bottomRight",
+          style: { zIndex: 1000000000 },
+        });
+      }
   }
 
   return (
@@ -407,7 +416,7 @@ const InvoiceCreate = ({ onCreate }) => {
                   onChange={(e)=>{
                     
                       const newLoad = {...newInvoiceData}
-                      newLoad.totalAmount = tempTotal-(tempTotal*(e/100.0))
+                      newLoad.amount = tempTotal-(tempTotal*(e/100.0))
                       setNewInvoiceData(newLoad);
                     
                   }}
@@ -420,7 +429,7 @@ const InvoiceCreate = ({ onCreate }) => {
                 <Input
                   // type={"number"}
                   readOnly
-                  value={newInvoiceData.totalAmount}
+                  value={newInvoiceData.amount*0.15+newInvoiceData.amount}
                   style={{
                     marginTop: "10px",
                     width: "70%",
