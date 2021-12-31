@@ -74,7 +74,7 @@ public class ClientController {
 		// 	return ResponseEntity.badRequest().body(new Response(false, "Employee already exists!", null));
 		
 		Client client = clientService.saveClient(payload);
-		return ResponseEntity.ok().body(new Response(false, "Client Added Successfully!", client));
+		return ResponseEntity.ok().body(new Response(true, "Client Added Successfully!", client));
 
 	}
 
