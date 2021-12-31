@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import "./style.css";
 import { deleteInvoice } from "../../../Services/Invoice";
 
-const InvoiceTable = ({ data, onDelete }) => {
+const InvoiceTable = ({ data }) => {
   const [Data, setData] = React.useState([]);
   const [spinning, setSpinning] = React.useState(true);
 
@@ -21,6 +21,7 @@ const InvoiceTable = ({ data, onDelete }) => {
           description: "Invoice Deleted Successfully!",
           placement : "bottomRight",
         });
+        window.location.reload()
     } catch (error) {
         notification.error({
           message: "Error",

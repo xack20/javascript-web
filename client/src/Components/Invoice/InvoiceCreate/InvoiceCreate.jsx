@@ -5,11 +5,13 @@ import "./style.css";
 import { useEffect } from "react";
 import { DeleteTwoTone } from "@ant-design/icons";
 import { createInvoice } from "../../../Services/Invoice";
+import { useHistory } from "react-router-dom";
 
 const { TextArea } = Input;
 
-const InvoiceCreate = ({ onCreate }) => {
+const InvoiceCreate = ({ onCreate, setModalVisibility }) => {
   const [newInvoiceData, setNewInvoiceData] = useState({});
+  const history = useHistory()
   const [tempTotal,setTempTotal] = useState(0.0);
   const [data, setData] = useState([
     {
@@ -78,6 +80,7 @@ const InvoiceCreate = ({ onCreate }) => {
       action: "",
     };
     setLoad(Load);
+    
   };
   const onDelete = (index) => {
     const Data = [...data];
@@ -267,6 +270,31 @@ const InvoiceCreate = ({ onCreate }) => {
           style: { zIndex: 1000000000 },
         });
       }
+      setNewInvoiceData({})
+      setData([
+        {
+          hash: "",
+          name: "",
+          description: "",
+          unit_cost: 0,
+          quantity: 0,
+          Amount: 0,
+          "no-title": "",
+        },
+      ])
+      setTempTotal(0,0)
+      setLoad({
+        item: "",
+        desc: "",
+        uc: 0,
+        qty: 0,
+        amount: 0,
+        action: "",
+      })
+      setModalVisibility(false);
+      window.location.reload()
+      history.push('/invoices')
+      
   }
 
   return (
@@ -275,12 +303,12 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={8}>
           <h6>
             Client
-            <Input required onChange={(e)=>{ 
+            <Input onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.client_name = e.target.value;
               setNewInvoiceData(unLoad) }
             } 
-              style={{ marginTop: "10px" }} placeholder="Client Name" />
+              style={{ marginTop: "10px" }} placeholder="Client Name" defaultValue={""}/>
           </h6>
         </Col>
 
@@ -288,6 +316,7 @@ const InvoiceCreate = ({ onCreate }) => {
           <h6>
             Project Name
             <Input
+            defaultValue={""}
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.project_name = e.target.value;
@@ -301,7 +330,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={8}>
           <h6>
             Email
-            <Input required
+            <Input defaultValue={""}
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.client_email = e.target.value;
@@ -316,7 +345,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={6}>
           <h6>
             Client Address
-            <TextArea  required
+            <TextArea  defaultValue={""}
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.client_address = e.target.value;
@@ -329,7 +358,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={6}>
           <h6>
             Billing Address
-            <TextArea required
+            <TextArea  defaultValue={""}
             onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               unLoad.billing_address = e.target.value;
@@ -342,7 +371,7 @@ const InvoiceCreate = ({ onCreate }) => {
         <Col span={6}>
           <h6>
             Invoice Date
-            <DatePicker required dropdownClassName="popup" onChange={(e)=>{ 
+            <DatePicker  dropdownClassName="popup" onChange={(e)=>{ 
               const unLoad = {...newInvoiceData};
               // console.log(e.format("YYYY-MM-DD"));
               unLoad.invoice_date = e.format("YYYY-MM-DD");
