@@ -37,7 +37,7 @@ const InvoiceSearch = ({onCreate}) => {
         modalVisibility={modalVisibility}
         setModalVisibility={setModalVisibility}
       >
-        <InvoiceCreate onCreate={onCreate}></InvoiceCreate>
+        <InvoiceCreate onCreate={onCreate} setModalVisibility={setModalVisibility}></InvoiceCreate>
       </MyModal>
 
       <Row gutter={16} style={{ marginTop: "10px" }}>

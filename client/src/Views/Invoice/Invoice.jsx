@@ -26,28 +26,28 @@ const Invoice = () => {
 
 
 
-  const onDelete = async(invoice_id,index) => {
-    // console.log(invoice_id,index);
-      try {
-        const res = await deleteInvoice(invoice_id);
-        notification.success({
-          message: "Success",
-          description: "Invoice Deleted Successfully!",
-          placement : "bottomRight",
-        });
-        const Data = [...data];
-        Data.splice(index, 1);
-        setData(Data);
+  // const onDelete = async(invoice_id,index) => {
+  //   // console.log(invoice_id,index);
+  //     try {
+  //       const res = await deleteInvoice(invoice_id);
+  //       notification.success({
+  //         message: "Success",
+  //         description: "Invoice Deleted Successfully!",
+  //         placement : "bottomRight",
+  //       });
+  //       // const Data = [...data];
+  //       // Data.splice(index, 1);
+  //       // setData(Data);
 
-      } catch (error) {
-        notification.error({
-          message: "Error",
-          description:error.message || "Sorry! Something went wrong. Please try again!",
-          placement : "bottomRight",
+  //     } catch (error) {
+  //       notification.error({
+  //         message: "Error",
+  //         description:error.message || "Sorry! Something went wrong. Please try again!",
+  //         placement : "bottomRight",
             
-        });
-      }
-  };
+  //       });
+  //     }
+  // };
 
   const onCreate = async(newData) => {
     // console.log(newData);
@@ -72,6 +72,7 @@ const Invoice = () => {
           placement : "bottomRight",
       });
     }
+
     
   };
 
@@ -79,7 +80,7 @@ const Invoice = () => {
     <div>
       <InvoiceSearch onCreate={onCreate}/>
 
-      <InvoiceTable data={data} onDelete={onDelete} setData={setData}/>
+      <InvoiceTable data={data}  setData={setData}/>
     </div>
   );
 };
