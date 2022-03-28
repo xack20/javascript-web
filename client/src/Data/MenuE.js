@@ -16,11 +16,11 @@ import {
           icon: <DashboardOutlined style={{ fontSize: 20 }} />,
           child: ['Employee Dashboard'],
         },
-        {
-          title: 'Apps',
-          icon: <AppstoreOutlined style={{ fontSize: 20 }} />,
-          child: ['Chat', 'Calendar', 'Contacts', 'Email', 'File Manager'],
-        },
+        // {
+        //   title: 'Apps',
+        //   icon: <AppstoreOutlined style={{ fontSize: 20 }} />,
+        //   child: ['Chat', 'Calendar', 'Contacts', 'Email', 'File Manager'],
+        // },
       ],
     },
     {
@@ -93,71 +93,71 @@ import {
         },
       ],
     },
-    {
-      title: 'Performance',
-      child: [
-        {
-          title: 'Performance',
-          icon: <UserOutlined style={{ fontSize: 20 }} />,
-          child: ['Indicator', 'Review', 'Appraisal'],
-        },
-        {
-          title: 'Goals',
-          icon: <ProjectOutlined style={{ fontSize: 20 }} />,
-          child: ['Goal List', 'Goal Type'],
-        },
-        {
-          title: 'Training',
-          icon: <SmileOutlined style={{ fontSize: 20 }} />,
-          child: ['Training List', 'Trainers', 'Training Type'],
-        },
-        {
-          title: 'Promotions',
-          icon: <RocketOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-        {
-          title: 'Resignation',
-          icon: <SmileOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-        {
-          title: 'Termination',
-          icon: <RocketOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-      ],
-    },
-    {
-      title: 'Administration',
-      child: [
-        {
-          title: 'Assets',
-          icon: <UserOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-        {
-          title: 'Knowledgebase',
-          icon: <SmileOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-        {
-          title: 'Activities',
-          icon: <RocketOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-        {
-          title: 'Users',
-          icon: <SmileOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-        {
-          title: 'Settings',
-          icon: <RocketOutlined style={{ fontSize: 20 }} />,
-          child: [],
-        },
-      ],
-    },
+    // {
+    //   title: 'Performance',
+    //   child: [
+    //     {
+    //       title: 'Performance',
+    //       icon: <UserOutlined style={{ fontSize: 20 }} />,
+    //       child: ['Indicator', 'Review', 'Appraisal'],
+    //     },
+    //     {
+    //       title: 'Goals',
+    //       icon: <ProjectOutlined style={{ fontSize: 20 }} />,
+    //       child: ['Goal List', 'Goal Type'],
+    //     },
+    //     {
+    //       title: 'Training',
+    //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+    //       child: ['Training List', 'Trainers', 'Training Type'],
+    //     },
+    //     {
+    //       title: 'Promotions',
+    //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //     {
+    //       title: 'Resignation',
+    //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //     {
+    //       title: 'Termination',
+    //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'Administration',
+    //   child: [
+    //     {
+    //       title: 'Assets',
+    //       icon: <UserOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //     {
+    //       title: 'Knowledgebase',
+    //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //     {
+    //       title: 'Activities',
+    //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //     {
+    //       title: 'Users',
+    //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //     {
+    //       title: 'Settings',
+    //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+    //       child: [],
+    //     },
+    //   ],
+    // },
   ];
   
   export default dataE;

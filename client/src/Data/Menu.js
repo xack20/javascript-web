@@ -16,11 +16,11 @@ const dataA = [
         icon: <DashboardOutlined style={{ fontSize: 20 }} />,
         child: ['Admin Dashboard', 'Employee Dashboard'],
       },
-      {
-        title: 'Apps',
-        icon: <AppstoreOutlined style={{ fontSize: 20 }} />,
-        child: ['Chat', 'Calendar', 'Contacts', 'Email', 'File Manager'],
-      },
+      // {
+      //   title: 'Apps',
+      //   icon: <AppstoreOutlined style={{ fontSize: 20 }} />,
+      //   child: ['Chat', 'Calendar', 'Contacts', 'Email', 'File Manager'],
+      // },
     ],
   },
   {
@@ -34,13 +34,13 @@ const dataA = [
           'Holidays',
           'Leaves Admin',
           'Leaves Employee',
-          'Leave Settings',
+          // 'Leave Settings',
           'Attendance Admin',
           'Attendance Employee',
-          'Departments',
-          'Designations',
-          'Time Sheet',
-          'Overtime',
+          // 'Departments',
+          // 'Designations',
+          // 'Time Sheet',
+          // 'Overtime',
         ],
       },
       {
@@ -74,16 +74,16 @@ const dataA = [
         child: [
           'Estimates',
           'Invoices',
-          'Payments',
-          'Expenses',
+          // 'Payments',
+          // 'Expenses',
           'Provident Fund',
-          'Taxes',
+          // 'Taxes',
         ],
       },
       {
         title: 'Payroll',
         icon: <ProjectOutlined style={{ fontSize: 20 }} />,
-        child: ['Employee Salary', 'Payslip', 'Payroll Items'],
+        child: ['Employee Salary', 'Payslip', /*'Payroll Items'*/],
       },
       {
         title: 'Policies',
@@ -93,45 +93,45 @@ const dataA = [
       {
         title: 'Reports',
         icon: <RocketOutlined style={{ fontSize: 20 }} />,
-        child: ['Expense Report', 'Invoice Reports'],
+        child: ['Expense Report', 'Invoice Reports','Employee Reports', 'Task Reports'],
       },
     ],
   },
-  {
-    title: 'Performance',
-    child: [
-      {
-        title: 'Performance',
-        icon: <UserOutlined style={{ fontSize: 20 }} />,
-        child: ['Indicator', 'Review', 'Appraisal'],
-      },
-      {
-        title: 'Goals',
-        icon: <ProjectOutlined style={{ fontSize: 20 }} />,
-        child: ['Goal List', 'Goal Type'],
-      },
-      {
-        title: 'Training',
-        icon: <SmileOutlined style={{ fontSize: 20 }} />,
-        child: ['Training List', 'Trainers', 'Training Type'],
-      },
-      {
-        title: 'Promotions',
-        icon: <RocketOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-      {
-        title: 'Resignation',
-        icon: <SmileOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-      {
-        title: 'Termination',
-        icon: <RocketOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-    ],
-  },
+  // {
+  //   title: 'Performance',
+  //   child: [
+  //     {
+  //       title: 'Performance',
+  //       icon: <UserOutlined style={{ fontSize: 20 }} />,
+  //       child: ['Indicator', 'Review', 'Appraisal'],
+  //     },
+  //     {
+  //       title: 'Goals',
+  //       icon: <ProjectOutlined style={{ fontSize: 20 }} />,
+  //       child: ['Goal List', 'Goal Type'],
+  //     },
+  //     {
+  //       title: 'Training',
+  //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+  //       child: ['Training List', 'Trainers', 'Training Type'],
+  //     },
+  //     {
+  //       title: 'Promotions',
+  //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+  //       child: [],
+  //     },
+  //     {
+  //       title: 'Resignation',
+  //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+  //       child: [],
+  //     },
+  //     {
+  //       title: 'Termination',
+  //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+  //       child: [],
+  //     },
+  //   ],
+  // },
   {
     title: 'Administration',
     child: [
@@ -145,26 +145,26 @@ const dataA = [
         icon: <ProjectOutlined style={{ fontSize: 20 }} />,
         child: ['Manage Jobs', 'Applied Candidates'],
       },
-      {
-        title: 'Knowledgebase',
-        icon: <SmileOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-      {
-        title: 'Activities',
-        icon: <RocketOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-      {
-        title: 'Users',
-        icon: <SmileOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-      {
-        title: 'Settings',
-        icon: <RocketOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
+      // {
+      //   title: 'Knowledgebase',
+      //   icon: <SmileOutlined style={{ fontSize: 20 }} />,
+      //   child: [],
+      // },
+      // {
+      //   title: 'Activities',
+      //   icon: <RocketOutlined style={{ fontSize: 20 }} />,
+      //   child: [],
+      // },
+      // {
+      //   title: 'Users',
+      //   icon: <SmileOutlined style={{ fontSize: 20 }} />,
+      //   child: [],
+      // },
+      // {
+      //   title: 'Settings',
+      //   icon: <RocketOutlined style={{ fontSize: 20 }} />,
+      //   child: [],
+      // },
     ],
   },
 ];
