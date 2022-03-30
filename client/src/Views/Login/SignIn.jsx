@@ -21,6 +21,15 @@ import { login } from "../../Services/Auth";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 
+import logo from "../../Resources/Logo/favicon.png";
+
+import './SignIn.css';
+
+import green from "@material-ui/core/colors/green";
+import red from "@material-ui/core/colors/red";
+
+
+
 function Copyright(props) {
   return (
     <Typography
@@ -31,13 +40,19 @@ function Copyright(props) {
     >
       {"Copyright © "}
       {new Date().getFullYear()}
-      All Right Reserved | Designed by {"Mohammad Farhan Sadik"}
+      All Right Reserved | Designed by {"Shaery and Ayesha"}
       {"."}
     </Typography>
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: red[500],
+    }
+  },
+});
 
 export default function SignIn() {
   const histroy = useHistory();
@@ -96,7 +111,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm" >
         <CssBaseline />
         <Box
           sx={{
@@ -104,14 +119,14 @@ export default function SignIn() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "#fafafa",
+            padding: "30px",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "blue" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
+          <img src={logo} alt="Semicolon Logo" className="logoSignIn" />
+          {/* <Typography component="h1" variant="h5">
             Sign in
-          </Typography>
+          </Typography> */}
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
