@@ -2,12 +2,12 @@
   margin-top: 23px;
   margin-left: 15px;
   padding-right: 150px;
-  color: #00000080;
+  color: #dcc8c8bb;
   transition: color 0.5s;
 }
 .title:hover {
   cursor: default;
-  color: #000000f1;
+  color: #a1777792;
   text-shadow: 0 0 3px #ff00006c;
 }
 

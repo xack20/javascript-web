@@ -27,7 +27,7 @@ const HeaderMain = (props) => {
   });
 
   return (
-    <Header className="main-head fixed-top">
+    <Header className="main-head fixed-top" >
       <div className="left-logo">
         <img
           src={logo}

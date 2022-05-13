@@ -10,7 +10,7 @@ export default function SideBar() {
   const collapsed = useSelector((s) => s.common.collapsedDV);
   return (
     <Sider
-      theme="light"
+      theme="dark"
       trigger={null}
       collapsible
       collapsed={collapsed}

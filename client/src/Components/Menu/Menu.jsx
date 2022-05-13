@@ -51,6 +51,7 @@ export default function MenuList () {
   return (
     <Menu
       mode='inline'
+      theme='dark'
       onClick={clickHandle}
       defaultOpenKeys={['Dashboard']}
       defaultSelectedKeys={['Main,Dashboard,Admin Dashboard']}
