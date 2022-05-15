@@ -65,17 +65,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
 			.antMatchers("/auth/**","/job/", "/job/{id}","/candidate/new").permitAll()
-			.antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()
-			// .antMatchers("/employee/add","/employee/add-role","/employee/delete/{id}",
-			// 	"/client/add","/client/update/{id}", "/client/delete/{id}" , "/client/{id}",
-			// 	"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/",
-			// 	"/leave/all","leave/change-status/{id}",
-			// 	"/job/new", "/job/delete/{id}","/job/update/{id}",
-			// 	"/candidate/","/candidate/delete/{id}","/candidate/update/{id}"
-			// 	).hasAuthority("ADMIN")
-			.antMatchers("/employee/{id}","/employee/","employee/update/{id}",
-			"/client/",
-			"/leave/apply","/leave/","/leave/delete/{id}","/leave/update/{id}").hasAnyAuthority("ADMIN","EMPLOYEE")
+			// .antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()
+			.antMatchers("/employee/add","/employee/add-role","/employee/delete/{id}",
+				"/client/add","/client/update/{id}", "/client/delete/{id}" , "/client/{id}",
+				"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/",
+				"/leave/all","leave/change-status/{id}",
+				"/job/new", "/job/delete/{id}","/job/update/{id}",
+				"/candidate/","/candidate/delete/{id}","/candidate/update/{id}",
+				"/dashboard/admin-dashboard"
+				).hasAuthority("ADMIN")
+			.antMatchers(
+						"/employee/{id}","/employee/","employee/update/{id}",
+						"/client/",
+						"/leave/apply","/leave/","/leave/delete/{id}","/leave/update/{id}",
+						"/dashboard/employee-dashboard/{id}"
+			).hasAnyAuthority("ADMIN","EMPLOYEE")
 			.anyRequest().authenticated()
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
