@@ -8,7 +8,7 @@ const AddButton = ({setModalVisibility, buttonName}) => {
         <div>
 
             <Button onClick={() => {setModalVisibility(true)}} 
-            style={{ width: "10%", height: "60px",  borderRadius: "20px" }} ghost className='m-3' type="primary" icon={<PlusOutlined />}>
+            style={{ width: "35%", height: "60px",  borderRadius: "20px", maxWidth:"200px" }} ghost className='m-3' type="primary" icon={<PlusOutlined />}>
                 {buttonName}
             </Button>
 

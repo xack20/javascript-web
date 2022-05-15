@@ -178,7 +178,7 @@ export default function PassThrough(props) {
   return (
     <>
       {comp}
-      <FooterCustom />
+  {/*<FooterCustom />*/}
     </>
   );
 }

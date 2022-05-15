@@ -6,7 +6,7 @@ export default function FooterCustom() {
     <Footer
       style={{
         marginBottom: '25px',
-        marginTop: '125px',
+        // marginTop: '125px',
         padding: '0px',
         textAlign: 'center',
         backgroundColor: 'white',

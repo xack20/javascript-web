@@ -23,7 +23,7 @@ import { Redirect } from 'react-router-dom';
 
 function MyLayout() {
   return window.localStorage.getItem("_tkn_") ? (
-    <Layout style={{ backgroundColor: "#fafafa", height: "100%" }} width={100}>
+    <Layout style={{ backgroundColor: "#fafafa", height: "100%", minHeight:"1200px" }} width={100}>
       <HeaderMain />
       <SiderDrawer />
       <MainContent />

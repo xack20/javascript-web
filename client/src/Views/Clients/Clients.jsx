@@ -60,7 +60,7 @@ const Clients = () => {
 
   return (
     <div>
-       {
+      {
         base64.decode(window.localStorage.getItem("_usrl_")) === "ADMIN" &&
         <AddButton
         setModalVisibility={setModalVisibility}
