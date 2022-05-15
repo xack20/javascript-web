@@ -16,6 +16,7 @@ export default function SideBar() {
       collapsed={collapsed}
       className="sider"
       width="225px"
+      
     >
       <MenuList />
     </Sider>

@@ -55,6 +55,7 @@ export default function MenuList () {
       onClick={clickHandle}
       defaultOpenKeys={['Dashboard']}
       defaultSelectedKeys={['Main,Dashboard,Admin Dashboard']}
+      style={{ height: '100vh'}}
     >
       {data.map((item, idx) => {
         return (
@@ -85,7 +86,7 @@ export default function MenuList () {
           </React.Fragment>
         )
       })}
-      <div style={{ height: 70 }}></div>
+      <div style={{ height: 70 ,background: "#001529"}}></div>
     </Menu>
   )
 }

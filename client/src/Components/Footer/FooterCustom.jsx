@@ -12,13 +12,12 @@ export default function FooterCustom() {
         backgroundColor: 'white',
         height: '3px',
         borderTop: '.1px dotted grey',
-
         position: 'sticky',
         width: '100%',
         bottom: 0,
       }}
     >
-      COPYRIGHT ©2021 All Right Reserved | Designed by {'Mohammad Farhan Sadik'} 
+      COPYRIGHT ©2021 All Right Reserved | Designed by {'Shaery and Ruhin'} 
     </Footer>
   );
 }
