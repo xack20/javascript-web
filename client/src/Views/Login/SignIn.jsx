@@ -24,9 +24,7 @@ import { useEffect } from "react";
 import logo from "../../Resources/Logo/favicon.png";
 
 import './SignIn.css';
-
-import green from "@material-ui/core/colors/green";
-import red from "@material-ui/core/colors/red";
+import red from "@material-ui/core/colors/grey";
 
 
 
@@ -110,69 +108,70 @@ export default function SignIn() {
   };
 
   return (
+  
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="sm" >
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 20,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "#fafafa",
-            padding: "30px",
-          }}
-        >
-          <img src={logo} alt="Semicolon Logo" className="logoSignIn" />
-          {/* <Typography component="h1" variant="h5">
-            Sign in
-          </Typography> */}
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="username "
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+    <Container component="main" maxWidth="sm" className="trans">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 20,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: "#fafafa",
+          padding: "30px",
+        }}
+      >
+        <img src={logo} alt="Semicolon Logo" className="logoSignIn" />
+        {/* <Typography component="h1" variant="h5">
+          Sign in
+        </Typography> */}
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="username "
+            name="username"
+            autoComplete="username"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
 
-            <Button
-              type="submit"
-              fullWidth
-              sx={{ mt: 3, mb: 2 }}
-              variant="contained"
-              endIcon={<SendIcon />}
-            >
-              Sign in
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            sx={{ mt: 3, mb: 2 }}
+            variant="contained"
+            endIcon={<SendIcon />}
+          >
+            Sign in
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
             </Grid>
-          </Box>
+          </Grid>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
-    </ThemeProvider>
+      </Box>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </Container>
+  </ThemeProvider>
   );
 }

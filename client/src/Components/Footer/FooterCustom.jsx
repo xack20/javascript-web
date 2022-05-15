@@ -17,7 +17,7 @@ export default function FooterCustom() {
         bottom: 0,
       }}
     >
-      COPYRIGHT ©2021 All Right Reserved | Designed by {'Shaery and Ruhin'} 
+      COPYRIGHT ©2021 All Right Reserved | Designed by {'Shaery and Ayesha'} 
     </Footer>
   );
 }
