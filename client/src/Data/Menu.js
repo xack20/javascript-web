@@ -31,7 +31,7 @@ const dataA = [
         icon: <UserOutlined style={{ fontSize: 20 }} />,
         child: [
           'All Employees',
-          'Holidays',
+          // 'Holidays',
           'Leaves Admin',
           'Leaves Employee',
           // 'Leave Settings',
@@ -46,7 +46,7 @@ const dataA = [
       {
         title: 'Projects',
         icon: <ProjectOutlined style={{ fontSize: 20 }} />,
-        child: ['Project', 'Task', 'Taskboard'],
+        child: ['Project'/*, 'Task', 'Taskboard'*/],
       },
       {
         title: 'Clients',
@@ -72,31 +72,31 @@ const dataA = [
         title: 'Accounts',
         icon: <UserOutlined style={{ fontSize: 20 }} />,
         child: [
-          'Estimates',
+          // 'Estimates',
           'Invoices',
           // 'Payments',
           // 'Expenses',
-          'Provident Fund',
+          // 'Provident Fund',
           // 'Taxes',
         ],
       },
-      {
-        title: 'Payroll',
-        icon: <ProjectOutlined style={{ fontSize: 20 }} />,
-        child: ['Employee Salary', 'Payslip', /*'Payroll Items'*/],
-      },
-      {
-        title: 'Policies',
-        icon: <SmileOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
-      {
-        title: 'Reports',
-        icon: <RocketOutlined style={{ fontSize: 20 }} />,
-        child: ['Expense Report', 'Invoice Reports','Employee Reports', 'Task Reports'],
-      },
-    ],
-  },
+  //     {
+  //       title: 'Payroll',
+  //       icon: <ProjectOutlined style={{ fontSize: 20 }} />,
+  //       child: ['Employee Salary', 'Payslip', /*'Payroll Items'*/],
+  //     },
+  //     {
+  //       title: 'Policies',
+  //       icon: <SmileOutlined style={{ fontSize: 20 }} />,
+  //       child: [],
+  //     },
+  //     {
+  //       title: 'Reports',
+  //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
+  //       child: ['Expense Report', 'Invoice Reports','Employee Reports', 'Task Reports'],
+  //     },
+  //   ],
+  // },
   // {
   //   title: 'Performance',
   //   child: [
@@ -130,16 +130,16 @@ const dataA = [
   //       icon: <RocketOutlined style={{ fontSize: 20 }} />,
   //       child: [],
   //     },
-  //   ],
-  // },
+    ],
+  },
   {
     title: 'Administration',
     child: [
-      {
-        title: 'Assets',
-        icon: <UserOutlined style={{ fontSize: 20 }} />,
-        child: [],
-      },
+      // {
+      //   title: 'Assets',
+      //   icon: <UserOutlined style={{ fontSize: 20 }} />,
+      //   child: [],
+      // },
       {
         title: 'Jobs',
         icon: <ProjectOutlined style={{ fontSize: 20 }} />,
