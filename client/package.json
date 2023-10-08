@@ -30,7 +30,7 @@
     "bizcharts": "^4.1.15",
     "bootstrap": "^5.1.3",
     "dotenv": "^10.0.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "firebase": "^8.4.1",
     "formik": "^2.2.9",
     "moment": "^2.29.1",
