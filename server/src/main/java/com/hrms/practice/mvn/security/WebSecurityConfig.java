@@ -65,8 +65,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable() // disabling csrf here, you should enable it before using in production
 			.authorizeRequests()
 			.antMatchers("/auth/**","/job/", "/job/{id}","/candidate/new").permitAll()
-			// .antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()
-			.antMatchers("/employee/add","/employee/add-role","/employee/delete/{id}",
+//			.antMatchers("/auth/**","/employee/add","/employee/add-role").permitAll()  // uncomment this line for the first line
+			.antMatchers(
+				"/employee/add","/employee/add-role","/employee/delete/{id}", // comment this line for the first time
 				"/client/add","/client/update/{id}", "/client/delete/{id}" , "/client/{id}",
 				"/invoice/add","/invoice/update/{id}", "/invoice/delete/{id}", "/invoice/{id}", "/invoice/",
 				"/leave/all","leave/change-status/{id}",

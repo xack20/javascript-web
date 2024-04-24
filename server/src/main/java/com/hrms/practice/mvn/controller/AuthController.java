@@ -22,6 +22,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +57,7 @@ public class AuthController {
 		MyUserDetails myUserDetails = (MyUserDetails) auth.getPrincipal();
 		final String jwt = jwtUtils.generateToken(myUserDetails);
 		RefreshToken refreshToken = refreshTokenService.createRefreshToken(myUserDetails.getId());
-		List<String> roles = myUserDetails.getAuthorities().stream().map(item -> item.getAuthority()).collect(Collectors.toList());
+		List<String> roles = myUserDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
 
 		return ResponseEntity.ok(new JwtResponse("Bearer", jwt, refreshToken.getRefreshToken(), myUserDetails.getId(), myUserDetails.getFullname(), myUserDetails.getUsername() , roles));
 	}

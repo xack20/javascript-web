@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.1'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'com.hrms'
+version = '0.0.1-SNAPSHOT'
+description = 'Main Project'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'javax.xml.bind:jaxb-api'
+    implementation 'org.json:json:20231013'
+}
+
+test {
+    useJUnitPlatform()
+}
